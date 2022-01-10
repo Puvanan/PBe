@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBeBank</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body class="vh-100 bg-light">
+    <div class="container-fluid">
+        <div class="row flex-nowrap vh-100">
+
+            <div class="col-auto col-xl-2 d-lg-block d-none leftbar bg-light gx-0">
+
+                <div id="mySidebar" class="sidebar d-flex flex-column pt-4 shadow-sm">
+                    <div class="d-flex flex-column flex-grow-0 justify-content-start align-items-center">
+                        <img href="@Url.Action("index2","Home")" src="~/Images/WebsiteImages/pbe-logo.png" class="img-fluid small-img" style="padding:1rem; width:90px;" />
+                        <img hidden href="@Url.Action("Index2","Home")" src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid big-img" style="padding:1.5rem; width: 200px;" />
+                    </div>
+                    <div class="d-flex flex-column justify-content-start flex-grow-1 mt-3 pt-5">
+                        <ul class="ps-0 pt-5" style="list-style:none">
+                            <li class="mb-4 nav-link homeMenu p-0">
+                                <a href="@Url.Action("Index2","Home")">
+                                    <div class="row" style="width:200px">
+                                        <div class="col-3"><i class="fad fa-home"></i></div>
+                                        <div class="col-6"><span class="icon-text small">Home</span></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="mb-4 nav-link accountMenu p-0">
+                                <a href="@Url.Action("AccountSummary","Home")">
+                                    <div class="row" style="width:200px">
+                                        <div class="col-3">
+                                            <i class="fad fa-id-card"></i>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="icon-text small ">Accounts</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="mb-4 nav-link applyMenu p-0">
+                                <a href="#submenu" data-bs-toggle="collapse" class="border-collapse">
+                                    <div class="row" style="width:200px">
+                                        <div class="col-3">
+                                            <i class="fad fa-file-check fa-swap-opacity"></i>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <span class="icon-text small ">Apply</span>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <i class="fad fa-chevron-circle-down ms-3 small pt-2"></i>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <ul class="collapse nav flex-column" style="margin-top:0;" id="submenu" data-bs-parent="#menu">
+                                    <li class="w-100">
+                                        <a href="@Url.Action("LoanRedraw","Home")" class="nav-link px-2 align-middle">
+                                            <i class="bi bi-arrow-right" style="color:#fff;margin-right: 2.3rem;"> </i>
+                                            <span class="ms-4 d-none d-sm-inline py-0 small text-muted " style="font-size:16px;">Loan Redraw</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="mb-4 nav-link settingMenu p-0">
+                                <a href="#submenu3" data-bs-toggle="collapse" class="border-collapse">
+                                    <div class="row" style="width:200px">
+                                        <div class="col-3">
+                                            <i class="fad fa-cog fa-swap-opacity"></i>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="icon-text small ">Settings</span>
+                                        </div>
+                                        <div class="col-3">
+                                            <i class="fad fa-chevron-circle-down ms-3 small pt-2"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="collapse nav flex-column" style="margin-top:0;" id="submenu3" data-bs-parent="#menu">
+                                    <li class="w-100">
+                                        <a href="@Url.Action("ManageProfile","Home")" class="nav-link px-2 align-middle">
+                                            <i class="bi bi-arrow-right" style="color:#fff;margin-right: 2.3rem;"> </i>
+                                            <span class="ms-4 d-none d-sm-inline py-0 small text-muted " style="font-size:15px;">Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="w-100 mt-2">
+                                        <a href="@Url.Action("Cheque","Home")" class="nav-link px-2 align-middle">
+                                            <i class="bi bi-arrow-right" style="color:#fff;margin-right: 2.3rem;"> </i>
+                                            <span class="d-none ms-4 d-sm-inline small py-0 text-muted " style="font-size:15px;">Cheque Management</span>
+                                        </a>
+                                    </li>
+                                    <li class="w-100 mt-2">
+                                        <a href="@Url.Action("CardSettings","Home")" class="nav-link px-2 align-middle">
+                                            <i class="bi bi-arrow-right" style="color:#fff;margin-right: 2.3rem;"> </i>
+                                            <span class="d-none ms-4 d-sm-inline small py-0 text-muted " style="font-size:15px;">Card</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end flex-grow-1 mt-3 pt-5">
+                        <a class="mb-3" href="@Url.Action("Login2","Home")">
+                            <div class="row" style="width:200px">
+                                <div class="col-3"><i class="fad fa-power-off fa-swap-opacity"></i></div>
+                                <div class="col-6"><span class="icon-text small">Log Out</span></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div hidden class="d-flex1 flex-column align-items-center align-items-sm-start px-3 pb-4 pt-3 h-100 ">
+                    <a href="@Url.Action("index2","Home")" class="d-flex align-items-center pb-5 mb-md-0 me-md-auto text-decoration-none">
+                        <img src="~/Images/WebsiteImages/pb_logo.png" class="d-inline-block align-text-top logo">
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100 mt-lg-5" id="menu">
+                        <li class="nav-item mb-3 px-1 py-2 w-100">
+                            <a href="@Url.Action("index2","Home")" class="nav-link menu homeMenu   align-middle px-2">
+                                <i class="bi bi-house fs-5"></i><span class="ms-3 d-none d-sm-inline ">Home</span>
+                            </a>
+                        </li>
+
+                        <li class="w-100 mb-3 px-1 py-2">
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link menu accountMenu px-2 align-middle pb-2">
+                                <i class="bi bi-card-heading fs-5x"></i>
+                                <span class="ms-3 d-none d-sm-inline ">Accounts</span>
+                                <span class="float-end">
+                                    <i class="bi bi-caret-down"></i>
+                                </span>
+                            </a>
+                            <ul class="collapse nav flex-column" id="submenu2" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="@Url.Action("DepositSummary3","Home")" class="nav-link menu px-2 align-middle">
+                                        <i class="bi bi-arrow-right" style="color:#fff"> </i>
+                                        <span class="ms-3 d-none d-sm-inline ">Debit</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("CreditCardSummary3","Home")" class="nav-link menu px-2 align-middle">
+                                        <i class="bi bi-arrow-right" style="color:#fff"> </i>
+                                        <span class="d-none ms-3 d-sm-inline small text-end">Credit</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="w-100 mb-3 px-1 py-2">
+                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link menu profileMenu px-2 align-middle pb-2">
+                                <i class="bi bi-person-circle fs-5x"></i> <span class="ms-3 d-none d-sm-inline ">
+                                    Profile
+                                </span>
+                                <span class="float-end">
+                                    <i class="bi bi-caret-down"></i>
+                                </span>
+
+                            </a>
+
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="@Url.Action("ManageProfile","Home")" class="nav-link px-0 ">
+                                        <i class="bi bi-arrow-right" style="color:#fff"> </i>
+                                        <span class="d-none ms-3 d-sm-inline small">Manage Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0">
+                                        <i class="bi bi-arrow-right" style="color:#fff"> </i>
+                                        <span class="d-none ms-3 d-sm-inline small">Manage Card Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0">
+                                        <i class="bi bi-arrow-right" style="color:#fff"> </i>
+                                        <span class="d-none ms-3 d-sm-inline small">Cancel ATM Card</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0">
+                                        <i class="bi bi-arrow-right" style="color:#fff"> </i>
+                                        <span class="d-none ms-3 d-sm-inline small">Product</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="mb-3 px-1 py-2 w-100">
+                            <a href="#" class="nav-link px-2 align-middle">
+                                <i class="bi bi-question-circle fs-5x"></i> <span class="ms-3 d-none d-sm-inline">Support</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown pb-4">
+                        <a href="@Url.Action("Login", "Home")" class="d-flex align-items-center menu nav-link text-decoration-none">
+                            <i class="bi bi-power fs-5x"></i><span class="ms-3 d-none d-sm-inline">Log Out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-10 gx-0 col-auto rounded-8-lg content" id="main">
+                <div class="position-fixed w-100 top-0 d-none d-lg-none" style="height:225px; z-index:-1; background:#ffebee;">
+                    <div class="custom-shape-divider-bottom-1629106234">
+                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="row h-auto ">
+                    <!-- @*<div class="d-none" style="height:5vh;"></div>*@ -->
+                    <div class="d-none" style="height:5vh;"></div>
+
+                    <div class="col-12 ps-4 pb-2 pt-3 d-lg-none d-block">
+                        <img src="~/Images/WebsiteImages/pb_logo.png" class="d-inline-block align-text-top logo" style="padding-left:7.5px">
+                    </div>
+
+                    <div class="col-12 mx-auto ">
+                        <!-- @RenderBody() -->
+                        <!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBeBank</title>
+ 
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Style-Puvan -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- Fonts -->
+    <link href="http://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
+    <!-- MultiSelect -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+
+    <!-- FlatPickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        .search {
+            background-image: url(../../Images/WebDecoratives/magnifying-glass.svg);
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.1875rem) center;
+            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+            border: none;
+            border-bottom: 1px solid #bdbdbd;
+            border-radius: 0;
+            background-color: transparent;
+            padding-left: 0.2rem !important;
+            padding-right: 0.2rem !important;
+        }
+    
+            .search:focus {
+                box-shadow: none !important;
+                border-bottom: 1px solid #d64354 !important;
+                background-color: transparent !important;
+            }
+    
+        .searchLabel {
+            padding: 1rem 0 !important;
+        }
+
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+    </style>
+</head>
+    
+
+<div class="container-fluid gx-0 gx-lg-0 mt-0 mt-xxl-45 p-lg-3 p-4 ps-lg-5  bg-light rounded-8-lg">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-5 mt-lg-4 border-end-xl">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="title" style="font-size: 80px; font-family:Arial, Helvetica, sans-serif; ">Transfer</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="margin-top: 50px;" >
+                    <h6 style="font-size: 40px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Choose a payment method</h6>
+                    <p class="small" style="font-size: 20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">All of the transfer type are free during this emco period</p>
+                </div>
+            </div>
+            <div class="row mt-4 mt-lg-0 ">
+                <div class="col-12 col-xl-10 mt-3" style="font-size: 50px;">
+                    <div class="rounded-8 shadow-sm p-1 py-2 bg-white cardType">
+                        <a href="newTransfer.html">
+
+                            <div class="row h-100 px-3">
+                                <!-- <div class="col-3 my-auto text-center bg-light-2 rounded-8" style="max-width:50px; padding: .6rem .8rem;">
+                                    <i class="fad fa-paper-plane text-primary"></i>
+                                </div> -->
+                                <div class="col-7 my-auto ps-3">
+                                    <!-- <h6 class="mb-0 text-black pt-2">New Transfer</h6> -->
+                                    <h6 class="mb-0 text-black pt-2" style="font-size: 30px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">New Transfer</h6>
+                                    <p class="smaller fs-lg-6 text-muted mb-1">Transfer within Bank or other banks</p>
+                                </div>
+                                <div class="col-2 ms-auto my-auto text-end">
+                                    <i class="fa fa-arrow-right text-primary"></i>
+                                </div>
+                                
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-10 mt-3" style="font-size: 50px;">
+                    <div class="rounded-8 shadow-sm p-1 bg-white cardType">
+                        <a href="duitNowTransfer.html">
+                            <div class="row h-100 px-3">
+                                <!-- <div class="col-3 my-auto text-center bg-light-2 rounded-8" style="max-width:50px; padding: .6rem .8rem;">
+                                    <i class="fad fa-wallet text-primary"></i>
+                                </div> -->
+                                <div class="col-7 my-auto ps-3">
+                                    <h6 class="mb-0 text-black pt-2" style="font-size: 30px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">DuitNow</h6>
+                                    <p class="smaller fs-lg-6 text-muted mb-1">Transfer via DuitNow of a person's mobile</p>
+                                </div>
+                                <div class="col-2 ms-auto my-auto text-end">
+                                    <i class="fa fa-arrow-right text-primary"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="row mt-5">
+                <div class="col-12 col-lg-10 text-center text-lg-end">
+                    <button disabled class="btn btn-primary mb-3 mb-lg-0 mt-0 mt-lg-0 float-lg-end btnNextPaymentType">Next</button>
+                </div>
+            </div> -->
+        </div>
+        <div class="col-lg-6 mt-lg-4 d-lg-block d-none ps-5">
+            <h3 class="title" style="font-size: 80px; font-family:Arial, Helvetica, sans-serif; ">Favourites</h3>
+            <div class="row">
+                <div class="col-12" style="margin-top: 50px;">
+                    <h6 style="font-size: 40px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Your Frequent Transaction</h6>
+                    <p class="small" style="font-size: 20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">All of the transfer type are free during this emco period</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control search" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput" class="searchLabel">Search</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="font-size: 30px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <div class="col-12 px-3">
+                    <ul id="myUL" style="list-style:none" class="ps-0">
+                        <li>
+                            <a href="transferToFavAccount.html">
+                                
+                                <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                    <div class="col-7">
+                                        <h6 class="mb-2" style="font-size: 25px;">Adele</h6>
+                                        <p class="text-muted mb-0">12345678985215</p>
+                                    </div>
+                                    <div class="col-12 mt-lg-n4">
+                                        <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="transferToFavAccount.html">
+                                
+                                <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                    <div class="col-7">
+                                        <h6 class="mb-2" style="font-size: 25px;">Agnes</h6>
+                                        <p class="text-muted mb-0">12345678985215</p>
+                                    </div>
+                                    <div class="col-12 mt-lg-n4">
+                                        <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="transferToFavAccount.html">
+                                
+                                <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                    <div class="col-7">
+                                        <h6 class="mb-2" style="font-size: 25px;">Billy</h6>
+                                        <p class="text-muted mb-0">12345678985215</p>
+                                    </div>
+                                    <div class="col-12 mt-lg-n4">
+                                        <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="transferToFavAccount.html">
+                                
+                                <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                    <div class="col-7">
+                                        <h6 class="mb-2" style="font-size: 25px;">Calvin</h6>
+                                        <p class="text-muted mb-0">12345678985215</p>
+                                    </div>
+                                    <div class="col-12 mt-lg-n4">
+                                        <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="transferToFavAccount.html">
+                                
+                                <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                    <div class="col-7">
+                                        <h6 class="mb-2" style="font-size: 25px;">Bob</h6>
+                                        <p class="text-muted mb-0">12345678985215</p>
+                                    </div>
+                                    <div class="col-12 mt-lg-n4">
+                                        <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="transferToFavAccount.html">
+                                
+                                <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                    <div class="col-7">
+                                        <h6 class="mb-2" style="font-size: 25px;">Christina</h6>
+                                        <p class="text-muted mb-0">12345678985215</p>
+                                    </div>
+                                    <div class="col-12 mt-lg-n4">
+                                        <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/js") -->
+<script>
+    $('#floatingInput').on('keyup', function () {
+        myFunction();
+    })
+    function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('floatingInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("h6")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</html>
+
+
+                        
+
+                    </div>
+
+                </div>
+            </div>
+            <div class=" d-lg-block d-none footer position-fixed bottom-0 gx-0">
+                <div class="bg-white pe-3" style="padding-left: 140px;">
+                    <div class="container-fluid">
+                        <div class="row align-items-center justify-content-md-between px-2 py-1">
+                            <div class="col-md-6">
+
+                                <div class="text-center text-md-start text-primary-hover text-muted smaller">
+                                    Copyright © 2021 Public Bank Berhad 196501000672 (6463-H). ALL RIGHTS RESERVED.
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-sm-flex align-items-center justify-content-center justify-content-md-end">
+
+
+
+                                <ul class="nav text-primary-hover text-center text-sm-end justify-content-center text-black" justify-content-center mt-3 mt-md-0">
+                                    <li class="nav-item"><a class="nav-link text-black-50 hover-dark smaller" href="#">Terms</a></li>
+                                    <li class="nav-item"><a class="nav-link text-black-50 hover-dark smaller" href="#">FAQ</a></li>
+                                    <li class="nav-item"><a class="nav-link text-black-50 hover-dark smaller" href="#">Privacy</a></li>
+                                    <li class="nav-item"><a class="nav-link text-black-50 hover-dark smaller" href="#">Security</a></li>
+                                    <li class="nav-item"><a class="nav-link text-black-50 hover-dark smaller" href="#">e-Banking Charter</a></li>
+                                    <li class="nav-item"><a class="nav-link text-black-50 hover-dark smaller" href="#">Bank Negara Malaysia</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- (mobile nav) -->
+            <div class="d-block d-lg-none gx-0" id="mobile-nav"
+                 style="position: fixed;bottom:0px;width: 100%; left:12px; z-index:2000">
+                <div>
+                    <div class="bg-white text-center shadow-lg row justify-content-evenly py-3" style="width:100%;">
+                        <div class="col-2 text-center">
+                            <a id="homeLink" href="@Url.Action("Index2", "Home" )" class="mobileNav active homeMenu menu">
+                                <i class="fad fa-home fs-5 "></i>
+                                <p class="mb-0 smaller">Home</p>
+                            </a>
+                        </div>
+                        <div class="col-2 text-center">
+                            <a id="accountsLink" href="@Url.Action("AccountSummary", "Home" )"
+                               class="mobileNav menu accountMenu">
+                                <i class="fad fa-id-card fs-5 "></i>
+                                <p class="mb-0 smaller">Account</p>
+                            </a>
+                        </div>
+                        <div class="col-2 text-center">
+                            <a data-bs-toggle="modal" data-bs-target="#Apply" class="mobileNav">
+                                <i class="fad fa-file-check fa-swap-opacity fs-5 "></i>
+                                <p class="mb-0 smaller">Apply</p>
+                            </a>
+                        </div>
+                        <div class="col-2">
+                            <a data-bs-toggle="modal" data-bs-target="#settingProfile" class="mobileNav profile">
+                                <i class="fad fa-cog fa-swap-opacity fs-5 "></i>
+                                <p class="mb-0 smaller">Settings</p>
+                            </a>
+                        </div>
+                        <div class="col-2">
+                            <a href="@Url.Action("Login", "Home" )" class="mobileNav">
+                                <i class="fad fa-power-off fa-swap-opacity fs-5 "></i>
+                                <p class="mb-0 smaller">LogOut</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade p-0 nav-modal" id="Apply" tabindex="-1" aria-labelledby="applyLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-mobile mainNav">
+            <div class="modal-content glass-2 px-3 py-2">
+                <div class="modal-body">
+                    <div class="row">
+                        <a href="@Url.Action("LoanRedraw", "Home" )">
+                            <div class="col-12">
+                                <div class="row p-1 pb-4 h-100">
+                                    <div class="col-10 my-auto">
+                                        <p class="mb-0 text-black h6 small">Loan Redraw</p>
+                                    </div>
+                                    <div class="col-2 my-auto">
+                                        <span class="text-dark"><i class="ri-arrow-right-line text-muted"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade p-0 nav-modal" id="settingProfile" tabindex="-1" aria-labelledby="settingProfileLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-mobile mainNav">
+            <div class="modal-content glass-2 px-3 py-2">
+                <div class="modal-body">
+                    <div class="row">
+                        <a href="@Url.Action("ManageProfile", "Home" )">
+                            <div class="col-12">
+                                <div class="row p-1 pb-4 h-100">
+                                    <div class="col-10 my-auto">
+                                        <p class="mb-0 text-black h6 small">Profile</p>
+                                    </div>
+                                    <div class="col-2 my-auto">
+                                        <span class="text-dark">
+                                            <i class="ri-arrow-right-line text-muted"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="row mt-1">
+                        <a href="@Url.Action("Cheque", "Home" )">
+                            <div class="col-12">
+                                <div class="row p-1 pb-4 h-100">
+                                    <div class="col-10 my-auto">
+                                        <p class="mb-0 text-black h6 small">Chequebook</p>
+                                    </div>
+                                    <div class="col-2 my-auto">
+                                        <span class="text-dark">
+                                            <i class="ri-arrow-right-line text-muted"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="row mt-1">
+                        <a href="@Url.Action("CardSettings", "Home" )">
+                            <div class="col-12">
+                                <div class="row  border-bottom p-1 pb-4 h-100">
+                                    <div class="col-10 my-auto">
+                                        <p class="mb-0 text-black h6 small">Card</p>
+                                    </div>
+                                    <div class="col-2 my-auto">
+                                        <i class="ri-arrow-right-line text-muted"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-dark rounded-pill position-fixed px-3" style="bottom: 85px;right: 10px;">Return to <b>PBe</b>  <span class="px-1"><i class="fas fa-undo"></i></span></a>
+    <div class="pb-loader d-flex align-items-center justify-content-center top-0">
+        <!-- @*Loader*@ -->
+        <img src="~/Images/WebsiteImages/sm-pblogo.png" alt="loader">
+    </div>
+    <!-- @*Modal for Expired time*@ -->
+    <div class="modal fade" id="expiredModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-3 bg-white">
+
+                <div class="modal-body ">
+                    <!-- <div class="container gx-1 gx-lg-0 mt-3 mt-lg-5  my-auto"> -->
+                    <div class="text-end">
+                        <button type="button" class="btn-close text-end" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="row ">
+                                <div id="bodyModal" class="col-12 col-lg-12 mt-1 mb-0">
+                                    <div class="row justify-content-center">
+                                        <div class="imageTimeout mb-3 text-center">
+                                            <img  class="img-fluid"src="~/Images/WebDecoratives/clock.png" width="80px"/>
+                                        </div>
+                                        <div class="col-lg-12 col-8 mb-0">
+                                            <h3 class="text-danger text-center">Timeout Warning </h3>
+                                            <p class="text-muted text-center mb-0">
+                                                Your session will expire in <span id="countdowntimer" class="text-danger">60</span>
+                                                seconds.<br> Please click on Stay Logged in to continue or Cancel to
+                                                logout.
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer justify-content-center ">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Stay Logged in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/js") -->
+
+    <script>
+        $(document).ready(function () {
+            //ShowIEAlert();
+            Browser();
+        });
+        function Browser() {
+
+            if (platform.name == 'Chrome' && parseFloat(platform.version.substr(0, platform.version.indexOf('.'))) <= 60) {
+                window.location.replace("/Home/notsupportedbrowser")
+            }
+            if (platform.name == 'Firefox' && parseFloat(platform.version.substr(0, platform.version.indexOf('.'))) <= 60) {
+                window.location.replace("/Home/notsupportedbrowser")
+            }
+            if (platform.name == 'IE') {
+                alert("Unsupported Browser");
+                history.go(-1);
+            }
+        }
+        //loader
+        function showLoader() {
+            $(".pb-loader").addClass("show");
+        }
+        function hideLoader() {
+            $(".pb-loader").removeClass("show");
+        }
+
+        var mini = true;
+
+        $('.mobileNav').on('click', function () {
+            $('.modal').modal('hide');
+        });
+
+        //expired modal
+        function expiredModal() {
+            //counter
+            var timeleft = 60;
+            var downloadTimer = setInterval(function () {
+                timeleft--;
+                document.getElementById("countdowntimer").textContent = timeleft;
+                if (timeleft <= 0) {
+                    clearInterval(downloadTimer);
+                    //put location after countdown
+                    window.location.replace("/Home/notsupportedbrowser");
+                }
+
+            }, 1000);
+            $('#expiredModal').modal({backdrop: 'static', keyboard: false})  
+            $('#expiredModal').modal('show');
+        }
+
+        var lastScrollTop = 0, delta = 5;
+
+        $(window).scroll(function () {
+            var nowScrollTop = $(this).scrollTop();
+
+            if (Math.abs(lastScrollTop - nowScrollTop) >= delta) {
+                if (nowScrollTop > lastScrollTop) {
+                    // Scrolling Down
+                    $("#mobile-nav").addClass("mobileNav-slide-down");
+                } else {
+                    // Scrolling Up
+                    $("#mobile-nav").removeClass("mobileNav-slide-down");
+                }
+
+                lastScrollTop = nowScrollTop;
+            }
+        });
+
+        const swiper = new Swiper('.mobileSidebarSwiper', {
+            // Optional parameters
+            direction: 'vertical',
+            loop: false,
+            allowTouchMove: true,
+            mousewheel: true,
+            watchSlidesProgress: true,
+            watchSlidesVisibility: true,
+            slidesPerView: 1,
+            touchRatio: 0.3,
+            on: {
+                touchEnd: function () {
+                    navigate(swiper.activeIndex);
+
+                }
+            }
+        });
+
+        function navigate(currentIndex) {
+            switch (currentIndex) {
+                case 0:
+                    mobileSidebar.hide();
+                    $("#homeLink").click();
+                    break;
+                case 1:
+                    mobileSidebar.hide();
+                    $("#accountsLink").click();
+                    break;
+                case 2:
+                    $("#Apply").modal("show");
+
+                    break;
+                case 3:
+                    $("#settingProfile").modal("show");
+                    break;
+                default:
+                    break;
+            }
+        }
+        $('.mobileNav').on('click', function () {
+            $('.modal').modal('hide');
+        })
+        //function isIE() {
+        //    const ua = window.navigator.userAgent; //Check the userAgent property of the window.navigator object
+        //    const msie = ua.indexOf('MSIE '); // IE 10 or older
+        //    const trident = ua.indexOf('Trident/'); //IE 11
+
+        //    return (msie > 0 || trident > 0);
+        //}
+        //ShowIEAlert();
+
+        ////function to show alert if it's IE
+        //function ShowIEAlert() {
+        //    if (isIE()) {
+                
+        //        alert("You seem to be using unsupported browser.");
+        //    }
+        //}
+    </script>
+</body>
+</html>

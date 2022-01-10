@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBeBank</title>
+ 
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Style-Puvan -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- Fonts -->
+    <link href="http://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
+    <!-- MultiSelect -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+
+    <!-- FlatPickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .search {
+            background-image: url(../../Images/WebDecoratives/magnifying-glass.svg);
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.1875rem) center;
+            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+            border: none;
+            border-bottom: 1px solid #bdbdbd;
+            border-radius: 0;
+            background-color: transparent;
+            padding-left: 0.2rem !important;
+            padding-right: 0.2rem !important;
+        }
+    
+            .search:focus {
+                box-shadow: none !important;
+                border-bottom: 1px solid #d64354 !important;
+                background-color: transparent !important;
+            }
+    
+        .searchLabel {
+            padding: 1rem 0 !important;
+        }
+
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            
+            transition: opacity 1 .5s;
+        }
+
+    </style>
+</head>
+    
+<body>
+    
+<div class="container-fluid gx-0 gx-lg-0 mt-0 mt-xxl-45 p-lg-3 p-4 ps-lg-5  bg-light rounded-8-lg">
+    <div class="row justify-content-center">
+        <div class="text-left">
+
+            <h3 hidden id="instantTransferHeader">Instant Transfer</h3>
+            <p hidden id="instantTransferHeaderDetails">
+                Fill in the required details below to perform a transfer to other PB accounts.
+            </p>
+
+            <h3 hidden id="confirmationHeader">Confirmation</h3>
+            <p hidden id="confirmationDetails">
+                Check and ensure all the details are correct before proceeding to complete the transaction.
+            </p>
+
+            <h3 hidden id="transactionHeader">Transaction Completed</h3>
+            <p hidden id="transactionDetails">
+                The transaction has been completed successfully.
+            </p>
+
+                                        
+            <h3 hidden id="duitNowTransferHeader">DuitNow Transfer</h3>
+            <p hidden id="duitNowTransferHeaderDetails">
+                Fill in the required details below to perform a transfer to a DuitNow account.
+            </p>
+
+
+
+
+        </div>
+
+    
+        <div class="alert alert-info col-10 col-sm-11 col-xxl-18 col-lg-8 rounded-8 shadow-sm" role="alert" hidden id="safeguardNote">
+            <b>Note</b><br>
+            <ul>
+                <li>The beneficiary account number needs to adhere to the rules and regulations of Bank Negara.</li>
+                <li>
+                   The PAC number needs to be safeguarded at all times and it is your responsibility to do so.
+                </li>
+            </ul>
+        </div>
+
+        <div hidden id="firstDuitNowPage" class="col-12 col-lg-5 mt-lg-4 border-end-xl">
+
+            <div class="row mb-2">
+                <label for="tranAmount" class="col-sm-12 col-form-label">Receipient DuitNow ID Type</label>
+                <div class="col-sm-12 mb-2">
+
+                    <select class="form-select" id="duitNowTypes" aria-label="Default select example">
+                        <option selected value="defaultSel">Select DuitNow ID Type</option>
+                        <option value="mobileNum">Mobile Number</option>
+                        <option value="icNum">I/C Number</option>
+                        <option value="passport">Passport Number</option>   
+                        <option value="armyPoliceID">Army / Police ID</option>
+                        <option value="businessRegNum">Business Registration Number</option>
+                    </select>
+                    <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                        data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2" class="myDiv" id="duitNowMobile">
+                <label for="tranAmount" class="col-sm-12 col-form-label">Mobile Number</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's mobile number...">
+                    
+                </div>
+            </div>
+
+            <div class="row mb-2" id="duitNowIC">
+                <label for="tranAmount" class="col-sm-12 col-form-label">I/C Number</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's I/C number...">
+                    
+                </div>
+            </div>
+
+            <div class="row mb-2" id="duitNowPassportCountry">
+                <label for="tranAmount" class="col-sm-12 col-form-label">Passport Issuing Country</label>
+                <div class="col-sm-12 mb-2">
+                    <select id="country" name="country" class="form-select">
+                        <option selected value="Select Country" class="text-muted">Select Country</option>
+                        <option value="Afghanistan">Afghanistan</option>
+                        <option value="Åland Islands">Åland Islands</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="American Samoa">American Samoa</option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Anguilla">Anguilla</option>
+                        <option value="Antarctica">Antarctica</option>
+                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Armenia">Armenia</option>
+                        <option value="Aruba">Aruba</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Azerbaijan">Azerbaijan</option>
+                        <option value="Bahamas">Bahamas</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Barbados">Barbados</option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Belize">Belize</option>
+                        <option value="Benin">Benin</option>
+                        <option value="Bermuda">Bermuda</option>
+                        <option value="Bhutan">Bhutan</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                        <option value="Botswana">Botswana</option>
+                        <option value="Bouvet Island">Bouvet Island</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                        <option value="Brunei Darussalam">Brunei Darussalam</option>
+                        <option value="Bulgaria">Bulgaria</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Burundi">Burundi</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Cameroon">Cameroon</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Cape Verde">Cape Verde</option>
+                        <option value="Cayman Islands">Cayman Islands</option>
+                        <option value="Central African Republic">Central African Republic</option>
+                        <option value="Chad">Chad</option>
+                        <option value="Chile">Chile</option>
+                        <option value="China">China</option>
+                        <option value="Christmas Island">Christmas Island</option>
+                        <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Comoros">Comoros</option>
+                        <option value="Congo">Congo</option>
+                        <option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
+                        <option value="Cook Islands">Cook Islands</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Cote D'ivoire">Cote D'ivoire</option>
+                        <option value="Croatia">Croatia</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Cyprus">Cyprus</option>
+                        <option value="Czech Republic">Czech Republic</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Djibouti">Djibouti</option>
+                        <option value="Dominica">Dominica</option>
+                        <option value="Dominican Republic">Dominican Republic</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                        <option value="Eritrea">Eritrea</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Ethiopia">Ethiopia</option>
+                        <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                        <option value="Faroe Islands">Faroe Islands</option>
+                        <option value="Fiji">Fiji</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="French Guiana">French Guiana</option>
+                        <option value="French Polynesia">French Polynesia</option>
+                        <option value="French Southern Territories">French Southern Territories</option>
+                        <option value="Gabon">Gabon</option>
+                        <option value="Gambia">Gambia</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Gibraltar">Gibraltar</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Greenland">Greenland</option>
+                        <option value="Grenada">Grenada</option>
+                        <option value="Guadeloupe">Guadeloupe</option>
+                        <option value="Guam">Guam</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Guernsey">Guernsey</option>
+                        <option value="Guinea">Guinea</option>
+                        <option value="Guinea-bissau">Guinea-bissau</option>
+                        <option value="Guyana">Guyana</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
+                        <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Hong Kong">Hong Kong</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="India">India</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+                        <option value="Iraq">Iraq</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Isle of Man">Isle of Man</option>
+                        <option value="Israel">Israel</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Jersey">Jersey</option>
+                        <option value="Jordan">Jordan</option>
+                        <option value="Kazakhstan">Kazakhstan</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Kiribati">Kiribati</option>
+                        <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+                        <option value="Korea, Republic of">Korea, Republic of</option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+                        <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+                        <option value="Latvia">Latvia</option>
+                        <option value="Lebanon">Lebanon</option>
+                        <option value="Lesotho">Lesotho</option>
+                        <option value="Liberia">Liberia</option>
+                        <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+                        <option value="Liechtenstein">Liechtenstein</option>
+                        <option value="Lithuania">Lithuania</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="Macao">Macao</option>
+                        <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                        <option value="Madagascar">Madagascar</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Maldives">Maldives</option>
+                        <option value="Mali">Mali</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Marshall Islands">Marshall Islands</option>
+                        <option value="Martinique">Martinique</option>
+                        <option value="Mauritania">Mauritania</option>
+                        <option value="Mauritius">Mauritius</option>
+                        <option value="Mayotte">Mayotte</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+                        <option value="Moldova, Republic of">Moldova, Republic of</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Mongolia">Mongolia</option>
+                        <option value="Montenegro">Montenegro</option>
+                        <option value="Montserrat">Montserrat</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Mozambique">Mozambique</option>
+                        <option value="Myanmar">Myanmar</option>
+                        <option value="Namibia">Namibia</option>
+                        <option value="Nauru">Nauru</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="Netherlands Antilles">Netherlands Antilles</option>
+                        <option value="New Caledonia">New Caledonia</option>
+                        <option value="New Zealand">New Zealand</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Niue">Niue</option>
+                        <option value="Norfolk Island">Norfolk Island</option>
+                        <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Palau">Palau</option>
+                        <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+                        <option value="Panama">Panama</option>
+                        <option value="Papua New Guinea">Papua New Guinea</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Pitcairn">Pitcairn</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Puerto Rico">Puerto Rico</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Reunion">Reunion</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Russian Federation">Russian Federation</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="Saint Helena">Saint Helena</option>
+                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                        <option value="Saint Lucia">Saint Lucia</option>
+                        <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                        <option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
+                        <option value="Samoa">Samoa</option>
+                        <option value="San Marino">San Marino</option>
+                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="Senegal">Senegal</option>
+                        <option value="Serbia">Serbia</option>
+                        <option value="Seychelles">Seychelles</option>
+                        <option value="Sierra Leone">Sierra Leone</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Slovakia">Slovakia</option>
+                        <option value="Slovenia">Slovenia</option>
+                        <option value="Solomon Islands">Solomon Islands</option>
+                        <option value="Somalia">Somalia</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Sudan">Sudan</option>
+                        <option value="Suriname">Suriname</option>
+                        <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                        <option value="Swaziland">Swaziland</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                        <option value="Taiwan">Taiwan</option>
+                        <option value="Tajikistan">Tajikistan</option>
+                        <option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Timor-leste">Timor-leste</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Tokelau">Tokelau</option>
+                        <option value="Tonga">Tonga</option>
+                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                        <option value="Tunisia">Tunisia</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Turkmenistan">Turkmenistan</option>
+                        <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                        <option value="Tuvalu">Tuvalu</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="Ukraine">Ukraine</option>
+                        <option value="United Arab Emirates">United Arab Emirates</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="United States">United States</option>
+                        <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Uzbekistan">Uzbekistan</option>
+                        <option value="Vanuatu">Vanuatu</option>
+                        <option value="Venezuela">Venezuela</option>
+                        <option value="Viet Nam">Viet Nam</option>
+                        <option value="Virgin Islands, British">Virgin Islands, British</option>
+                        <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+                        <option value="Wallis and Futuna">Wallis and Futuna</option>
+                        <option value="Western Sahara">Western Sahara</option>
+                        <option value="Yemen">Yemen</option>
+                        <option value="Zambia">Zambia</option>
+                        <option value="Zimbabwe">Zimbabwe</option>
+                    </select>
+                    <span class="field-validation-valid text-danger ps-1" style="font-size:14px" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2" id="duitNowPassportNumber">
+                <label for="tranAmount" class="col-sm-12 col-form-label">Passport Number</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's passport number...">
+                    
+                </div>
+            </div>
+
+            <div class="row mb-2" id="duitNowArmyPoliceID">
+                <label for="tranAmount" class="col-sm-12 col-form-label">Army / Police ID</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's army / police ID...">
+                    
+                </div>
+            </div>
+
+            <div class="row mb-2" id="duitNowBusinessRegNum">
+                <label for="tranAmount" class="col-sm-12 col-form-label">Business Registration Number</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's business registration number...">
+                    
+                </div>
+            </div>
+
+                                    
+            <div class="row mb-2">
+                <label for="tranAmount" class="col-sm-12 col-form-label">Receipient Reference</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient reference...">
+                    
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <label for="tranAmount" class="col-sm-12 col-form-label">Transfer Date</label>
+                <div class="col-sm-12">
+                    <input type="datetime-local" class="form-control mb-2" placeholder="Select transfer date">
+                    
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="row mb-2">
+                    <label for="tranAmount" class="col-sm-12 col-form-label">Recurring Transaction<span class="text-muted ms-2">(Optional)</span></label>
+                    <div class="col-sm-12 mb-2">
+                        
+
+                        <select class="form-select" id="accNum" aria-label="Default select example">
+                            <option selected class="text-muted ms-2">None</option>
+                            <option value="1">Daily</option>
+                            <option value="2">Weekly</option>
+                            <option value="3">Monthly</option>
+                            <option value="4">Quarterly</option>
+                            <option value="5">Half-Yearly</option>
+                            <option value="6">Yearly</option>
+                        </select>
+                        <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                            data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <label for="tranAmount" class="col-sm-12 col-form-label">Amount</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control mb-2" placeholder="Enter Amount...">
+                    
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <label for="tranAmount" class="col-lg-8 col-form-label">PAC</label>
+                <div class="col-12 col-lg-9">
+                    <input type="text" class="form-control" id="PAC">
+                    <div class="d-lg-none my-2">
+                        <a class="btn btn-info pac text-white float-lg-end">Request PAC</a>
+                    </div>
+                    <span>Didn't get the code</span>
+                    <a hidden href="#" id="ResendPAC" class="text-decoration-none ms-3 mb-2">Resend(1/3)</a>
+                    <p class="text-muted">A 6 digit PAC will be sent to your registered mobile phone number
+                        *****6888. Please click "Request PAC" if you wish to proceed</p>
+                </div>
+                <div
+                    class="d-none d-lg-block col-12 col-lg-3 text-start text-lg-end text-lg-center mt-0 mt-lg-0">
+                    <a class="btn btn-info pac text-white float-lg-end">Request PAC</a>
+                </div>
+                <div class="mt-0">
+
+
+                </div>
+            </div>
+
+            <div class="row my-5 last-row">
+                <div class="col-12">
+                    <a class="btn btn-dark float-start" href="@Url.Action(" CardSettings", "Home" )"> Back
+                    </a>
+                    <a id="firstDuitNowNext" class="btn btn-primary float-end disabled"> Next </a>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div hidden id="secondDuitNowPage" class="col-12 col-lg-5 mt-lg-4 border-end-xl">
+
+            
+            <div class="p-4 shadow bg-white rounded-8">
+
+                <div class="row detailsRow">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                        <label>DuitNow ID Type</label>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                        <label>Mobile Number</label>
+                    </div>
+
+                </div>
+
+                <div class="row detailsRow">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                        <label>Mobile Number</label>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                        <label>xxx-xxx6788</label>
+                    </div>
+
+                </div>
+
+                <div class="row detailsRow">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                        <label>Transfer Date</label>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                        <label>dd-mm-yyyy</label>
+                    </div>
+
+                </div>
+
+                <div class="row detailsRow">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                        <label>Amount (RM)</label>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                        <label>RM xx</label>
+                    </div>
+
+                </div>
+
+                
+                <div class="row detailsRow">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                        <label>Receipient Reference</label>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                        <label>--------------</label>
+                    </div>
+
+                </div>
+
+                <p class="text-muted" >Transaction will be recurring every week starting from today unitl dd-mm-yyyy</p>
+
+                <div class="row my-5 last-row">
+                    <div class="col-12">
+                        <a id="secondDuitNowBack" class="btn btn-dark float-start">Back</a>
+                        <!-- <a id="firstDuitNowNext" class="btn btn-primary  float-end" href="@Url.Action("
+                            CardSettings", "Home" )"> Done </a> -->
+                        <a id="secondDuitNowNext" class="btn btn-primary float-end">Accept</a>
+                    </div>
+                </div>
+
+                
+            </div>
+
+        </div>
+
+        <div hidden id="thirdDuitNowPage" class="col-12 col-lg-5 mt-lg-4 border-end-xl">
+
+            <div class="p-4 shadow bg-white rounded-8">
+                <div class="row logoRow mb-4">
+
+                    <div class="col-2 checkIconDIV">
+
+                        <div class="successIcon text-start">
+                            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                <path class="checkmark__check" fill="none"
+                                    d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                            </svg>
+                        </div>
+
+                    </div>
+
+                    <div class="col-10 checkTextDIV">
+                        <h5>DuitNow Transfer</h5>
+                        <p class="text-muted">30 December 2021, 3:00:42pm</p>
+                    </div>
+
+                </div>
+
+                <div class="row detailsRow">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                        <label>Reference Number</label>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                        <label>FG256813498FH</label>
+                    </div>
+
+                </div>
+
+                <div class="row detailsRow">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                        <label>Account</label>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                        <label>xxxx xxxx xxxx 8236</label>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="row my-5 last-row">
+                <div class="col-12">
+                    <a class="btn btn-dark float-start"> Print </a>
+                     <!-- How to make it align in the -->
+                     <a id="addToFav" class="btn btn-primary float">Add to Favourites</a>
+                    
+                    <a id="firstDuitNowNext" class="btn btn-primary  float-end" href="@Url.Action("
+                        CardSettings", "Home" )"> Done </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-6 mt-lg-4 d-lg-block d-none ps-5">
+
+            <div id="fifthPage" class="col-12 col-lg-8 mt-3 px-5">
+           
+                <!-- class="col-lg-6 mt-lg-4 d-lg-block d-none ps-5" -->
+                <h3 class="title" style="font-size: 80px; font-family:Arial, Helvetica, sans-serif; ">Favourites</h3>
+                <div class="row">
+                    <div class="col-12" style="margin-top: 50px;">
+                        <h6 style="font-size: 40px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Your Frequent Transaction</h6>
+                        <p class="small" style="font-size: 20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">All of the transfer type are free during this emco period</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control search" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" class="searchLabel">Search</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="font-size: 20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                    <div class="col-12 px-3">
+                        <ul id="myUL" style="list-style:none" class="ps-0">
+                            <li>
+                                <a href="transferToFavAccount.html">
+                                    
+                                    <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                        <div class="col-7">
+                                            <h6 class="mb-2" style="font-size: 25px;">Adele</h6>
+                                            <p class="text-muted mb-0">12345678985215</p>
+                                        </div>
+                                        <!-- <div class="col-12 mt-lg-n4">
+                                            <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                        </div> -->
+                                    </div>
+                                </a>
+                            </li>
+    
+                            <li>
+                                <a href="duitNowFavTransferDetails.html">
+                                    
+                                    <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                        <div class="col-7">
+                                            <h6 class="mb-2" style="font-size: 25px;">Agnes</h6>
+                                            <p class="text-muted mb-0">012-3456789</p>
+                                        </div>
+                                        <!-- <div class="col-12 mt-lg-n4">
+                                            <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                        </div> -->
+                                    </div>
+                                </a>
+                            </li>
+    
+                            <li>
+                                <a href="transferToFavAccount.html">
+                                    
+                                    <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                        <div class="col-7">
+                                            <h6 class="mb-2" style="font-size: 25px;">Billy</h6>
+                                            <p class="text-muted mb-0">12345678985215</p>
+                                        </div>
+                                        <!-- <div class="col-12 mt-lg-n4">
+                                            <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                        </div> -->
+                                    </div>
+                                </a>
+                            </li>
+    
+                            <li>
+                                <a href="transferToFavAccount.html">
+                                    
+                                    <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                        <div class="col-7">
+                                            <h6 class="mb-2" style="font-size: 25px;">Calvin</h6>
+                                            <p class="text-muted mb-0">12345678985215</p>
+                                        </div>
+                                        <!-- <div class="col-12 mt-lg-n4">
+                                            <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                        </div> -->
+                                    </div>
+                                </a>
+                            </li>
+    
+                            <li>
+                                <a href="transferToFavAccount.html">
+                                    
+                                    <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                        <div class="col-7">
+                                            <h6 class="mb-2" style="font-size: 25px;">Bob</h6>
+                                            <p class="text-muted mb-0">12345678985215</p>
+                                        </div>
+                                        <!-- <div class="col-12 mt-lg-n4">
+                                            <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                        </div> -->
+                                    </div>
+                                </a>
+                            </li>
+    
+                            <li>
+                                <a href="transferToFavAccount.html">
+                                    
+                                    <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+                                        <div class="col-7">
+                                            <h6 class="mb-2" style="font-size: 25px;">Christina</h6>
+                                            <p class="text-muted mb-0">12345678985215</p>
+                                        </div>
+                                        <!-- <div class="col-12 mt-lg-n4">
+                                            <img src="~/Images/WebsiteImages/pb_logo.png" class="img-fluid float-end" style="max-width:100px;" />
+                                        </div> -->
+                                    </div>
+                                </a>
+                            </li>
+    
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+</body>
+<!-- @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/js") -->
+<script>
+
+    $(document).ready(function() {
+
+        $('.mobileNav').each(function () {
+            $(this).removeClass('active');
+        })
+        $('.nav-link').each(function () {
+            $(this).removeClass('active');
+        })
+        $('.profile').each(function () {
+            $(this).addClass('active');
+        });
+        $('.profileMenu').addClass('active');
+
+        // $('#firstNext').on('click', function () {
+
+        //     if (validate() == true) {
+        //         $('#firstDuitNowPage').attr('hidden', true);
+        //         $('#firstPage').attr('hidden', true);
+        //         $('#secondDuitNowPage').attr('hidden', false);
+        //         $("#thirdDuitNowPage").attr('hidden', true); //!!
+        //         $('#fifthPage').attr('hidden', false);
+        //         $('#safeguardNote').attr('hidden', false);
+        //         $('#confirmationHeader').attr('hidden', false);
+        //         $('#confirmationDetails').attr('hidden', false);
+        //         $('#instantTransferHeader').attr('hidden', true);
+        //         $('#instantTransferHeaderDetails').attr('hidden', true);
+                
+                
+        //     }
+
+        // });
+
+
+        $('#firstDuitNowNext').on('click', function () {
+
+            if (validate() == true) {
+                $('#secondDuitNowPage').attr('hidden', false); //secondDuitNowPage
+                $('#firstPage').attr('hidden', true);
+                $('#firstDuitNowPage').attr('hidden', true); //firstDuitNowPage
+                $("#thirdDuitNowPage").attr('hidden', true); //thirdDuitNowPage
+                $('#fifthPage').attr('hidden', false);
+                $('#instantTransferHeader').attr('hidden', true);
+                $('#instantTransferHeaderDetails').attr('hidden', true);
+                $('#duitNowTransferHeader').attr('hidden', true);
+                $('#duitNowTransferHeaderDetails').attr('hidden', true);
+                $('#confirmationHeader').attr('hidden', false);
+                $('#confirmationDetails').attr('hidden', false);
+                $('#safeguardNote').attr('hidden', false);
+            }
+
+        });
+
+            
+        $('.pac').on('click', function () {
+            Swal.fire(
+                'PAC is Sent!',
+                'PAC sent to your phone number 012 - * * * 6888',
+                'success'
+            )
+            $('#firstDuitNowNext').removeClass('disabled');
+            // $('#firstDuitNowNext').removeClass('disabled');
+        })
+
+        
+
+        $('#secondDuitNowBack').on('click', function () {
+
+            if (validate() == true) {
+                $('#secondDuitNowPage').attr('hidden', true); //secondDuitNowPage
+                $('#firstPage').attr('hidden', true);
+                $('#firstDuitNowPage').attr('hidden', false); //firstDuitNowPage
+                $("#thirdDuitNowPage").attr('hidden', true); //thirdDuitNowPage
+                $('#fifthPage').attr('hidden', false);
+                $('#instantTransferHeader').attr('hidden', true);
+                $('#instantTransferHeaderDetails').attr('hidden', true);
+                $('#duitNowTransferHeader').attr('hidden', true);
+                $('#duitNowTransferHeaderDetails').attr('hidden', true);
+                $('#confirmationHeader').attr('hidden', false);
+                $('#confirmationDetails').attr('hidden', false);
+                $('#safeguardNote').attr('hidden', false);
+                $('#firstDuitNowNext').addClass('disabled');
+            }
+
+        });
+
+        $('#secondDuitNowNext').on('click', function () {
+            Swal.fire({
+                title: 'The transfer has successfully completed!',
+                icon: 'success',
+                customClass: {
+                    title: 'alertFontStyle'
+                    }
+            }).then(function () {
+                $('#thirdDuitNowPage').attr('hidden', false);
+                $('#firstDuitNowPage').attr('hidden', true);
+                $('#firstPage').attr('hidden', true);
+                $('#secondDuitNowPage').attr('hidden', true); //!!
+                $('#fifthPage').attr('hidden', false);
+                $('#instantTransferHeader').attr('hidden', true);
+                $('#instantTransferHeaderDetails').attr('hidden', true);
+                $('#duitNowTransferHeader').attr('hidden', true);
+                $('#duitNowTransferHeaderDetails').attr('hidden', true);
+                $('#confirmationHeader').attr('hidden', true);
+                $('#confirmationDetails').attr('hidden', true);
+                $('#transactionHeader').attr('hidden', false);
+                $('#transactionDetails').attr('hidden', false);
+                $('#safeguardNote').attr('hidden', true);
+            });
+
+        })
+
+        $('#addToFav').on('click', function () {
+
+            Swal.fire({
+                title: 'The receipient has been succesfully added to Favourites!',
+                icon: 'success',
+                customClass : {
+                    title: 'alertFontStyle'
+                }
+            })
+        })
+
+        $('#floatingInput').on('keyup', function () {
+            myFunction();
+        })
+
+        
+        
+        // $('#newAccountNo').show();    
+        $('#doDuitNowTransfer').on('click', function () {
+
+
+            
+            $('#newDuitNow').hide();
+            $('#firstPage').attr('hidden', true);
+            $('#firstDuitNowPage').attr('hidden', false);
+            $('#fifthPage').attr('hidden', false);
+            $('#duitNowTransferHeader').attr('hidden', false);
+            $('#duitNowTransferHeaderDetails').attr('hidden', false);
+
+                    
+
+        });
+
+                    
+        $('#duitNowMobile').hide();
+        $('#duitNowIC').hide();
+        $('#duitNowPassportCountry').hide();
+        $('#duitNowPassportNumber').hide();
+        $('#duitNowArmyPoliceID').hide();
+        $('#duitNowBusinessRegNum').hide();
+
+
+        $('#duitNowTypes').on('change',function() {
+
+                // if(this.value == 'mobileNum') {
+
+                //     $('#duitNowMobile').show();
+                // }
+                // else {
+                //     $('#duitNowMobile').hide();
+                // }
+
+            switch(this.value) {
+
+                case 'defaultSel' :
+                    $('#duitNowMobile').hide();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                case 'mobileNum' :
+                    $('#duitNowMobile').show();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                case 'icNum':
+                    $('#duitNowIC').show();
+                    $('#duitNowMobile').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                    
+                case 'passport' :
+                    $('#duitNowMobile').hide();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').show();
+                    $('#duitNowPassportNumber').show();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                case 'armyPoliceID' :
+                    $('#duitNowMobile').hide();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').show();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                    
+                case 'businessRegNum' :
+                    $('#duitNowMobile').hide();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').show();
+                    break;
+                    
+            }
+        });
+
+        
+
+        window.transitionToPage = function(href) {
+                document.querySelector('body').style.opacity = 0
+                setTimeout(function() { 
+                    window.location.href = href
+                }, 500)
+            }
+
+            document.addEventListener('DOMContentLoaded', function(event) {
+                document.querySelector('body').style.opacity = 1
+            })
+
+        
+        
+        function myFunction() {
+            // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('floatingInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("h6")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        function validate() {
+            var thisValue = "";
+            var strResult = "";
+
+            // Start Date
+
+            thisValue = $("#accNum").val();
+            strResult = onInputValidate(thisValue);
+            $("#accNum").next(".text-danger").html(strResult);
+            if (strResult == "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function onInputValidate(thisValue) {
+
+            if (thisValue == null || thisValue == "" || thisValue == "Please select") {
+                return "<span>This field is required.</span>";
+            }
+            return "";
+        }
+
+ 
+
+        
+
+    });
+
+    
+    
+</script>
+
+</html>
+

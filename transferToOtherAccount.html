@@ -1,0 +1,742 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap 5.0 -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+
+    <!-- Style-Puvan -->
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- Fonts -->
+    <link href="http://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+    <title>PBeBank</title>
+
+    <style>
+        /* success */
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #7ac142;
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+        }
+
+        .checkmark {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            margin: 10% auto;
+            box-shadow: inset 0px 0px 0px #7ac142;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+        }
+
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0
+            }
+        }
+
+        @keyframes scale {
+
+            0%,
+            100% {
+                transform: none
+            }
+
+            50% {
+                transform: scale3d(1.1, 1.1, 1)
+            }
+        }
+
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0px 0px 0px 30px #7ac142
+            }
+        }
+
+        /* failed */
+        .failedmark {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            box-shadow: inset 0px 0px 0px #ff0000;
+            animation: fill2 .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+        }
+
+        .failedmark_circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #ff0000;
+            fill: none;
+            animation: stroke2 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+        }
+
+        .failedmark_check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke2 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+        }
+
+        @keyframes stroke2 {
+            100% {
+                stroke-dashoffset: 0
+            }
+        }
+
+        @keyframes scale {
+
+            0%,
+            100% {
+                transform: none
+            }
+
+            50% {
+                transform: scale3d(1.1, 1.1, 1)
+            }
+        }
+
+        @keyframes fill2 {
+            100% {
+                box-shadow: inset 0px 0px 0px 30px #ff0000
+            }
+        }
+
+        /* 11-11-2021 */
+
+        @media (max-width: 576px) {
+
+            #tokenText,
+            #notiText {
+                font-size: 14px;
+            }
+
+            #reqPacBtn {
+                width: 100%;
+            }
+
+            #pacTextandBtn {
+                justify-content: space-between;
+            }
+
+            .checkTextDIV h5 {
+                font-size: 16px;
+                margin-left: 20px;
+            }
+
+            .checkTextDIV p {
+                font-size: 13px;
+                margin-left: 20px;
+            }
+        }
+
+        @media (min-width: 576px) {
+
+            #tokenText,
+            #notiText,
+            #secureText,
+            #pacText {
+                font-size: 16px;
+            }
+
+            .checkTextDIV {
+                margin-top: 10px;
+            }
+
+            .checkTextDIV h5 {
+                font-size: 18px;
+            }
+
+            .checkTextDIV p {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 768px) {
+
+            #tokenText,
+            #notiText,
+            #secureText,
+            #pacText {
+                font-size: 16px;
+            }
+
+            .checkTextDIV h5 {
+                font-size: 20px;
+            }
+
+            .checkTextDIV p {
+                font-size: 15px;
+            }
+
+
+        }
+
+        @media (min-width: 992px) {
+
+            #notiText {
+                margin-top: 6px;
+            }
+
+            .checkTextDIV h5 {
+                font-size: 20px;
+            }
+
+            .checkTextDIV p {
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+
+            .checkTextDIV h5 {
+                font-size: 22px;
+            }
+
+            .checkTextDIV p {
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+
+            #tokenText,
+            #notiText,
+            #secureText,
+            #pacText {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- @{
+    ViewBag.Title = "MailingAddress";
+    } -->
+    <div class="d-none d-lg-block" style="height:5vh;"></div>
+
+
+    <div class="container gx-1 gx-lg-0 mt-3 mt-lg-5 my-auto">
+        <div class="row mt-2 justify-content-center">
+            <div class="col-lg-10">
+                <div class="row justify-content-center ">
+                    <div class="col-12 col-lg-5 text-center position-relative">
+                        <img src="~/Images/WebDecoratives/pin-number.png" class="img-fluid position-absolute"
+                            style="width: 150px;left: 35%;top: 45px;" />
+                        <img src="~/Images/WebDecoratives/Work risk-free.svg" class="mb-4 img-fluid "
+                            style="width:300px" />
+                        <h3 id="instantTransferHeader">Instant Transfer</h3>
+                        <p id="instantTransferHeaderDetails">
+                            Fill in the required details below to perform a transfer to other PB accounts.
+                        </p>
+       
+                        <h3 hidden id="confirmationHeader">Confirmation</h3>
+                        <p hidden id="confirmationDetails">
+                            Check and ensure all the details are correct before proceeding to complete the transaction.
+                        </p>
+
+                        <h3 hidden id="transactionHeader">Transaction Completed</h3>
+                        <p hidden id="transactionDetails">
+                            The transaction has been completed successfully.
+                        </p>
+                    </div>
+                    <div id="firstPage" class="col-12 col-lg-8 px-4">
+                        <div class="row mb-2">
+                            <label for="tranAmount" class="col-sm-12 col-form-label">Select PB account</label>
+                            <div class="col-sm-12 mb-2">
+
+                                <select class="form-select" id="accNum" aria-label="Default select example">
+                                    <option selected>Please select</option>
+                                    <!-- <option value="1">4000151818158236 (Available Balance: RM100,569,321)</option> -->
+                                    <option value="1">9577445338254589 (Available Balance: RM50,904,589)</option>
+                                    <!-- <option value="3">1235489818021458</option>
+                                    <option value="4">1235489158236111</option>
+                                    <option value="5">4533825382544453</option>
+                                    <option value="6">7445338254553684</option>
+                                    <option value="7">0248891234486685</option> -->
+
+                                </select>
+                                <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                                    data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="row my-5 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-dark float-start" href="@Url.Action(" CardSettings", "Home" )"> Back
+                                </a>
+                                <a id="firstNext" class="btn btn-primary  float-end"> Next </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div hidden id="secondPage" class="col-12 col-lg-8 px-4">
+
+                        
+                        <div class="row mb-2">
+                            <label for="tranAmount" class="col-sm-12 col-form-label">Account No</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control mb-2" placeholder="Enter Account Number...">
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <label for="tranAmount" class="col-sm-12 col-form-label">Receipient Name</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control mb-2" placeholder=" Enter Receipient Name...">
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="row mb-2">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Account Type</label>
+                                <div class="col-sm-12 mb-2">
+    
+                                    <select class="form-select" id="accNum" aria-label="Default select example">
+                                        <option selected>Please select</option>
+                                        <option value="1">Savings/Current</option>
+                                        <option value="2">Credit Card</option>
+                                        <option value="3">Loan</option>
+                                        <option value="4">Hire Purchase</option>
+                                    </select>
+                                    <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                                        data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-2">
+                            <label for="tranAmount" class="col-sm-12 col-form-label">Amount (RM)</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control mb-2" placeholder="Enter Amount...">
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <label for="tranAmount" class="col-sm-12 col-form-label">Receipient Reference</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control mb-2" placeholder=" Enter Receipient Reference...">
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <label for="tranAmount" class="col-sm-12 col-form-label">Transfer Date</label>
+                            <div class="col-sm-12">
+                                <input type="datetime-local" class="form-control mb-2" placeholder="Select transfer date">
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="row mb-2">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Recurring Transaction<span class="text-muted ms-2">(Optional)</span></label>
+                                <div class="col-sm-12 mb-2">
+                                    
+    
+                                    <select class="form-select" id="accNum" aria-label="Default select example">
+                                        <option selected class="text-muted ms-2">None</option>
+                                        <option value="1">Daily</option>
+                                        <option value="2">Weekly</option>
+                                        <option value="3">Monthly</option>
+                                        <option value="4">Quarterly</option>
+                                        <option value="5">Half-Yearly</option>
+                                        <option value="6">Yearly</option>
+                                    </select>
+                                    <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                                        data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <label for="tranAmount" class="col-lg-8 col-form-label">PAC</label>
+                            <div class="col-12 col-lg-9">
+                                <input type="text" class="form-control" id="PAC">
+                                <div class="d-lg-none my-2">
+                                    <a class="btn btn-info pac text-white float-lg-end">Request PAC</a>
+                                </div>
+                                <span>Didn't get the code</span>
+                                <a hidden href="#" id="ResendPAC" class="text-decoration-none ms-3 mb-2">Resend(1/3)</a>
+                                <p class="text-muted">A 6 digit PAC will be sent to your registered mobile phone number
+                                    *****6888. Please click "Request PAC" if you wish to proceed</p>
+                            </div>
+                            <div
+                                class="d-none d-lg-block col-12 col-lg-3 text-start text-lg-end text-lg-center mt-0 mt-lg-0">
+                                <a class="btn btn-info pac text-white float-lg-end">Request PAC</a>
+                            </div>
+                            <div class="mt-0">
+
+
+                            </div>
+                        </div>
+
+                        <div class="row my-5 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-dark float-start" href="@Url.Action(" CardSettings", "Home" )"> Back
+                                </a>
+                                
+                                <a id="secondNext" class="btn btn-primary float-end disabled"> Next </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div hidden id="thirdPage" class="col-12 col-lg-8 mt-3 px-5">
+
+                        <div class="p-4 shadow bg-white rounded-8">
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                                    <label>Receipient Name</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                                    <label>John Doe</label>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                                    <label>Account Type</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                                    <label>Savings/Current</label>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                                    <label>Account No</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                                    <label>xxxx xxxx xxxx 5215</label>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                                    <label>Transfer Date</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                                    <label>dd-mm-yyyy</label>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                                    <label>Amount (RM)</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                                    <label>RM xx</label>
+                                </div>
+
+                            </div>
+
+                            
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                                    <label>Receipient Reference</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                                    <label>--------------</label>
+                                </div>
+
+                            </div>
+
+                            <p class="text-muted" >Transaction will be recurring every week starting from today unitl dd-mm-yyyy</p>
+
+
+
+                            
+                        </div>
+                        <div class="row my-5 last-row">
+                            <div class="col-12">
+                                <a id="thirdBack" class="btn btn-dark float-start">Back</a>
+                                <!-- <a id="secondNext" class="btn btn-primary  float-end" href="@Url.Action("
+                                    CardSettings", "Home" )"> Done </a> -->
+                                <a id="thirdNext" class="btn btn-primary float-end">Accept</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div hidden id="fourthPage" class="col-12 col-lg-8 mt-3 px-5">
+                        <div class="p-4 shadow bg-white rounded-8">
+                            <div class="row logoRow mb-4">
+
+                                <div class="col-2 checkIconDIV">
+
+                                    <div class="successIcon text-start">
+                                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                            <path class="checkmark__check" fill="none"
+                                                d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                        </svg>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-10 checkTextDIV">
+                                    <h5>Instant Transfer</h5>
+                                    <p class="text-muted">30 December 2021, 3:00:42pm</p>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                                    <label>Reference Number</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                                    <label>FG256813498FH</label>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start">
+                                    <label>Account</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-start text-md-end">
+                                    <label>xxxx xxxx xxxx 8236</label>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="row my-5 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-dark float-start"> Print </a>
+                               
+                                <!-- How to make it align in the -->
+                                <a id="addToFav" class="btn btn-primary float">Add to Favourites</a>
+                                
+
+                                <!-- <a id="secondNext" class="btn btn-primary  float-end" href="@Url.Action("
+                                    CardSettings", "Home" )"> Done </a> -->
+
+
+                                <a id="secondNext" class="btn btn-primary  float-end" href="sendMoney.html"> Done </a>
+                                    
+                            </div>
+
+                       
+                        </div>
+
+                    </div>
+
+                    <div class="alert alert-info col-10 col-sm-11 col-xxl-18 col-lg-8 rounded-8 shadow-sm" role="alert" hidden id="safeguardNote">
+                        <b>Note</b><br>
+                        <ul>
+                            <li>The beneficiary account number needs to adhere to the rules and regulations of Bank Negara.</li>
+                            <li>
+                               The PAC number needs to be safeguarded at all times and it is your responsibility to do so.
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/js") -->
+    <script>
+        $(document).ready(function () {
+            $('.mobileNav').each(function () {
+                $(this).removeClass('active');
+            })
+            $('.nav-link').each(function () {
+                $(this).removeClass('active');
+            })
+            $('.profile').each(function () {
+                $(this).addClass('active');
+            });
+            $('.profileMenu').addClass('active');
+
+            $('#firstNext').on('click', function () {
+
+                if (validate() == true) {
+                    $('#secondPage').attr('hidden', false);
+                    $('#firstPage').attr('hidden', true);
+                    $('#thirdPage').attr('hidden', true);
+                    $("#fourthPage").attr('hidden', true); //!!
+                    $('#safeguardNote').attr('hidden', false);
+                }
+
+            });
+
+            $('#secondNext').on('click', function () {
+
+                if (validate() == true) {
+                    $('#thirdPage').attr('hidden', false);
+                    $('#firstPage').attr('hidden', true);
+                    $('#secondPage').attr('hidden', true);
+                    $("#fourthPage").attr('hidden', true); //!!
+                    $('#instantTransferHeader').attr('hidden', true);
+                    $('#instantTransferHeaderDetails').attr('hidden', true);
+                    $('#confirmationHeader').attr('hidden', false);
+                    $('#confirmationDetails').attr('hidden', false);
+                    $('#safeguardNote').attr('hidden', false);
+                }
+
+            });
+
+            
+            $('.pac').on('click', function () {
+                Swal.fire(
+                    'PAC is Sent!',
+                    'PAC sent to your phone number 012 - * * * 6888',
+                    'success'
+                )
+                $('#secondNext').removeClass('disabled');
+            })
+
+            $('#thirdBack').on('click', function () {
+
+                if (validate() == true) {
+                    $('#thirdPage').attr('hidden', true);
+                    $('#firstPage').attr('hidden', true);
+                    $('#secondPage').attr('hidden', false);
+                    $("#fourthPage").attr('hidden', true); //!!
+                    $('#instantTransferHeader').attr('hidden', false);
+                    $('#instantTransferHeaderDetails').attr('hidden', false);
+                    $('#confirmationHeader').attr('hidden', true);
+                    $('#confirmationDetails').attr('hidden', true);
+                    $('#secondNext').addClass('disabled');
+                }
+
+            });
+
+            $('#thirdNext').on('click', function () {
+                Swal.fire({
+                    title: 'The transfer has successfully completed!',
+                    icon: 'success',
+                    customClass: {
+                        title: 'alertFontStyle'
+                    }
+                }).then(function () {
+                    $('#fourthPage').attr('hidden', false);
+                    $('#secondPage').attr('hidden', true);
+                    $('#firstPage').attr('hidden', true);
+                    $('#thirdPage').attr('hidden', true); //!!
+                    $('#confirmationHeader').attr('hidden', true);
+                    $('#confirmationDetails').attr('hidden', true);
+                    $('#transactionHeader').attr('hidden', false);
+                    $('#transactionDetails').attr('hidden', false);
+                    $('#safeguardNote').attr('hidden', true);
+                });
+
+            })
+
+            $('#addToFav').on('click', function () {
+
+                Swal.fire({
+                    title: 'The receipient has been succesfully added to Favourites!',
+                    icon: 'success',
+                    customClass : {
+                        title: 'alertFontStyle'
+                    }
+                })
+            })
+
+            function validate() {
+                var thisValue = "";
+                var strResult = "";
+
+                // Start Date
+
+                thisValue = $("#accNum").val();
+                strResult = onInputValidate(thisValue);
+                $("#accNum").next(".text-danger").html(strResult);
+                if (strResult == "") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            function onInputValidate(thisValue) {
+
+                if (thisValue == null || thisValue == "" || thisValue == "Please select") {
+                    return "<span>This field is required.</span>";
+                }
+                return "";
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
