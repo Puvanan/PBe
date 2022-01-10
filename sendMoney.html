@@ -1382,13 +1382,17 @@
                 $('#firstPage').attr('hidden', true);
                 $('#thirdPage').attr('hidden', false);
                 $("#fourthPage").attr('hidden', true); //!!
-                $('#fifthPage').attr('hidden', false);
+                $('#fifthPage').attr('hidden', true);
+                $('#thirdPage').removeClass('col-12 col-lg-5 mt-lg-4 border-end-xl');
+                $('#thirdPage').addClass('col-7 center-block text-center');
                 $('#secondDuitNowPage').attr('hidden', true); //secondDuitNowPage
                 $('#firstDuitNowPage').attr('hidden', true); //firstDuitNowPage
                 $("#thirdDuitNowPage").attr('hidden', true); //thirdDuitNowPage
                 $('#safeguardNote').attr('hidden', false);
                 $('#confirmationHeader').attr('hidden', false);
+                $('#confirmationHeader').addClass('text-center');
                 $('#confirmationDetails').attr('hidden', false);
+                $('#confirmationDetails').addClass('text-center');
                 $('#instantTransferHeader').attr('hidden', true);
                 $('#instantTransferHeaderDetails').attr('hidden', true);
                 
@@ -1462,17 +1466,21 @@
                     }
             }).then(function () {
                 $('#fourthPage').attr('hidden', false);
+                $('#fourthPage').removeClass('col-12 col-lg-5 mt-lg-4 border-end-xl');
+                $('#fourthPage').addClass('col-7 center-block text-center');
                 $('#secondPage').attr('hidden', true);
                 $('#firstPage').attr('hidden', true);
                 $('#thirdPage').attr('hidden', true); //!!
-                $('#fifthPage').attr('hidden', false);
+                $('#fifthPage').attr('hidden', true);
                 $('#secondDuitNowPage').attr('hidden', true); //secondDuitNowPage
                 $('#firstDuitNowPage').attr('hidden', true); //firstDuitNowPage
                 $("#thirdDuitNowPage").attr('hidden', true); //thirdDuitNowPage
                 $('#confirmationHeader').attr('hidden', true);
                 $('#confirmationDetails').attr('hidden', true);
                 $('#transactionHeader').attr('hidden', false);
+                $('#transactionHeader').addClass('text-center');
                 $('#transactionDetails').attr('hidden', false);
+                $('#transactionDetails').addClass('text-center');
                 $('#safeguardNote').attr('hidden', true);
             });
 
@@ -1503,6 +1511,7 @@
                
 
         $('#secondDuitNowBack').on('click', function () {
+
             
             $('#secondDuitNowPage').attr('hidden', true); //secondDuitNowPage
             $('#firstPage').attr('hidden', true);
