@@ -67,11 +67,14 @@
         * {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-/* 
-        body {
+
+
+        .dropdown-toggle {
+
+            background-color: white !important;
+            color: black !important;
             
-            transition: opacity 1 .1s;
-        } */
+        }
 
     </style>
 </head>
@@ -246,16 +249,18 @@
                     <label for="accNumber" class="col-sm-12 col-form-label">Select Bank</label>
                     <div class="col-sm-12 mb-2">
 
-                        <div class="dropdown" id="bankListDropdown">
+                        <div class="dropdown " id="bankListDropdown">
 
-                            <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select
-                                Bank</button>
+                            <button class="btn btn-primary dropdown-toggle col-sm-12 mb-2" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: left;">
+                                Select
+                                Bank <span class="caret"></span></button>
+                                <!-- <span class="caret"></span> -->
 
 
 
 
-                            <ul class="dropdown-menu" id="myBankUL" aria-labelledby="dropdownMenuButton">
+                            <ul class="dropdown-menu col-sm-12 mb-2" id="myBankUL" aria-labelledby="dropdownMenuButton">
 
 
                                 <div class="row">
@@ -272,6 +277,7 @@
                                     <h6
                                         style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
                                         <img src="../images/pblogo.png" width="50">Public Bank</h5>
+                                        
                                 </li>
                                 <li class="dropdown-item" value="Maybank">
                                     <h6
@@ -342,11 +348,11 @@
                     <label class="col-sm-12 col-form-label">Receipient Reference</label>
 
 
+                    
+                    <div class="col-12 col-sm-12">
+                        <!-- <input type="text" list="choices-multiple-remove-button"/> -->
+                        <select id="choices-multiple-remove-button" class="form-control mb-2" multiple>
 
-                    <div class="col-12 col-sm-6">
-
-
-                        <select id="choices-multiple-remove-button" multiple>
                             <option class="choice-option">Gift</option>
                             <option class="choice-option">Merry Christmas!</option>
                             <option class="choice-option">Happy New Year!</option>
@@ -355,19 +361,33 @@
                             <option class="choice-option">Watch</option>
                             <option class="choice-option">Groceries</option>
                         </select>
+                        <!-- <select id="choices-multiple-remove-button" multiple>
+                            <option class="choice-option">Gift</option>
+                            <option class="choice-option">Merry Christmas!</option>
+                            <option class="choice-option">Happy New Year!</option>
+                            <option class="choice-option">Happy Birthday!</option>
+                            <option class="choice-option">Car</option>
+                            <option class="choice-option">Watch</option>
+                            <option class="choice-option">Groceries</option>
+                        </select> -->
 
 
                     </div>
-                    <div class="col-12 col-sm-6">
+                    <!-- <div class="col-12 col-sm-6">
 
                         <input type="text" id="userInput" class="form-control mb-2">
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="row mb-2">
                     <label for="statementPeriod" class="col-sm-12 col-form-label">Transfer Date</label>
-                    <div class="col-sm-12 mb-2">
+                    <!-- <div class="col-sm-12 mb-2">
                         <input type="text" class="form-control bg-white datepicker" id="effectiveDatePicker"
+                            name="effectiveDatePicker" placeholder="DD MMM YYYY">
+                    </div> -->
+
+                    <div class="col-sm-12 mb-2">
+                        <input type="datetime-local" class="form-control bg-white datepicker" id="effectiveDatePicker"
                             name="effectiveDatePicker" placeholder="DD MMM YYYY">
                     </div>
                 </div>
@@ -431,7 +451,7 @@
             </form>
         </div>
             <!-- Confirmation -->
-            <div id="thirdPage" class="col-12 col-lg-8 mt-3 px-4" hidden>
+            <div id="thirdPage" class="col-12 col-lg-7 mt-3 px-4" hidden>
 
                 <h3 class="mb-2 ms-1">Confirmation</h3>
 
@@ -440,28 +460,62 @@
 
                 <div class="p-4 shadow bg-white rounded-8">
 
-                    <!-- <div class="row logoRow mb-4">
+                    <div class="row logoRow mb-4">
 
                         <div class="col-2 checkIconDIV">
 
                             <div class="successIcon text-start">
-                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                <img src="images/pblogo.png" width="52" height="52">
+                                    <!-- <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
                                     <path class="checkmark__check" fill="none"
                                         d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                                </svg>
+                                </svg> -->
                             </div>
+                          
 
                         </div>
 
                         <div class="col-10 checkTextDIV">
-                            <h5>Instant Transfer Successfully</h5>
-                            <p class="text-muted">4 May 2018, 12:59:12pm</p>
+                           
+                            <h5>Public Bank Berhad</h5>
+                            <p class="text-muted">123123123123</p>                            
+                            <p class="text-muted" style="margin-top: -8.5%; margin-left: 75%; border: 2px solid grey; text-align: center;">Favourites</p>
                         </div>
+                       
 
-                    </div> -->
+
+                    </div>
+
+
 
                     <div class="row detailsRow">
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                            <label>From Account</label>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                            <label style="font-weight:bold; color: tomato;">342456789751</label>
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="row detailsRow">
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                            <label>Transfer Date</label>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                            <label style="font-weight:bold; color: tomato;">12 Oct 2021</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row detailsRow">
+
+    
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
                             <label>Receipient Name</label>
@@ -476,7 +530,7 @@
                     <div class="row detailsRow">
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
-                            <label>Account Type</label>
+                            <label>Recipient Account Type</label>
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
@@ -485,26 +539,15 @@
 
                     </div>
 
-                    <div class="row detailsRow">
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
-                            <label>Account Number</label>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
-                            <label>123123123123</label>
-                        </div>
-
-                    </div>
 
                     <div class="row detailsRow">
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
-                            <label>Transfer Date</label>
+                            <label>Receipient Reference</label>
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
-                            <label>12 Oct 2021</label>
+                            <label>Food</label>
                         </div>
 
                     </div>
@@ -523,20 +566,8 @@
 
                     <div class="row detailsRow">
 
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
-                            <label>Receipient Reference</label>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
-                            <label>Food</label>
-                        </div>
-
-                    </div>
-
-                    <div class="row detailsRow">
-
                         <div class="row fs-6 fw-bold text-start">
-                            <label>Transaction will be recurring every week starting from today until DD MM
+                            <label class="text-muted">Transaction will be recurring every week starting from today until DD MM
                                 YYYY.</label>
                         </div>
 
@@ -1888,34 +1919,37 @@
                 searchEnabled: true,
                 searchChoices: true,
                 searchResultLimit: 5,
-                placeholder: true,
+                placeholder: false,
                 placeholderValue: "Select suggestion(s)",
                 // searchPlaceholderValue: null,
                 // renderChoiceLimit: 5,
             });
     
-        $("#selectAllSwitch").change(function () {
-            if ($(this).is(":checked")) {
-                $(".choices").addClass('is-disabled');
-                $('.choices__list').attr('hidden', true);
-                $('.choices__input').attr('disabled', true);
-            } else {
+        // $("#selectAllSwitch").change(function () {
+        //     if ($(this).is(":checked")) {
+        //         $(".choices").addClass('is-disabled');
+        //         $('.choices__list').attr('hidden', true);
+        //         $('.choices__input').attr('disabled', true);
+        //     } else {
+        //         $(".choices").removeClass('is-disabled');
+        //         $('.choices__list').attr('hidden', false);
+        //         $('.choices__input').attr('disabled', false);
+        //     }
+        // });
+
+        $("#choices-multiple-remove-button").change(function () {
+            if ($(this).val()) {
+
                 $(".choices").removeClass('is-disabled');
                 $('.choices__list').attr('hidden', false);
                 $('.choices__input').attr('disabled', false);
-            }
-        });
+            } else {
 
-        $("#userInput").change(function () {
-            if ($(this).val()) {
                 $(".choices").addClass('is-disabled');
                 $('.choices__list').attr('hidden', true);
                 $('.choices__input').attr('disabled', true);
                 
-            } else {
-                $(".choices").removeClass('is-disabled');
-                $('.choices__list').attr('hidden', false);
-                $('.choices__input').attr('disabled', false);
+
             }
         });
 
@@ -1936,7 +1970,12 @@
         $(".dropdown ul li").click(function(){
             $(".dropdown ul li").css("color","inherit");
             $(this).css("color","green");
+            
         });
+
+    
+
+        // $(".btn btn-primary dropdown-toggle col-sm-12 mb-2").change(functi)
 
 
         /* BOOTSTRAP DROPDOWN MENU - Update selected item text and image */
@@ -1945,7 +1984,8 @@
             var imgSource = $(this).find('img').attr('src');
             var imgWidth = $(this).find('img').attr('width');
             var img = '<img src="' + imgSource +'">';        
-            $(this).parents('.dropdown').find('.dropdown-toggle').html(img + ' ' + selText + ' <span class="caret"></span>');
+            $(this).parents('.dropdown').find('.dropdown-toggle').html(img + ' ' + selText);
+            // + ' <span class="caret"></span>'
         });
 
         
@@ -2024,6 +2064,18 @@
 
             $(".dropdown ul li").filter("[value=" + bankName + "]").trigger("click");
         });
+        
+        
+        function toggleField(hideObj,showObj){
+            hideObj.disabled=true;		
+            hideObj.style.display='none';
+            showObj.disabled=false;	
+            showObj.style.display='inline';
+            showObj.focus();
+        }
+        
+        $(".caret").css('margin-left', '77%'); //set css for caret class with float right
+        // $(".dropdown-toggle::after").attr('content', none);
         
         
 
