@@ -400,17 +400,21 @@
                             <div class="row mb-2">
                                 <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Receipient <span class="text-muted">(Optional)</span></label>
                                 
-                                <div class="col-sm-12 mb-2">
-                                    <input id="emailCheckbox" type="checkbox" style="height: 1.9em; width: 1.4em; float: left;"/>
-                                    <label for="checkbox" id="emailCheckbox" class="d-inline mx-2">Email</label>
-                                    <input type="email" for="emailCheckbox" id="emailCheckboxes" class="col-sm-7 d-inline mx-2" disabled/>
-                                </div>
-
-                                <div class="col-sm-12 mb-2">
-                                    <input id="smsCheckbox" type="checkbox" style="height: 1.9em; width: 1.4em; float: left;"/>
-                                    <label for="checkbox" class="d-inline mx-2">SMS</label>
-                                    <input type="text" for="smsCheckbox" id="smsCheckboxes" class="col-sm-5 d-inline mx-3" disabled/>
-                                </div>
+                                
+                                    <div class="col-sm-12 mb-2">
+                                        <input id="emailCheckbox" type="checkbox" class="form-check-input"/>
+                                        <label for="checkbox" id="emailCheckbox" class="form-check-label">Email</label>
+                                        <input type="email" for="emailCheckbox" id="emailCheckboxes" class="col-sm-9 mx-2" disabled/>
+                                    </div>
+    
+                                    <div class="col-sm-12 mb-2">
+                                        <input id="smsCheckbox" type="checkbox" class="form-check-input"/>
+                                        <label for="checkbox" class="form-check-label">SMS</label>
+                                        <input type="text" for="smsCheckbox" id="smsCheckboxes" class="col-sm-9 mx-3" disabled/>
+                                    </div>
+                                    
+                                
+                        
                             </div>
 
                             <div class="row mb-2 justify-content-between">
@@ -442,9 +446,9 @@
                             <div class="row mb-2">
                                     
 
-                                <div class="col-sm-12">
-                                    <input id="checkbox" type="checkbox" style="height: 1.9em; width: 1.4em; float: left;"/>
-                                    <label for="checkbox" class="d-block mx-4">By checking this checkbox, I acknowledge that I have read, understand and agree to be bound by the<a href="#"> Terms and Conditions</a>.</label>
+                                <div class="form-check mt-4">
+                                    <input id="checkbox" type="checkbox" class="form-check-input"/>
+                                    <label for="checkbox" class="form-check-label">By checking this checkbox, I acknowledge that I have read, understand and agree to be bound by the<a href="#"> Terms and Conditions</a>.</label>
                                 </div>
                             </div>
 
@@ -1299,7 +1303,6 @@
                 }
             })
         });
-
 
 
         $("#emailCheckbox").on('change',function() {
