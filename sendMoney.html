@@ -6,8 +6,10 @@
 
     <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="/css/bootstrap.css">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
 
     <!-- Style-Puvan -->
     <!-- <link rel="stylesheet" href="style.css"> -->
@@ -28,12 +30,15 @@
     <!-- MultiSelect Choices CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
 
+    
+
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <!--jQuery UI Autocomplete-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/autocomplete/jquery.autocomplete.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Send Money</title>
 
@@ -196,7 +201,269 @@
             display: none;
             opacity: 0;
         }
+
+
+        @media screen and (min-width: 580px) {
+
+            .col-form-label {
+
+                line-height: 0.9;
+            }
+
+            .px-4 {
+
+            padding-left: 0rem;
+            padding-right: 0rem;
+            }
+
+            .row {
+
+                --bs-gutter-x: 0rem;
+            }
+
+
+
+        }
+
+        @media screen and (min-width: 992px) {
+
+            .mt-lg-4 {
+
+                margin-top: 0rem !important;
+            }
+
+
+
+        }
+/*         
         
+        @media screen and (min-width: 993px) {
+
+            .px-4 {
+
+                padding-left: 0rem !important;
+                padding-right: 0rem !important;
+            }
+
+            #emailCheckboxes {
+
+   
+                width: 80%;
+            }
+
+            #smsCheckboxes {
+
+                width: 80%;
+            }
+
+ 
+
+
+
+        }
+
+        @media screen and (min-width: 994px) {
+
+            .px-4 {
+
+                padding-left: 0rem !important;
+                padding-right: 0rem !important;
+            }
+
+            #emailCheckboxes {
+
+                width: 80%;
+                padding: 0;
+                margin: 0;
+
+                
+            }
+
+            #smsCheckboxes {
+
+                width: 80%;
+                padding: 0;
+                margin: 0;
+
+                
+            }
+
+            .mb-2 {
+
+                margin-bottom: 0.6rem !important;
+            }
+
+
+
+
+        }
+
+
+
+        @media screen and (min-width: 1000px) {
+
+            .px-4 {
+
+                padding-left: 0rem !important;
+                padding-right: 0rem !important;
+            }
+
+            #emailCheckboxes {
+
+                padding-bottom: 0;
+                
+            }
+
+            #smsCheckboxes {
+
+                padding-bottom: 0;
+            }
+
+
+
+
+        }
+
+        
+
+
+
+        
+        @media screen and (min-width: 1121px) {
+
+    
+
+            .mb-2 {
+
+                margin-bottom: 0.5rem !important;
+            }
+
+
+
+
+        }
+
+        @media screen and (max-width: 1200px) {
+
+    
+
+            .mb-2 {
+
+                margin-bottom: 0.4rem !important;
+            }
+
+
+
+
+        }
+
+
+
+        @media screen and (min-width: 1195px) {
+
+            #emailCheckboxes{
+                
+                width: 80% !important;
+                
+
+            }
+
+            #smsCheckboxes{
+
+                width: 80% !important;
+                padding-bottom: 0rem !important;
+            }
+
+            .px-4 {
+
+                padding-left: 0rem !important;
+                padding-right: 0rem !important;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+
+            .px-4 {
+
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            
+            #emailCheckboxes {
+
+                padding: 0;
+                margin: 0;
+                line-height: 1.46;
+            }
+
+            #smsCheckboxes {
+
+                padding: 0;
+                margin: 0;
+                line-height: 1.46;
+            }
+
+            
+            .mb-2 {
+
+                margin-bottom: 0.9rem !important;
+            }
+
+
+        
+        } */
+
+
+        
+        @media screen and (min-width: 1330px) {
+
+            .px-4 {
+
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            #emailCheckboxes {
+
+                padding: 0;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            #smsCheckboxes {
+
+                padding: 0;
+                margin: 0;
+                line-height: 1.5;
+
+            }
+
+            .mb-2 {
+
+                margin-bottom: 0.9rem !important;
+            }
+
+      
+
+
+
+        }
+
+/*                 
+        @media screen and (min-width: 2000px) {
+
+            .px-4 {
+
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+            }
+
+      
+
+
+
+        } */
 
  
     </style>
@@ -211,12 +478,139 @@
 
         <div class="row justify-content-center">
 
+            
+
             <div class="col-12">
 
                 <div class="row justify-content-center">
 
+                    <div id="firstPage" class="col-12 col-lg-5 mt-lg-4 border-end-xl">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>Transfer</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h6>Choose a payment method</h6>
+                                <p class="small">All of the transfer type are free during this emco period</p>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row mt-4 mt-lg-0 ">
+                    
+                            <!-- Change font-size for the div right below to 50px when placing in _Layout.html page -->
+                            <div class="col-12 col-xl-10 mt-3" style="font-size: 60px;">
+            
+                                <div class="rounded-8 shadow-sm p-1 py-2 bg-white cardType">
+            
+                                    <div class="accordion" id="myAccordion">
+                                        <div class="accordion-item">
+                                            <h6>
+                                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne"  >
+                                                    <div class="row px-3">
+                                                            <!-- <div class="col-3 my-auto text-center bg-light-2 rounded-8" style="max-width:50px; padding: .6rem .8rem;">
+                                                                <i class="fad fa-paper-plane text-primary"></i>
+                                                            </div> -->
+                                                            <div class="col-7 my-auto ps-3">
+                                     
+                                                                <!-- <h6 class="mb-0 text-black pt-2">New Transfer</h6> -->
+                                                                <h6 class="mb-0 text-black pt-2" style="font-size: 30px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">New Transfer</h6>
+                                                                <p class="smaller fs-lg-6 text-muted mb-1">Transfer within Bank or other banks</p>
+                                                            </div>
+                                                            <!-- <div class="col-2 ms-auto my-auto text-end">
+                                                                <i class="fa fa-arrow-right text-primary"></i>
+                                                            </div> -->
+                                                            
+                                                        </div>
+                                                </button>
+            
+                                                
+                                            </h6>
+                                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+                                            
+                                                <div class="rounded-8 shadow-sm p-1 py-2 bg-white cardType" id="newAccountNo">
+                                                    <a href="#" id="doTransfer">
+                            
+                                                        <div class="row px-3">
+                                                            <!-- <div class="col-3 my-auto text-center bg-light-2 rounded-8" style="max-width:50px; padding: .6rem .8rem;">
+                                                                <i class="fad fa-paper-plane text-primary"></i>
+                                                            </div> -->
+                                                            <div class="col-7 my-auto ps-3">
+                                     
+                                                                <!-- <h6 class="mb-0 text-black pt-2">New Transfer</h6> -->
+                                                                <h6 class="mb-0 text-black pt-2"  style="font-size: 30px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Account No</h6>
+                                                                <p class="smaller fs-lg-6 text-muted mb-1">Transfer within Bank or other banks</p>
+                                                            </div>
+                                                            <div class="col-2 ms-auto my-auto text-end">
+                                                                <i class="fa fa-arrow-right text-primary"></i>
+                                                            </div>
+                                                            
+                                                        </div>
+                            
+                                                    </a>
+                                                </div>
+                
+                                            </div>
+            
+                                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+                                            
+                                                <div class="rounded-8 shadow-sm p-1 py-2 bg-white cardType" id="newDuitNow">
+                                                    <a href="#" id="doDuitNowTransfer">
+                            
+                                                        <div class="row px-3">
+                                                            <!-- <div class="col-3 my-auto text-center bg-light-2 rounded-8" style="max-width:50px; padding: .6rem .8rem;">
+                                                                <i class="fad fa-paper-plane text-primary"></i>
+                                                            </div> -->
+                                                            <div class="col-7 my-auto ps-3">
+                                     
+                                                                <!-- <h6 class="mb-0 text-black pt-2">New Transfer</h6> -->
+                                                                <h6 class="mb-0 text-black pt-2"  style="font-size: 30px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">DuitNow</h6>
+                                                                <p class="smaller fs-lg-6 text-muted mb-1">Transfer via DuitNow of a person's mobile</p>
+                                                            </div>
+                                                            <div class="col-2 ms-auto my-auto text-end">
+                                                                <i class="fa fa-arrow-right text-primary"></i>
+                                                            </div>
+                                                            
+                                                        </div>
+                            
+                                                    </a>
+                                                </div>
+                
+                                            </div>
+                                           
+                                        </div>
+                                    </div> 
+            
+                                </div>
+                            </div>
+                            
+            
+                        </div>
+                        <!-- <div class="row mt-5">
+                            <div class="col-12 col-lg-10 text-center text-lg-end">
+                                <button disabled class="btn btn-primary mb-3 mb-lg-0 mt-0 mt-lg-0 float-lg-end btnNextPaymentType">Next</button>
+                            </div>
+                        </div> -->
+            
+                
+                        <div class="alert alert-info col-10 col-sm-11 col-xxl-18 col-lg-8 rounded-8 shadow-sm" role="alert" hidden id="safeguardNote">
+                            <b>Note</b><br>
+                            <ul>
+                                <li>The beneficiary account number needs to adhere to the rules and regulations of Bank Negara.</li>
+                                <li>
+                                   The PAC number needs to be safeguarded at all times and it is your responsibility to do so.
+                                </li>
+                            </ul>
+                        </div>
+            
+            
+                
+                    </div>
+
                     <!-- Instant Transfer -->
-                    <div id="secondPage" class="col-12 col-lg-5 mt-lg-4 border-end-xl px-4">
+                    <div hidden id="secondPage" class="col-12 col-lg-5 mt-lg-4 border-end-xl px-4">
 
                         <h3>Instant Transfer</h3>
 
@@ -274,8 +668,8 @@
                                             </div>
                                         </div>
 
-                                        <li class="mb-1" value="PublicBank"><span><img src="images/pblogo.png"
-                                                    style="width: 40px; height: 40px;"></img></span>
+                                        <li class="mb-1" value="PublicBank"><img src="images/pblogo.png"
+                                                    style="width: 40px; height: 40px;"></img>
                                             <span class="ms-2">Public Bank Berhad</span>
                                         </li>
                                         <li class="mb-1" value="CIMB"><img src="images/cimblogo.png"
@@ -1334,6 +1728,16 @@
 
             }    
         })
+
+        $('#doTransfer').on('click', function () {
+
+
+            
+            // $('#newAccountNo').hide();
+            $('#firstPage').attr('hidden', true);
+            $('#secondPage').attr('hidden', false);       
+
+        });
 
 
 
