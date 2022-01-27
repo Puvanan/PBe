@@ -781,7 +781,7 @@
 
                                     <!-- <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
                                         data-valmsg-replace="true"></span> -->
-                                        <small class="text-muted ms-1"><i>(DuitNow Transfer is formerly known as Instant Transfer)</i></small>
+                                        <small class="text-muted ms-1" id="duitNowTransferMessage"><i>(DuitNow Transfer is formerly known as Instant Transfer)</i></small>
 
                                 </div>
                             </div>
@@ -827,11 +827,10 @@
 
                                     <label class="col-sm-12 col-form-label " for="rrSuggestions">Receipient Reference</label>
                                 
-                                    
-                                    <input type="text" id="recRef" class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
+                                    <div class="col-sm-12 mb-2">
+                                        <input type="text" id="recRef" class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
 
-
-
+                                    </div>
 
                             </div>
 
@@ -997,14 +996,13 @@
 
                     <div hidden id="thirdPage" class="col-12 col-lg-5 mt-lg-4 border-end-xl px-4">
 
-                        <h3 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Instant Transfer</h3>
+                        <h3 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Confirmation</h3>
                     
                         <div class="row">
                     
                             <div class="col-12">
                                 <!-- <h6>Your Frequent Transaction</h6> -->
-                                <p class="small" style="font-size: 20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Fill in the required details below to perform a transfer to other PB
-                                    accounts.
+                                <p class="small" style="font-size: 20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Please check and ensure all details are correct before proceeding to confirm transaction.
                                 </p>
                             </div>
                     
@@ -1106,10 +1104,11 @@
                                     <label class="col-sm-12 col-form-label " for="rrSuggestions">Receipient Reference</label>
                                 
                                     
-                    
+                                <div class="col-sm-12 mb-2">
+
                                     <input type="text" id="recRefDisabled" placeholder="Groceries" disabled class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
-                    
-                    
+
+                                </div>
                     
                             </div>
                     
@@ -1251,14 +1250,14 @@
     
                                             </div>
     
-                                            <div class="col-12 col-md-3">
+                                            <!-- <div class="col-12 col-md-3">
                                                 <button
                                                     class="col-12 reqPacBtn pac btn btn-info pac text-white float-lg-end mt-2"
                                                     id="reqPacBtn">
                                                     Request
                                                     PAC
                                                 </button>
-                                            </div>
+                                            </div> -->
     
                                         </div>
     
@@ -2435,7 +2434,8 @@
             newSelect = "Please select";
             $("#transferMethods option:selected").removeAttr("selected");
             // console.log($("#transferMethods option[value='"+ newSelect +"']").attr('selected', 'selected'));
-            $("#transferMethods option[value='"+ newSelect +"']").attr('selected', 'selected'); 
+            $("#transferMethods option[value='"+ newSelect +"']").attr('selected', 'selected');
+            $("#duitNowTransferMessage").hide(); 
             $("#recurrTransactionTimes").hide();
             $("#recurrTransactionType").removeClass("col-sm-5 float-sm-start");
             $("#recurrTransactionType").addClass("col-sm-12"); 
@@ -2633,6 +2633,24 @@
                 return $option;
             };
         });
+
+        $("#transferMethods").on('change', function() {
+
+            var ibgTrans = $("#transferMethods option:selected").val() =="IBG Transfer";
+            // console.log("This is IBG Transfer " + ibgTrans);
+            var defaultTransSelect = $("#transferMethods option:selected").val() =="Please select";
+            // console.log("This is default select " + defaultTransSelect);
+
+            if(ibgTrans || defaultTransSelect) {
+
+                $("#duitNowTransferMessage").hide();
+            }
+            else {
+
+                $("#duitNowTransferMessage").show();
+            }
+
+        })
 
 
 
