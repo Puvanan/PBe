@@ -32,7 +32,7 @@
         <!-- FlatPickr -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
-        <title>Create PB RCB / PB Lifestyle Debit Card Pin</title>
+        <title>Register DuitNow ID</title>
     
         <style>
             /* success */
@@ -340,7 +340,80 @@
                                         </div>
                                     </div>
 
-                                    <div class="row myFA1 mb-2" id="twoFADiv" hidden>
+
+        
+                                    <div class="row my-5 last-row">
+                                        <div class="col-12">
+                                            <a class="btn btn-dark float-start">
+                                                Back
+                                            </a>
+
+                                            <a id="firstNext"
+                                               class="btn btn-primary float-end disabled">
+                                                Next
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+        
+                        <div hidden id="secondPage" class="col-12 col-lg-10 px-lg-0 px-4">
+                            <div class="row justify-content-center">
+                                <form>
+                                    <div class="col-12 table-responsive">
+        
+                                        <table class="table table-responsive table-borderless table-hover p-lg-2 p-0 shadow-sm rounded-8 bg-white"
+                                               style="width:100%">
+                                            <thead class="bg-dark text-white rounded-8">
+                                                <tr style="text-align:center">
+                                                    <th class="small">DuitNow ID Type</th>
+                                                    <th class="small">DuitNow ID</th>
+                                                    <th class="small">Account No.</th>
+        
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr style="text-align:center" id='mobileNumberRow' hidden>
+                                                    <td>Mobile Number</td>
+                                                    <td>******1355</td>
+                                                    <td id='mobileNumberAccNumberVal'>
+                                                        <!-- <select class="form-select" id="mobileNumberAccNumberSelected" aria-label="Default select example">
+                                                            <option>-Please select-</option>
+                                                            <option selected value="mobileNumAcc">95774453</option>
+                                                        </select> -->
+                                                    </td>
+                                                </tr>
+                                                <tr style="text-align:center" id='icNumberRow' hidden>
+                                                    <td>IC Number</td>
+                                                    <td>********5135</td>
+                                                    <td id='icNumberAccNumberVal'>
+
+                                                        <!-- <select class="form-select" id="icNumberAccNumberSelected" aria-label="Default select example">
+                                                            <option>-Please select-</option>
+                                                            <option selected value="icNumAcc">95774453</option>
+                                                        </select> -->
+                                                    </td>
+        
+                                                </tr>
+                                            </tbody>
+                                        </table>
+        
+        
+                                    </div>
+
+
+                                    
+                                    <div class="row mb-2" id="checkBoxDiv">
+                                    
+
+                                        <div class="form-check mt-4 mx-3">
+                                            <input id="clauseCheckBox2" type="checkbox" class="form-check-input"/>
+                                            <label for="checkbox" class="form-check-label">I hereby accept the<a href="#"> Terms and Conditions Governing the National Addressing Database (NAD)</a>.</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row myFA1 mb-2" id="twoFADiv">
                                         <label class="col-sm-12 col-form-label">Approve this transaction with</label>
                 
                                         <div class="col-sm-12 mb-2">
@@ -675,77 +748,6 @@
         
                                     <div class="row my-5 last-row">
                                         <div class="col-12">
-                                            <a class="btn btn-dark float-start">
-                                                Back
-                                            </a>
-
-                                            <a id="firstNext"
-                                               class="btn btn-primary float-end disabled">
-                                                Next
-                                            </a>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-        
-                        <div hidden id="secondPage" class="col-12 col-lg-10 px-lg-0 px-4">
-                            <div class="row justify-content-center">
-                                <form>
-                                    <div class="col-12 table-responsive">
-        
-                                        <table class="table table-responsive table-borderless table-hover p-lg-2 p-0 shadow-sm rounded-8 bg-white"
-                                               style="width:100%">
-                                            <thead class="bg-dark text-white rounded-8">
-                                                <tr style="text-align:center">
-                                                    <th class="small">DuitNow ID Type</th>
-                                                    <th class="small">DuitNow ID</th>
-                                                    <th class="small">Account No.</th>
-        
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr style="text-align:center" id='mobileNumberRow' hidden>
-                                                    <td>Mobile Number</td>
-                                                    <td>******1355</td>
-                                                    <td id='mobileNumberAccNumberVal'>
-                                                        <select class="form-select" id="mobileNumberAccNumberSelected" aria-label="Default select example">
-                                                            <option>-Please select-</option>
-                                                            <option selected value="mobileNumAcc">95774453</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>
-                                                <tr style="text-align:center" id='icNumberRow' hidden>
-                                                    <td>IC Number</td>
-                                                    <td>********5135</td>
-                                                    <td id='icNumberAccNumberVal'>
-
-                                                        <select class="form-select" id="icNumberAccNumberSelected" aria-label="Default select example">
-                                                            <option>-Please select-</option>
-                                                            <option selected value="icNumAcc">95774453</option>
-                                                        </select>
-                                                    </td>
-        
-                                                </tr>
-                                            </tbody>
-                                        </table>
-        
-        
-                                    </div>
-
-
-                                    
-                                    <div class="row mb-2" id="checkBoxDiv">
-                                    
-
-                                        <div class="form-check mt-4 mx-3">
-                                            <input id="clauseCheckBox2" type="checkbox" class="form-check-input"/>
-                                            <label for="checkbox" class="form-check-label">I hereby accept the<a href="#"> Terms and Conditions Governing the National Addressing Database (NAD)</a>.</label>
-                                        </div>
-                                    </div>
-        
-                                    <div class="row my-5 last-row">
-                                        <div class="col-12">
                                             <a class="btn btn-dark float-start" href="@Url.Action("manageDuitNow", "Home"
                                                     )">
                                                 Back
@@ -974,47 +976,26 @@
         
                 $('#firstNext').on('click', function () {
                     
-                    $("#twoFADiv").attr('hidden', false);
-                    // $('#secondPage').attr('hidden', false);
-                    $('#firstPage').attr('hidden', false);
+                    // $("#twoFADiv").attr('hidden', false);
+                    $('#secondPage').attr('hidden', false);
+                    $('#firstPage').attr('hidden', true);
                     $('#thirdPage').attr('hidden', true);
         
                     //check which checkbox is checked
                    
                     if ($('#mobileNumberCheck').is(":checked")) {
                         $('#mobileNumberRow').prop("hidden", false);
-                        // $('#mobileNumberAccNumberVal').html($('#mobileNumberAccNumberSelect option:selected').text());
+                        $('#mobileNumberAccNumberVal').html($('#mobileNumberAccNumberSelect option:selected').text());
                     }
         
                     if ($('#icNumberCheck').is(":checked")) {
                         $('#icNumberRow').prop("hidden", false);
-                        // $('#icNumberAccNumberVal').html($('#icNumberAccNumberSelect option:selected').text());
+                        $('#icNumberAccNumberVal').html($('#icNumberAccNumberSelect option:selected').text());
                     }
 
-                    // $('#firstNext').off('click');
 
-                    
-                    $('#firstNext').on('click', function () {
-                        
-                        $("#twoFADiv").attr('hidden', true);
-                        $('#secondPage').attr('hidden', false);
-                        $('#firstPage').attr('hidden', true);
-                        $('#thirdPage').attr('hidden', true);
-            
-                        //check which checkbox is checked
-                    
-                        if ($('#mobileNumberCheck').is(":checked")) {
-                            $('#mobileNumberRow').prop("hidden", false);
-                            // $('#mobileNumberAccNumberVal').html($('#mobileNumberAccNumberSelect option:selected').text());
-                        }
-            
-                        if ($('#icNumberCheck').is(":checked")) {
-                            $('#icNumberRow').prop("hidden", false);
-                            // $('#icNumberAccNumberVal').html($('#icNumberAccNumberSelect option:selected').text());
-                        }
+                
 
-
-                    });
 
                 });
 
@@ -1032,20 +1013,20 @@
                         'success'
                     )
                     // $('#firstNext').removeClass('disabled');
-                    $('#secondNext').removeClass('disabled');
+                    // $('#secondNext').removeClass('disabled');
                     $('.reqPacBtn').addClass('disabled');
                     $('.timerText').prop("hidden", false);
                     display = $('#time');
                     startTimer(oneMin, display);
                 })
 
-                $('#pushNoti').on('click', function () {
-                    $('#secondNext').removeClass('disabled');
-                })
+                // $('#pushNoti').on('click', function () {
+                //     $('#secondNext').removeClass('disabled');
+                // })
 
-                $('#pushNotiPhone').on('click', function () {
-                    $('#secondNext').removeClass('disabled');
-                })
+                // $('#pushNotiPhone').on('click', function () {
+                //     $('#secondNext').removeClass('disabled');
+                // })
 
                 $('#secondNext').on('click', function () {
                     Swal.fire({
@@ -1062,12 +1043,12 @@
                         //check which checkbox is checked
                         if ($('#mobileNumberCheck').is(":checked")) {
                             $('.mobileNumberAckRow').prop("hidden", false);
-                            // $('.mobileNumberAccNumberAckVal').html($('#mobileNumberAccNumberSelect option:selected').text());
+                            $('.mobileNumberAccNumberAckVal').html($('#mobileNumberAccNumberSelect option:selected').text());
                         }
         
                         if ($('#icNumberCheck').is(":checked")) {
                             $('.icNumberAckRow').prop("hidden", false);
-                            // $('.icNumberAccNumberAckVal').html($('#icNumberAccNumberSelect option:selected').text());
+                            $('.icNumberAccNumberAckVal').html($('#icNumberAccNumberSelect option:selected').text());
                         }
                     });
                 })
@@ -1094,7 +1075,18 @@
                     $('#firstNext').addClass('disabled');
                 }
 
+                if($('#clauseCheckBox2').is(":checked")) {
+
+                    $('#secondNext').removeClass('disabled');
+                    }
+                else {
+
+                    $('#secondNext').addClass('disabled');
+                }
+
+
             }
+
 
             
             $('#authMethod').change(function () {
