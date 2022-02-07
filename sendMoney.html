@@ -827,11 +827,10 @@
 
                                     <label class="col-sm-12 col-form-label " for="rrSuggestions">Receipient Reference</label>
                                 
-                                    <div class="col-sm-12 mb-2">
+                                  
                                         <input type="text" id="recRef" class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
 
-                                    </div>
-
+                                   
                             </div>
 
                             <div class="row mb-2">
@@ -1611,6 +1610,1142 @@
                     
                     </div>
 
+                    <div hidden id="secondDuitNowPage" class="col-12 col-lg-5 mt-lg-4 border-end-xl px-4">
+
+                        <h3 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">DuitNow Transfer</h3>
+
+                        <div class="row">
+
+                            <div class="col-12">
+                                <!-- <h6>Your Frequent Transaction</h6> -->
+                                <p class="small" style="font-size: 20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Fill in the required details below to perform a DuitNow transfer.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <form id="duitNowForm">
+
+                            <div class="row mb-2">
+                                <label for="accType" class="col-sm-12 col-form-label">From Account</label>
+                                <div class="col-sm-12 mb-2">
+
+                                    <select class="form-select" id="duitNowUserAccount" aria-label="Default select example">
+                                        <option selected>Please select</option>
+                                        <option>Savings - 3590350545032 (RM 57,650)</option>
+                                        <option>Hire Purchase - 4044044032002 (RM 10,450)</option>
+                                        <option>Loan Account - 2302300343940 (RM 100,560)</option>
+                                        <option>Credit Card - 2342343403040 (RM 420,432)</option>
+                                        <option>Savings - 2303042340032 (RM 500,204)</option>
+                                    </select>
+
+
+                                </div>
+                            </div>
+
+                            <!-- <div class="row mb-2">
+
+                                <label class="col-sm-12 col-form-label">Select Bank</label>
+
+                                <div class="dropdown">
+
+                                    <button class="col-12 btn bg-white border border-1 dropdown-toggle text-start"
+                                        type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Please select
+                                    </button>
+
+                                    <ul id="bankList" class="dropdown-menu px-3" aria-labelledby="dropdownMenuButton1">
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="email" class="form-control search" id="bankSearchBar"
+                                                        placeholder="name@example.com">
+                                                    <label for="bankSearchBar" class="searchLabel">Search</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <li class="mb-1" value="PublicBank"><img src="images/pblogo.png"
+                                                    style="width: 40px; height: 40px;"></img>
+                                            <span class="ms-2">Public Bank Berhad</span>
+                                        </li>
+                                        <li class="mb-1" value="CIMB"><img src="images/cimblogo.png"
+                                                style="width: 40px; height: 40px;"></img>
+                                            <span class="ms-2">CIMB Bank</span>
+                                        </li>
+                                        <li class="mb-1" value="Maybank"><img src="images/maybanklogo.png"
+                                                style="width: 40px; height: 40px;"></img>
+                                            <span class="ms-2">Maybank Berhad</span>
+                                        </li>
+                                        <li class="mb-1" value="BSN"><img src="/puvan/icon/bank/bsn.png"
+                                                style="width: 40px; height: 40px;"></img>
+                                            <span class="ms-2">Bank Simpanan Nasional</span>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+
+                            </div> -->
+
+                            <div class="row mb-2">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Receipient DuitNow ID Type</label>
+                                <div class="col-sm-12 mb-2">
+                
+                                    <select class="form-select" id="duitNowTypes" aria-label="Default select example">
+                                        <option selected value="defaultSel">Please select</option>
+                                        <option value="mobileNum">Mobile Number</option>
+                                        <option value="icNum">I/C Number</option>
+                                        <option value="passport">Passport Number</option>   
+                                        <option value="armyPoliceID">Army / Police ID</option>
+                                        <option value="businessRegNum">Business Registration Number</option>
+                                    </select>
+                                    <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                                        data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2" class="myDiv" id="duitNowMobile">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Mobile Number</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's mobile number...">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row mb-2" id="duitNowIC">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">I/C Number</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's I/C number...">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row mb-2" id="duitNowPassportCountry">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Passport Issuing Country</label>
+                                <div class="col-sm-12 mb-2">
+                                    <select id="country" name="country" class="form-select">
+                                        <option selected value="Select Country" class="text-muted">Select Country</option>
+                                        <option value="Afghanistan">Afghanistan</option>
+                                        <option value="Åland Islands">Åland Islands</option>
+                                        <option value="Albania">Albania</option>
+                                        <option value="Algeria">Algeria</option>
+                                        <option value="American Samoa">American Samoa</option>
+                                        <option value="Andorra">Andorra</option>
+                                        <option value="Angola">Angola</option>
+                                        <option value="Anguilla">Anguilla</option>
+                                        <option value="Antarctica">Antarctica</option>
+                                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Armenia">Armenia</option>
+                                        <option value="Aruba">Aruba</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Azerbaijan">Azerbaijan</option>
+                                        <option value="Bahamas">Bahamas</option>
+                                        <option value="Bahrain">Bahrain</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Barbados">Barbados</option>
+                                        <option value="Belarus">Belarus</option>
+                                        <option value="Belgium">Belgium</option>
+                                        <option value="Belize">Belize</option>
+                                        <option value="Benin">Benin</option>
+                                        <option value="Bermuda">Bermuda</option>
+                                        <option value="Bhutan">Bhutan</option>
+                                        <option value="Bolivia">Bolivia</option>
+                                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                        <option value="Botswana">Botswana</option>
+                                        <option value="Bouvet Island">Bouvet Island</option>
+                                        <option value="Brazil">Brazil</option>
+                                        <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                        <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                        <option value="Bulgaria">Bulgaria</option>
+                                        <option value="Burkina Faso">Burkina Faso</option>
+                                        <option value="Burundi">Burundi</option>
+                                        <option value="Cambodia">Cambodia</option>
+                                        <option value="Cameroon">Cameroon</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Cape Verde">Cape Verde</option>
+                                        <option value="Cayman Islands">Cayman Islands</option>
+                                        <option value="Central African Republic">Central African Republic</option>
+                                        <option value="Chad">Chad</option>
+                                        <option value="Chile">Chile</option>
+                                        <option value="China">China</option>
+                                        <option value="Christmas Island">Christmas Island</option>
+                                        <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Comoros">Comoros</option>
+                                        <option value="Congo">Congo</option>
+                                        <option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
+                                        <option value="Cook Islands">Cook Islands</option>
+                                        <option value="Costa Rica">Costa Rica</option>
+                                        <option value="Cote D'ivoire">Cote D'ivoire</option>
+                                        <option value="Croatia">Croatia</option>
+                                        <option value="Cuba">Cuba</option>
+                                        <option value="Cyprus">Cyprus</option>
+                                        <option value="Czech Republic">Czech Republic</option>
+                                        <option value="Denmark">Denmark</option>
+                                        <option value="Djibouti">Djibouti</option>
+                                        <option value="Dominica">Dominica</option>
+                                        <option value="Dominican Republic">Dominican Republic</option>
+                                        <option value="Ecuador">Ecuador</option>
+                                        <option value="Egypt">Egypt</option>
+                                        <option value="El Salvador">El Salvador</option>
+                                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                        <option value="Eritrea">Eritrea</option>
+                                        <option value="Estonia">Estonia</option>
+                                        <option value="Ethiopia">Ethiopia</option>
+                                        <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                                        <option value="Faroe Islands">Faroe Islands</option>
+                                        <option value="Fiji">Fiji</option>
+                                        <option value="Finland">Finland</option>
+                                        <option value="France">France</option>
+                                        <option value="French Guiana">French Guiana</option>
+                                        <option value="French Polynesia">French Polynesia</option>
+                                        <option value="French Southern Territories">French Southern Territories</option>
+                                        <option value="Gabon">Gabon</option>
+                                        <option value="Gambia">Gambia</option>
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Germany">Germany</option>
+                                        <option value="Ghana">Ghana</option>
+                                        <option value="Gibraltar">Gibraltar</option>
+                                        <option value="Greece">Greece</option>
+                                        <option value="Greenland">Greenland</option>
+                                        <option value="Grenada">Grenada</option>
+                                        <option value="Guadeloupe">Guadeloupe</option>
+                                        <option value="Guam">Guam</option>
+                                        <option value="Guatemala">Guatemala</option>
+                                        <option value="Guernsey">Guernsey</option>
+                                        <option value="Guinea">Guinea</option>
+                                        <option value="Guinea-bissau">Guinea-bissau</option>
+                                        <option value="Guyana">Guyana</option>
+                                        <option value="Haiti">Haiti</option>
+                                        <option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
+                                        <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                                        <option value="Honduras">Honduras</option>
+                                        <option value="Hong Kong">Hong Kong</option>
+                                        <option value="Hungary">Hungary</option>
+                                        <option value="Iceland">Iceland</option>
+                                        <option value="India">India</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+                                        <option value="Iraq">Iraq</option>
+                                        <option value="Ireland">Ireland</option>
+                                        <option value="Isle of Man">Isle of Man</option>
+                                        <option value="Israel">Israel</option>
+                                        <option value="Italy">Italy</option>
+                                        <option value="Jamaica">Jamaica</option>
+                                        <option value="Japan">Japan</option>
+                                        <option value="Jersey">Jersey</option>
+                                        <option value="Jordan">Jordan</option>
+                                        <option value="Kazakhstan">Kazakhstan</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Kiribati">Kiribati</option>
+                                        <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+                                        <option value="Korea, Republic of">Korea, Republic of</option>
+                                        <option value="Kuwait">Kuwait</option>
+                                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                        <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+                                        <option value="Latvia">Latvia</option>
+                                        <option value="Lebanon">Lebanon</option>
+                                        <option value="Lesotho">Lesotho</option>
+                                        <option value="Liberia">Liberia</option>
+                                        <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+                                        <option value="Liechtenstein">Liechtenstein</option>
+                                        <option value="Lithuania">Lithuania</option>
+                                        <option value="Luxembourg">Luxembourg</option>
+                                        <option value="Macao">Macao</option>
+                                        <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                                        <option value="Madagascar">Madagascar</option>
+                                        <option value="Malawi">Malawi</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Maldives">Maldives</option>
+                                        <option value="Mali">Mali</option>
+                                        <option value="Malta">Malta</option>
+                                        <option value="Marshall Islands">Marshall Islands</option>
+                                        <option value="Martinique">Martinique</option>
+                                        <option value="Mauritania">Mauritania</option>
+                                        <option value="Mauritius">Mauritius</option>
+                                        <option value="Mayotte">Mayotte</option>
+                                        <option value="Mexico">Mexico</option>
+                                        <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+                                        <option value="Moldova, Republic of">Moldova, Republic of</option>
+                                        <option value="Monaco">Monaco</option>
+                                        <option value="Mongolia">Mongolia</option>
+                                        <option value="Montenegro">Montenegro</option>
+                                        <option value="Montserrat">Montserrat</option>
+                                        <option value="Morocco">Morocco</option>
+                                        <option value="Mozambique">Mozambique</option>
+                                        <option value="Myanmar">Myanmar</option>
+                                        <option value="Namibia">Namibia</option>
+                                        <option value="Nauru">Nauru</option>
+                                        <option value="Nepal">Nepal</option>
+                                        <option value="Netherlands">Netherlands</option>
+                                        <option value="Netherlands Antilles">Netherlands Antilles</option>
+                                        <option value="New Caledonia">New Caledonia</option>
+                                        <option value="New Zealand">New Zealand</option>
+                                        <option value="Nicaragua">Nicaragua</option>
+                                        <option value="Niger">Niger</option>
+                                        <option value="Nigeria">Nigeria</option>
+                                        <option value="Niue">Niue</option>
+                                        <option value="Norfolk Island">Norfolk Island</option>
+                                        <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                                        <option value="Norway">Norway</option>
+                                        <option value="Oman">Oman</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="Palau">Palau</option>
+                                        <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+                                        <option value="Panama">Panama</option>
+                                        <option value="Papua New Guinea">Papua New Guinea</option>
+                                        <option value="Paraguay">Paraguay</option>
+                                        <option value="Peru">Peru</option>
+                                        <option value="Philippines">Philippines</option>
+                                        <option value="Pitcairn">Pitcairn</option>
+                                        <option value="Poland">Poland</option>
+                                        <option value="Portugal">Portugal</option>
+                                        <option value="Puerto Rico">Puerto Rico</option>
+                                        <option value="Qatar">Qatar</option>
+                                        <option value="Reunion">Reunion</option>
+                                        <option value="Romania">Romania</option>
+                                        <option value="Russian Federation">Russian Federation</option>
+                                        <option value="Rwanda">Rwanda</option>
+                                        <option value="Saint Helena">Saint Helena</option>
+                                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                        <option value="Saint Lucia">Saint Lucia</option>
+                                        <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                                        <option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
+                                        <option value="Samoa">Samoa</option>
+                                        <option value="San Marino">San Marino</option>
+                                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Senegal">Senegal</option>
+                                        <option value="Serbia">Serbia</option>
+                                        <option value="Seychelles">Seychelles</option>
+                                        <option value="Sierra Leone">Sierra Leone</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="Slovakia">Slovakia</option>
+                                        <option value="Slovenia">Slovenia</option>
+                                        <option value="Solomon Islands">Solomon Islands</option>
+                                        <option value="Somalia">Somalia</option>
+                                        <option value="South Africa">South Africa</option>
+                                        <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+                                        <option value="Spain">Spain</option>
+                                        <option value="Sri Lanka">Sri Lanka</option>
+                                        <option value="Sudan">Sudan</option>
+                                        <option value="Suriname">Suriname</option>
+                                        <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                                        <option value="Swaziland">Swaziland</option>
+                                        <option value="Sweden">Sweden</option>
+                                        <option value="Switzerland">Switzerland</option>
+                                        <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                                        <option value="Taiwan">Taiwan</option>
+                                        <option value="Tajikistan">Tajikistan</option>
+                                        <option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+                                        <option value="Thailand">Thailand</option>
+                                        <option value="Timor-leste">Timor-leste</option>
+                                        <option value="Togo">Togo</option>
+                                        <option value="Tokelau">Tokelau</option>
+                                        <option value="Tonga">Tonga</option>
+                                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                        <option value="Tunisia">Tunisia</option>
+                                        <option value="Turkey">Turkey</option>
+                                        <option value="Turkmenistan">Turkmenistan</option>
+                                        <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                                        <option value="Tuvalu">Tuvalu</option>
+                                        <option value="Uganda">Uganda</option>
+                                        <option value="Ukraine">Ukraine</option>
+                                        <option value="United Arab Emirates">United Arab Emirates</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="United States">United States</option>
+                                        <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                                        <option value="Uruguay">Uruguay</option>
+                                        <option value="Uzbekistan">Uzbekistan</option>
+                                        <option value="Vanuatu">Vanuatu</option>
+                                        <option value="Venezuela">Venezuela</option>
+                                        <option value="Viet Nam">Viet Nam</option>
+                                        <option value="Virgin Islands, British">Virgin Islands, British</option>
+                                        <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+                                        <option value="Wallis and Futuna">Wallis and Futuna</option>
+                                        <option value="Western Sahara">Western Sahara</option>
+                                        <option value="Yemen">Yemen</option>
+                                        <option value="Zambia">Zambia</option>
+                                        <option value="Zimbabwe">Zimbabwe</option>
+                                    </select>
+                                    <span class="field-validation-valid text-danger ps-1" style="font-size:14px" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2" id="duitNowPassportNumber">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Passport Number</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's passport number...">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row mb-2" id="duitNowArmyPoliceID">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Army / Police ID</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's army / police ID...">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row mb-2" id="duitNowBusinessRegNum">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Business Registration Number</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's business registration number...">
+                                    
+                                </div>
+                            </div>
+
+                        
+                            <div class="row mb-2" id="duitNowReceipientNames">
+                                <label for="receipientName" class="col-sm-12 col-form-label">Receipient Name</label>
+                                <div class="col-sm-12 mb-2">
+                                    <input type="text" class="form-control mb-2" id="duitNowReceipientName"
+                                        placeholder="Enter Receipient Name">
+
+                                </div>
+                            </div>
+
+
+                            <div class="row mb-2">
+                                <label for="transferAmount" class="col-sm-12 col-form-label">Amount (RM)</label>
+                                <div class="col-sm-12 mb-2">
+                                    <input type="number" class="form-control mb-2" id="duitNowTransferAmount"
+                                        placeholder="Enter Transfer Amount">
+
+
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">                                             
+
+                                    <label class="col-sm-12 col-form-label " for="rrSuggestions">Receipient Reference</label>
+                                
+                                    
+                                    <input type="text" id="duitNowRecRef" class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
+
+
+
+
+                            </div>
+
+                            <div class="row mb-2">
+                                <label for="statementPeriod" class="col-sm-12 col-form-label">Transfer Date</label>
+                                <div class="col-sm-12 mb-2">
+                                    <input type="text" class="form-control bg-white datepicker" id="duitNowEffectiveDatePicker"
+                                        name="duitNowEffectiveDatePicker" placeholder="DD MMM YYYY">
+
+
+
+                                        <!-- <input type="datetime-local" class="form-control bg-white datepicker"> -->
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <label for="reccurTran" class="col-sm-12 col-form-label">Recurring Transaction <span
+                                        class="text-muted">(Optional)</span></label>
+                                <div class="col-sm-5 float-sm-start" id="duitNowRecurrTransactionType">
+
+                                    <select class="form-select" id="duitNowRecurrTranSelect"
+                                        aria-label="Default select example">
+                                        <option selected class="text-muted ms-2" value="None">None</option>
+                                        <option>Daily</option>
+                                        <option>Weekly</option>
+                                        <option>Monthly</option>
+                                        <option>Quarterly</option>
+                                        <option>Half-Yearly</option>
+                                        <option>Yearly</option>
+                                    </select>
+                    
+                                    <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                                        data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="col-sm-5 float-sm-end" id="duitNowRecurrTransactionTimes">
+
+                                    <select class="form-select" id="duitNowRecurrTranTimesSelect"
+                                    aria-label="Default select example">
+                                    <!-- <option selected class="text-muted ms-2" value="None">None</option> -->
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            
+                            <div class="row mb-2" id="duitNowReceipientNotification">
+                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Receipient <span class="text-muted">(Optional)</span></label>
+                                
+                                
+                                    <div class="col-sm-12 mb-2">
+                                        <input id="duitNowEmailCheckbox" type="checkbox" class="form-check-input"/>
+
+                                        <label for="duitNowEmailCheckbox" id="duitNowEmailCheckbox" class="form-check-label">Email</label>
+
+                                        <!-- <input type="email" for="emailCheckbox" id="emailCheckboxes" class="col-sm-10 float-sm-end" disabled/> -->
+                                        <div class="col-sm-10 mb-1 float-sm-end">
+                                            <input type="email" for="duitNowEmailCheckbox" class="form-control mb-2 pb-0 pt-0 py-2 px-2"  id="duitNowEmailCheckboxes"  disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 mb-2">
+                                        <input  id="duitNowSmsCheckbox" type="checkbox" class="form-check-input"/>
+
+                                        <label for="duitNowSmsCheckbox" id="duitNowSmsCheckbox" class="form-check-label">SMS</label>
+                                        
+                                        <!-- <input type="email" for="emailCheckbox" id="emailCheckboxes" class="col-sm-10 float-sm-end" disabled/> -->
+                                        <div class="col-sm-10 mb-1 float-sm-end">
+                                            <input type="text" for="duitNowSmsCheckbox" class="form-control mb-2 pb-0 pt-0 py-2 px-2"  id="duitNowSmsCheckboxes"  disabled>
+
+                                            
+                                        </div>
+                                    </div>
+    
+
+                                
+                        
+                            </div>
+
+
+                            <div class="row mb-2" id="checkBoxDiv">
+                                    
+
+                                <div class="form-check mt-4">
+                                    <input id="duitNowCheckbox" type="checkbox" class="form-check-input"/>
+                                    <label for="duitNowCheckbox" class="form-check-label">By checking this checkbox, I acknowledge that I have read, understand and agree to be bound by the<a href="#"> Terms and Conditions</a>.</label>
+                                </div>
+                            </div>
+
+                            <div class="row my-5 last-row">
+                                <div class="col-12">
+                                    <a class="btn btn-dark col-5 col-sm-3 me-sm-2 col-lg-5 col-xxl-3"
+                                        href="@Url.Action(" CardSettings", "Home" )"> Back
+                                    </a>
+                                    <a
+                                        class="btn btn-outline-primary btnDuitNowReset col-5 float-end col-sm-3 float-sm-none col-lg-5 float-lg-end float-xxl-none col-xxl-3">
+                                        Clear </a>
+                                    <a id="firstDuitNowNext"
+                                        class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0 disabled"
+                                        data-bs-toggle="modal" href="#" role="button">Next</a>
+                                        <!-- <a id="firstDuitNowNext"
+                                        class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0 disabled"
+                                        data-bs-toggle="modal" href="#exampleModalToggle" role="button">Next</a> -->
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <div class="alert alert-info col-10 col-sm-10 col-xxl-18 col-lg-12 rounded-8 shadow-sm" role="alert" id="duitNowSafeguardNote">
+                            <!-- <div class="alert alert-info col-12 col-lg-5 mt-lg-4 border-end-xl px-4 rounded-8 shadow-sm" role="alert" id="safeguardNote"> -->
+
+                            <b>Note</b><br>
+                            <ul>
+                                <li>The new transfer service is applicable to funds transfer to other banks within Malaysia only. Funds will be debited from the applicant's account and credited into the beneficiary's account immediately.</li>
+                                <li>
+                                    The service is only available during our operating hours 12:05 a.m. - 12 midnight.
+                                </li>
+
+                                <li>
+                                    The third party fund transfer limit is RM20,000.00 (PAC) and RM50,000.00 (SecureSign).
+                                </li>
+                                <li>
+                                    The limit for a single transaction is at a maximum value of RM10,000.00 per transaction using PAC.
+                                </li>
+                                <li>
+                                    New Transfers will not be initiated if Beneficiary's Bank rejects or is unable to confirm the transaction into the particular account. During such occurrences, the funds will be credited back into your account.
+                                </li>
+
+                                <li>
+                                    The default third party transaction limit is RM3,000.00. This daily limit can be increased or decreased by selecting Profile Maintenance / Manage Profile / Change Daily Limit.
+                                </li>
+
+
+                            </ul>
+                        </div> 
+
+                    </div>
+
+                    <div hidden id="thirdDuitNowPage" class="col-12 col-lg-5 mt-lg-4 border-end-xl px-4">
+
+                        <h3 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">DuitNow Transfer</h3>
+                    
+                        <div class="row">
+                    
+                            <div class="col-12">
+                                <!-- <h6>Your Frequent Transaction</h6> -->
+                                <p class="small" style="font-size: 20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Fill in the required details below to perform a DuitNow Transfer.
+                                </p>
+                            </div>
+                    
+                        </div>
+                    
+                        <form>
+                    
+                            <div class="row mb-2">
+                                <label for="accType" class="col-sm-12 col-form-label">From Account</label>
+                                <div class="col-sm-12 mb-2">
+                    
+                                    <select class="form-select" disabled id="duitNowUserAccountDisable" aria-label="Default select example">
+                                        <option>Savings - 2303042340032 (RM 500,204)</option>
+                                    </select>
+                                    <!-- <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                                        data-valmsg-replace="true"></span> -->
+                                </div>
+                            </div>
+
+                            
+                            <div class="row mb-2">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Receipient DuitNow ID Type</label>
+                                <div class="col-sm-12 mb-2">
+                
+                                    <select class="form-select" disabled id="duitNowTypes" aria-label="Default select example">
+                                        <option value="icNum">I/C Number</option>
+                              
+                                    </select>
+                             
+                                </div>
+                            </div>
+
+                            <div class="row mb-2" id="duitNowIC">
+                                <label for="tranAmount" class="col-sm-12 col-form-label">I/C Number</label>
+                                <div class="col-sm-12">
+                                    <input type="text" disabled class="form-control mb-2" placeholder="000123-45-6789">
+                                    
+                                </div>
+                            </div>
+
+                    
+                    
+                            <div class="row mb-2" id="duitNowReceipientNames">
+                                <label for="duitNowReceipientName" class="col-sm-12 col-form-label">Receipient Name</label>
+                                <div class="col-sm-12 mb-2">
+                          
+                                    <input type="text" class="form-control mb-2" id="duitNowReceipientNameDisabled"
+                                        placeholder="Bob" disabled>
+                                </div>
+                            </div>
+                    
+                    
+                            <div class="row mb-2">
+                                <label for="transferAmount" class="col-sm-12 col-form-label">Amount (RM)</label>
+                                <div class="col-sm-12 mb-2">
+                    
+                                        <input type="number" class="form-control mb-2"  id="duitNowTransferAmountDisabled"
+                                        placeholder="400" disabled>
+                    
+                                </div>
+                            </div>
+                    
+                            <div class="row mb-2">                                             
+                    
+                                    <label class="col-sm-12 col-form-label " for="rrSuggestions">Receipient Reference</label>
+                                
+                                    
+                    
+                                    <input type="text" id="duitNowRecRefDisabled" placeholder="Groceries" disabled class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
+                    
+                    
+                    
+                            </div>
+                    
+                            <div class="row mb-2">
+                                <label for="statementPeriod" class="col-sm-12 col-form-label">Transfer Date</label>
+                                <div class="col-sm-12 mb-2">
+                           
+                                        <input type="text" class="form-control bg-white datepicker"  id="duitNowEffectiveDatePickerDisabled"
+                                        name="duitNowEffectiveDatePicker" placeholder="23/02/2022" disabled>
+                    
+                                        <!-- <input type="datetime-local" class="form-control bg-white datepicker"> -->
+                                </div>
+                            </div>
+                    
+                            <div class="row mb-2">
+                                <label for="reccurTran" class="col-sm-12 col-form-label">Recurring Transaction <span
+                                        class="text-muted">(Optional)</span></label>
+                                <div class="col-sm-5 float-sm-start" style="margin-right: 16.5%;">
+                                    
+                                    <select class="form-select" disabled id="duitNowReccurTranSelectDisabled"
+                                        aria-label="Default select example">
+                                   
+                                        <option>Monthly</option>
+                                    </select>
+                                    <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                                        data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="col-sm-5 float-end" id="duitNowRecurrTransactionTimes">
+
+                                    <select class="form-select" disabled id="duitNowRecurrTranTimesSelect"
+                                    aria-label="Default select example">
+                                    <!-- <option selected class="text-muted ms-2" value="None">None</option> -->
+                                    <option>10</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                    
+                            
+                            <div class="row mb-2" id="duitNowReceipientNotification">
+                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Receipient <span class="text-muted">(Optional)</span></label>
+                                
+                                
+                                    <div class="col-sm-12 mb-2">
+                                        <input  id="duitNowEmailCheckboxDisabled" type="checkbox" class="form-check-input" checked disabled/>
+                    
+                                        <label for="duitNowEmailCheckbox" id="duitNowEmailCheckboxDisabled" class="form-check-label" disabled>Email</label>
+                    
+                                        <!-- <input type="email" for="emailCheckbox" id="emailCheckboxes" class="col-sm-10 float-sm-end" disabled/> -->
+                                        <div class="col-sm-10 mb-1 float-sm-end">
+                                            <input type="email" for="duitNowEmailCheckbox" class="form-control mb-2 pb-0 pt-0 py-2 px-2" id="duitNowEmailCheckboxesDisabled" placeholder="bob2932@gmail.com"  disabled>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="col-sm-12 mb-2">
+                                        <input id="duitNowSmsCheckboxDisabled" type="checkbox" class="form-check-input" disabled/>
+                    
+                                        <label for="duitNowSmsCheckbox" id="duitNowSmsCheckboxDisabled" class="form-check-label" disabled>SMS</label>
+                                        
+                                        <!-- <input type="email" for="emailCheckbox" id="emailCheckboxes" class="col-sm-10 float-sm-end" disabled/> -->
+                                        <div class="col-sm-10 mb-1 float-sm-end">
+                    
+                                            <input type="text" for="duitNowSmsCheckbox" class="form-control mb-2 pb-0 pt-0 py-2 px-2" id="duitNowSmsCheckboxesDisabled"  disabled>
+                    
+                                            
+                                        </div>
+                                    </div>
+                    
+                                    <!-- <div class="col-sm-12 mb-2">
+                                        <input id="smsCheckbox" type="checkbox" class="form-check-input"/>
+                                        <label for="smsCheckbox" class="form-check-label ">SMS</label>
+                                        <input type="text" for="smsCheckbox" id="smsCheckboxes" class="col-sm-10 float-sm-end" disabled/>
+                                    </div> -->
+                                    
+                                
+                        
+                            </div>
+                    
+                            <!-- <div class="row mb-2 justify-content-between"  id="duitNowPacDiv">
+                    
+                                <label for="tranAmount" class="col-sm-12 col-form-label">PAC</label>
+                    
+                                <div class="col-7 col-sm-8 col-md-9 col-lg-7 col-xl-8">
+                                    <input type="text" class="form-control" id="PAC">
+                                </div>
+                    
+                                <div
+                                    class="col-5 col-sm-4 col-md-3 col-lg-5 col-xl-4 ps-0 text-end text-lg-center mt-0">
+                                    <a class="btn btn-info reqDuitNowPacBtn text-white float-lg-end">Request PAC</a>
+                                </div>
+                    
+                                <div class="description mt-1">
+                                    <span>Didn't get the code?</span>
+                                    <a hidden href="#" id="ResendPAC"
+                                        class="text-decoration-none ms-3 mb-2">Resend(1/3)</a>
+                                    <p class="text-muted">A 6 digit PAC will be sent to your registered mobile phone
+                                        number
+                                        *****6168. Please click "Request PAC" if you wish to proceed</p>
+                                    <p class="timerText" hidden>Time remaining: <span id="duitNowTime"
+                                            style="color:#d64354"></span>
+                                    </p>
+                                </div>
+                            </div> -->
+                            
+                            <div class="row myFA1 mb-2">
+                                <label class="col-sm-12 col-form-label">Approve this transaction with</label>
+    
+                                <div class="col-sm-12 mb-2">
+                                    <select class="form-select" aria-label="Default select example" id="duitNowAuthMethod">
+                                        <option value="" disabled selected>Please select your approval method</option>
+                                        <option value="duitNowNoti">PB SecureSign (Push Notification)</option>
+                                        <option value="duitNowSecure">PB SecureSign (SecurePAC)</option>
+                                        <option value="duitNowToken">SecureSign Token</option>
+                                        <option value="duitNowPac">SMS PAC</option>
+                                    </select>
+    
+    
+                                </div>
+                                <div class="col-sm-3 ps-sm-1 duitNowAuthConfirmBtn" hidden>
+                                    <button class="btn btn-danger bg-primary col-12">Confirm</button>
+                                </div>
+    
+                                <div class="col-sm-12 duitNowAuthField" hidden>
+    
+                                    <div class="row justify-content-between  myFA2" id="duitNowPac" mt-2>
+    
+                                        <div class="zz col-3 col-lg-2 col-xxl-3">
+                                            <label for="PAC" class="col-sm-3 col-form-label">
+                                                <img src="/puvan/icon/twoFA/otp.png" alt="" width="100" height="100">
+                                            </label>
+                                        </div>
+    
+                                        <div class="col-8 col-md-9 row d-block d-md-none" id="duitNowPacTextandBtn">
+    
+                                            <div class="digitPac col-12 col-md-6 col-lg-8">
+    
+                                                <input type="text" class="form-control mt-2 mt-lg-0" id="duitNowPAC">
+    
+                                            </div>
+    
+                                            <div class="col-12 col-md-3">
+                                                <button type="button"
+                                                    class="col-12 reqDuitNowPacBtn pac btn btn-info pac text-white float-lg-end mt-2"
+                                                    id="reqDuitNowPacBtn">
+                                                    Request
+                                                    PAC
+                                                </button>
+                                            </div>
+    
+                                        </div>
+    
+                                        <div class="col-12 d-block d-md-none">
+                                            <p class="text-muted">
+                                                A 6 digit PAC will be sent to your registered mobile phone
+                                                number
+                                                ***6168. Please click "Request PAC" if you wish to proceed
+                                            </p>
+    
+                                        </div>
+    
+                                        <div class="digitPac col-md-5 col-xxl-5 d-none d-md-block">
+    
+                                            <input type="text" class="form-control mt-2" id="duitNowPAC">
+    
+                                            <p class="text-muted  d-none d-md-block">
+                                                A 6 digit PAC will be sent to your registered mobile phone
+                                                number
+                                                ***6168. Please click "Request PAC" if you wish to proceed
+                                            </p>
+    
+                                        </div>
+    
+                                        <div class=" col-12 col-md-3 ps-md-1 d-none d-md-block">
+                                            <button type="button" class="reqDuitNowPacBtn col-12 btn btn-info pac text-white  mt-2"
+                                                id="reqDuitNowPacBtn">
+                                                Request
+                                                PAC
+                                            </button>
+                                        </div>
+    
+                                    </div>
+    
+                                    <div class="row myFA3 d-none" id="duitNowToken" mt-2>
+    
+                                        <div class="zz col-3">
+                                            <label for="hToken" class="col-sm-3 col-form-label">
+                                                <img src="/puvan/icon/twoFA/securesigntoken.png" alt="" width="90"
+                                                    height="120">
+                                            </label>
+                                        </div>
+    
+                                        <div class="col-9">
+    
+                                            <p class="text-muted my-2" id="duitNowTokenText">
+                                                Switch on your SecureSign token and follow the instrution
+                                                below to
+                                                generate on your SecureSign Code.
+                                            </p>
+    
+                                            <ol class="d-none d-md-block">
+                                                <li>Press "sign" button. You will see a '1' display on the screen.</li>
+                                                <li>Enter xxxxx and press 'OK'.</li>
+                                                <li>You will see a '2" dispaly on screen.</li>
+                                                <li>Enter xxxx and press 'OK.'</li>
+                                                <li>The SecureSign will be displayed on screen.</li>
+                                            </ol>
+    
+                                            <input type="text" class="form-control mt-0" id="duitNowhToken"
+                                                placeholder="Enter your SecureSign Code">
+    
+                                        </div>
+    
+                                        <div class="col-12 d-block d-md-none mt-2">
+                                            <ol>
+                                                <li>Press "sign" button. You will see a '1' display on the screen.</li>
+                                                <li>Enter xxxxx and press 'OK'.</li>
+                                                <li>You will see a '2" dispaly on screen.</li>
+                                                <li>Enter xxxx and press 'OK.'</li>
+                                                <li>The SecureSign will be displayed on screen.</li>
+                                            </ol>
+                                        </div>
+    
+                                    </div>
+    
+                                    <div class="row myFA4 d-none" id="duitNowNoti" mt-2>
+    
+                                        <div class="zz col-3 col-lg-3 col-xl-2">
+                                            <label for="notification" class="col-sm-3 col-form-label">
+                                                <img src="/puvan/icon/twoFA/success.png" alt="" width="90" height="90">
+                                            </label>
+                                        </div>
+    
+                                        <div class="col-md-6 col-lg-6 col-xl-7 col-9 mt-2 mt-lg-0">
+    
+                                            <p id="duitNowNotiText" class="px-4">
+                                                A push notification will be sent to your mobile phone. Please verify the
+                                                details
+                                                at
+                                                your PB SecureSign screen before approving transaction.
+                                            </p>
+    
+                                        </div>
+    
+                                        <div class="d-block d-md-none">
+                                            <a class="btn btn-info pac text-white float-lg-end w-100" data-bs-toggle="modal"
+                                                data-bs-target="#duitNowStaticBackdropPhone">Push Notification</a>
+    
+                                            <!-- Modal -->
+    
+                                            <div class="modal fade" id="duitNowStaticBackdropPhone" data-bs-backdrop="static"
+                                                data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropPhoneLabel" aria-hidden="true">
+    
+                                                <div class="modal-dialog modal-dialog-centered">
+    
+                                                    <div class="modal-content">
+    
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="duitNowStaticBackdropLabel">
+                                                                PB SecureSign
+                                                            </h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+    
+                                                        <div class="modal-body">
+    
+                                                            <div class="container-fluid">
+    
+                                                                <div class="row">
+    
+                                                                    <div class="col-sm-12 d-flex justify-content-center">
+                                                                        <img src="/puvan/icon/twoFA/animation_500_kugn1p08.gif"
+                                                                            alt="" width="300" height="300">
+                                                                    </div>
+    
+                                                                    <div class="col-sm-12">
+                                                                        <p>
+                                                                            Please check your mobile device (iPhone 13)
+                                                                            for a
+                                                                            push
+                                                                            notification to approve the transacion
+                                                                        </p>
+                                                                    </div>
+    
+                                                                    <div class="col-sm-12">
+    
+                                                                        <div class="progress">
+    
+                                                                            <div class="progress-bar bg-danger active"
+                                                                                role="progressbar" aria-valuenow="0"
+                                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                                style="width:0%">
+                                                                            </div>
+    
+                                                                        </div>
+    
+                                                                    </div>
+    
+                                                                </div>
+    
+                                                            </div>
+    
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+    
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-md-3 col-9 ps-md-1 d-none d-md-block">
+                                            <button type="button" class="btn btn-info col-12 pac text-white  mt-2" data-bs-toggle="modal"
+                                                data-bs-target="#duitNowStaticBackdrop">Push Notification</button>
+
+                                            <!-- Modal -->
+    
+                                            <div class="modal fade" id="duitNowStaticBackdrop" data-bs-backdrop="static"
+                                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="duitNowStaticBackdropLabel"
+                                                aria-hidden="true">
+    
+                                                <div class="modal-dialog modal-dialog-centered">
+    
+                                                    <div class="modal-content">
+    
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="duitNowStaticBackdropLabel">
+                                                                PB SecureSign
+                                                            </h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+    
+                                                        <div class="modal-body">
+    
+                                                            <div class="container-fluid">
+    
+                                                                <div class="row">
+    
+                                                                    <div class="col-sm-12 d-flex justify-content-center">
+                                                                        <img src="/puvan/icon/twoFA/animation_500_kugn1p08.gif"
+                                                                            alt="" width="300" height="300">
+                                                                    </div>
+    
+                                                                    <div class="col-sm-12">
+                                                                        <p>
+                                                                            Please check your mobile device (iPhone 13) for a
+                                                                            push
+                                                                            notification to approve the transacion
+                                                                        </p>
+                                                                    </div>
+    
+                                                                    <div class="col-sm-12">
+    
+                                                                        <div class="progress">
+    
+                                                                            <div class="progress-bar bg-danger active"
+                                                                                role="progressbar" aria-valuenow="0"
+                                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                                style="width:0%">
+                                                                            </div>
+    
+                                                                        </div>
+    
+                                                                    </div>
+    
+                                                                </div>
+    
+                                                            </div>
+    
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+    
+                                            </div>
+    
+                                        </div>
+    
+                                    </div>
+    
+                                    <div class="row myFA5 d-none" id="duitNowSecure" mt-2>
+    
+                                        <div class="zz col-3">
+                                            <label for="duitNowSecure" class="col-sm-3 col-form-label">
+                                                <img src="/puvan/icon/twoFA/kp2.png" alt="" width="90" height="90">
+                                            </label>
+                                        </div>
+    
+                                        <div class="col-9">
+    
+                                            <p class="text-muted mt-1" id="duitNowSecureText">
+                                                Open your PB engage mobile app and follow the instruction
+                                                below to
+                                                generate your SecurePac
+                                            </p>
+    
+                                            <ol class="d-none d-sm-block">
+                                                <li>Launch your PB engage mobile app.</li>
+                                                <li>From the side menu, select "PB SecureSign".</li>
+                                                <li>Verify the transaction details before you click "proceed".</li>
+                                                <li>Enter your SecurePIN or authentucate with your fingerpint/Face ID</li>
+                                                <li>The 6 digits SecurePAC will be displayed on the screen</li>
+                                            </ol>
+    
+                                            <input type="text" class="form-control d-none d-sm-block" id="duitNowSecure"
+                                                placeholder="Enter SecurePAC">
+    
+                                        </div>
+    
+                                        <div class="col-12 d-block d-sm-none">
+    
+                                            <ol>
+                                                <li>Launch your PB engage mobile app.</li>
+                                                <li>From the side menu, select "PB SecureSign".</li>
+                                                <li>Verify the transaction details before you click "proceed".</li>
+                                                <li>Enter your SecurePIN or authentucate with your fingerpint/Face ID</li>
+                                                <li>The 6 digits SecurePAC will be displayed on the screen</li>
+                                            </ol>
+    
+                                            <input type="text" class="form-control d-block d-lg-none" id="duitNowSecure"
+                                                placeholder="Enter SecurePAC">
+    
+                                        </div>
+    
+                                    </div>
+    
+                                    <p class="timerText" hidden>Time remaining: <span id="duitNowTime"
+                                            style="color:#d64354"></span></p>
+    
+                                </div>
+
+    
+                            </div>
+
+                            <div class="row mb-2" id="duitNowCheckBoxDiv">
+                                    
+                    
+                                <div class="form-check mt-4">
+                                    <input id="duitNowCheckbox" type="checkbox" class="form-check-input"/>
+                                    <label for="duitNowCheckbox" class="form-check-label">By checking this checkbox, I acknowledge that I have read, understand and agree to be bound by the<a href="#"> Terms and Conditions</a>.</label>
+                                </div>
+                            </div>
+                    
+                            <div class="row my-5 last-row">
+                                <div class="col-12">
+                                    <a class="btn btn-dark float-start" id="secondDuitNowBack"> Back
+                                    </a>
+                                    <!-- <a class="btn btn-outline-primary btnReset col-5 float-end col-sm-3 float-sm-none col-lg-5 float-lg-end float-xxl-none col-xxl-3">
+                                        Clear </a> -->
+                                    <!-- <a id="firstDuitNowNext"
+                                        class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0 disabled"
+                                        data-bs-toggle="modal" href="#" role="button">Next</a> -->
+                                        <!-- <a id="secondDuitNowNext"
+                                        class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0 disabled"
+                                        data-bs-toggle="modal" href="#exampleModalToggle" role="button">Next</a> -->
+                                        <a id="secondDuitNowNext"
+                                        class="btn btn-primary float-end disabled"
+                                        data-bs-toggle="modal" href="#" role="button">Next</a>
+                                </div>
+                            </div>
+                    
+                        </form>
+                    
+                        <div class="alert alert-info col-10 col-sm-10 col-xxl-18 col-lg-12 rounded-8 shadow-sm" role="alert" id="safeguardNote">
+                            <!-- <div class="alert alert-info col-12 col-lg-5 mt-lg-4 border-end-xl px-4 rounded-8 shadow-sm" role="alert" id="safeguardNote"> -->
+                    
+                            <b>Note</b><br>
+                            <ul>
+                                <li>The new transfer service is applicable to funds transfer to other banks within Malaysia only. Funds will be debited from the applicant's account and credited into the beneficiary's account immediately.</li>
+                                <li>
+                                    The service is only available during our operating hours 12:05 a.m. - 12 midnight.
+                                </li>
+                    
+                                <li>
+                                    The third party fund transfer limit is RM20,000.00 (PAC) and RM50,000.00 (SecureSign).
+                                </li>
+                                <li>
+                                    The limit for a single transaction is at a maximum value of RM10,000.00 per transaction using PAC.
+                                </li>
+                                <li>
+                                    New Transfers will not be initiated if Beneficiary's Bank rejects or is unable to confirm the transaction into the particular account. During such occurrences, the funds will be credited back into your account.
+                                </li>
+                    
+                                <li>
+                                    The default third party transaction limit is RM3,000.00. This daily limit can be increased or decreased by selecting Profile Maintenance / Manage Profile / Change Daily Limit.
+                                </li>
+                    
+                    
+                            </ul>
+                        </div> 
+                    
+                    </div>
+
                     <!-- Favourite -->
                     <div class="col-lg-6 mt-lg-4 d-lg-block d-none ps-5" id='favAccList'>
                         <h3 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Favourites</h3>
@@ -2169,6 +3304,412 @@
         </div>
     </div>
 
+    
+    <!-- First DuitNow Modal -->
+    <div class="modal fade" id="duitNowExampleModalToggle" aria-hidden="true" aria-labelledby="duitNowExampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg p-3 p-sm-auto">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div class="col-12">
+                        <h3 class="mb-2 ms-1">Confirmation</h3>
+                        <label class="ms-1">Check and ensure all the details are correct before
+                            proceeding to
+                            complete the transaction.</label>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="p-2 shadow-sm bg-white rounded-8 mb-2">
+
+                        <div class="row py-1 px-3 justify-content-between">
+
+                            <div class="col-9 bankDetail float-start p-0">
+
+                                <div class="row">
+
+                                    <div class="col-3 col-md-2 col-lg-3 col-xl-2">
+                                        <span><img src="images/maybanklogo.png" style="  height: 65px;" /></span>
+                                    </div>
+
+                                    <div class="col-8 ms-2 ms-sm-0 ps-sm-0 ps-md-1 ps-xl-4 ps-xxl-3">
+                                        <p class="col-12 fw-bold fs-6 mb-0">
+                                            Maybank Berhad</p>
+                                        <p class="text-muted mb-0">000123-10-5678</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-2 p-0">
+                                <div class="badge border-danger text-danger float-end">Favourite
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="p-4 shadow bg-white rounded-8">
+
+                        <div class="row mb-3">
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                <label for="paymentType">From Account
+                                </label>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                <label for="message-text">432432324 (Savings)</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                <label for="paymentType">Recipient
+                                    Name
+                                </label>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                <label for="message-text">MUHAMMAD AIMAN BIN
+                                    ISKANDAR</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                <label for="paymentType">DuitNow Type
+                                </label>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                <label for="message-text">I/C No</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                <label for="paymentType">Amount (RM)
+                                </label>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                <label for="message-text">5.00</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                <label for="paymentType">Recipient Reference
+                                </label>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                <label for="message-text">Travel</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                <label for="paymentType">Recurring Transaction
+                                </label>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                <label for="message-text">None</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                <label for="paymentType">Transfer Date
+                                </label>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                <label for="message-text">4 May 2018</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <div class="row my-1 last-row">
+                        <div class="col-12 px-0">
+                            <a class="btn btn-dark float-start"> Back </a>
+                            <a id="secondDuitNowNext" class="btn btn-primary ms-2 float-end"> Confirm </a>
+                        </div>
+                        <!-- <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                         data-bs-toggle="modal">Open second modal</button> -->
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Second DuitNow Modal -->
+    <div class="modal fade" id="duitNowExampleModalToggle2" aria-hidden="true" aria-labelledby="duitNowExampleModalToggleLabel2"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered mt-5 pt-4 p-3 p-sm-auto" style="max-width: 600px;">
+            <div class="modal-content modal-content-bg-none">
+
+                <div class="modal-body bg-transparent p-0">
+
+                    <div class="col-12 pb-2 px-3 bg-white rounded-8 shadow-sm ">
+
+                        <div class="row">
+
+                            <div class="col-12 text-center">
+
+                                <div class="successIcon text-start pt-3">
+                                    <svg class="checkmark mx-auto mb-4" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 52 52">
+                                        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                    </svg>
+                                </div>
+
+                                <!-- <img src="/puvan/icon/suplementary/success.png" class="img-fluid"
+                         style="width: 85px; margin-top: 30px" /> -->
+
+                            </div>
+
+                            <div class="col-12 text-center pb-3">
+                                <h3>RM 5.00</h3>
+
+                                <p class="text-muted small">Successfully Sent</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row dashed_line px-1">
+                            <hr>
+                        </div>
+
+                        <div class="row border-bottom px-1">
+
+                            <div class="receipt-body my-3">
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">Reference Number
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">58321</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">Recipient Bank
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">Maybank Berhad</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">Recipient DuitNow ID
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">000123-10-5678</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">Recipient
+                                            Name
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">MUHAMMAD AIMAN BIN
+                                            ISKANDAR</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">DuitNow Type
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">I/C No</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">Amount (RM)
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">5.00</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">Recipient Reference
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">Travel</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">Transfer Date
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">4 May 2018</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">Recurring Transaction
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">None</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">From Account
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">432432324 (Savings)</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="paymentType">Date / Time
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <label for="message-text">4 May 2018 / 12:59:12pm</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row my-4 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-outline-danger float-start col-4 col-md-3 col-lg-4 col-xxl-3"
+                                    style="min-width: 0;"> Print </a>
+                                <a id="thirdDuitNowNext"
+                                    class="btn btn-outline-danger col-7 col-md-5 col-lg-7 col-xxl-5 float-end float-md-none float-lg-end float-xxl-none ms-md-2 ms-lg-0 ms-xxl-2">
+                                    <span><i class="far fa-heart"></i></span>
+                                    <span class="ms-2">Set as Favourite</span>
+                                </a>
+                                <a id="fourthDuitNowNext" data-bs-dismiss="modal" aria-label="Close"
+                                    class="btn btn-primary mt-2 mt-md-0 mt-lg-2 mt-xxl-0 float-none float-md-end float-lg-none float-xxl-end col-12 col-md-3 col-lg-12 col-xxl-3">
+                                    Done </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- <div class="modal-footer">
+                 <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+             </div> -->
+
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+
+    
+
+    
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -2194,6 +3735,9 @@
         var oneMin= 60; //60 seconds (1 minute)
         var confirmationModal = new bootstrap.Modal(document.getElementById('exampleModalToggle'));
         var receiptModal = new bootstrap.Modal(document.getElementById('exampleModalToggle2'));
+        var duitNowConfirmationModal = new bootstrap.Modal(document.getElementById('duitNowExampleModalToggle'));
+        var duitNowReceiptModal = new bootstrap.Modal(document.getElementById('duitNowExampleModalToggle2'));
+
 
         $('#bankSearchBar').on('keyup', function () {
             myBank2Function();
@@ -2338,6 +3882,18 @@
             }
         });
 
+        
+        $('#duitNowEffectiveDatePicker').daterangepicker({
+            singleDatePicker: true,
+            "drops": "right",
+            minDate: new Date(),
+            "locale": {
+                "format": "DD MMM YYYY",
+            }
+        });
+
+        
+
 
         $('.reqPacBtn').on('click', function () {
             Swal.fire(
@@ -2350,6 +3906,20 @@
             $('.reqPacBtn').addClass('disabled');
             $('.timerText').prop("hidden", false);
             display = $('#time');
+            startTimer(oneMin, display);
+        })
+
+        $('.reqDuitNowPacBtn').on('click', function () {
+            Swal.fire(
+                'OTP is Sent!',
+                'OTP sent to your phone number 012 - * * * * 123',
+                'success'
+            )
+            // $('#firstDuitNowNext').removeClass('disabled');
+            $('#secondDuitNowNext').removeClass('disabled');
+            $('.reqDuitNowPacBtn').addClass('disabled');
+            $('.timerText').prop("hidden", false);
+            display = $('#duitNowTime');
             startTimer(oneMin, display);
         })
 
@@ -2372,6 +3942,7 @@
                     clearInterval(timerInterval);
                     timer = duration;
                     $('.reqPacBtn').removeClass('disabled');
+                    $('.reqDuitNowPacBtn').removeClass('disabled');
                     $('.timerText').prop("hidden", true);
                 }
             }, 1000);
@@ -2417,6 +3988,46 @@
             $(this).attr('disabled', true);
         });
 
+        $('#duitNowAuthMethod').change(function () {
+            var selectedIndex = $(this).children('option:selected').index();
+            if (selectedIndex != 0) {
+                $(this).parent().removeClass('col-sm-12').addClass('col-sm-9');
+                $(this).parent().siblings('.duitNowAuthConfirmBtn').attr('hidden', false);
+            }
+
+            var cases = $("#duitNowAuthMethod option:selected").val();
+            if (cases == "duitNowPac") {
+                $("#duitNowPac").removeClass("d-none");
+                $("#duitNowSecure").addClass("d-none");
+                $("#duitNowNoti").addClass("d-none");
+                $("#duitNowToken").addClass("d-none");
+            }
+            if (cases == "duitNowToken") {
+                $("#duitNowToken").removeClass("d-none");
+                $("#duitNowPac").addClass("d-none");
+                $("#duitNowSecure").addClass("d-none");
+                $("#duitNowNoti").addClass("d-none");
+            }
+            if (cases == "duitNowSecure") {
+                $("#duitNowSecure").removeClass("d-none");
+                $("#duitNowPac").addClass("d-none");
+                $("#duitNowToken").addClass("d-none");
+                $("#noti").addClass("d-none");
+            }
+            if (cases == "duitNowNoti") {
+                $("#duitNowNoti").removeClass("d-none");
+                $("#duitNowPac").addClass("d-none");
+                $("#duitNowToken").addClass("d-none");
+                $("#duitNowSecure").addClass("d-none");
+            }
+        });
+
+        $('.duitNowAuthConfirmBtn button').click(function () {
+            $(this).parent().siblings().find('#duitNowAuthMethod').attr('disabled', true);
+            $(this).parent().siblings('.duitNowAuthField').attr('hidden', false);
+            $(this).attr('disabled', true);
+        });
+
         var progressBar = $('.progress-bar');
         var progressNumber = 0;
 
@@ -2441,6 +4052,21 @@
             $('form')[0].reset();
         });
 
+        $('.btnDuitNowReset').on('click', function () {
+            $(".dropdown ul li").css("color", "inherit");
+
+            $('#duitNowMobile').hide();
+            $('#duitNowIC').hide();
+            $('#duitNowPassportCountry').hide();
+            $('#duitNowPassportNumber').hide();
+            $('#duitNowArmyPoliceID').hide();
+            $('#duitNowBusinessRegNum').hide();
+            $("#duitNowRecurrTransactionTimes").hide();
+            $("#duitNowRecurrTransactionType").removeClass("col-sm-5 float-sm-start");
+            $("#duitNowRecurrTransactionType").addClass("col-sm-12"); 
+            $('#duitNowForm')[0].reset();
+        });
+
         var bankName;
         $('#myUL li').click(function () {
             $('#receipientName').val($(this).find('#favName').text());
@@ -2456,7 +4082,8 @@
         });
 
         $('#firstNext').removeClass('disabled');
-        
+    
+        $('#firstDuitNowNext').removeClass('disabled');
 
 
         $('#firstNext').on('click', function() {
@@ -2466,6 +4093,15 @@
 
 
         })
+
+        $('#firstDuitNowNext').on('click', function() {
+
+            $('#secondDuitNowPage').attr('hidden', true);
+            $('#thirdDuitNowPage').attr('hidden', false);
+
+
+        })
+
 
         $('#secondNext').on('click', function () {
 
@@ -2497,6 +4133,36 @@
             })
         });
 
+        $('#secondDuitNowNext').on('click', function () {
+
+            Swal.fire({
+                title: 'Do you want to proceed the transaction?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Confirm',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'alertFontStyle'
+                }
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Your transaction has been submitted!',
+                        icon: 'success',
+                        customClass: {
+                            confirmButton: 'btn-okay',
+                            title: 'alertFontStyle'
+                        }
+                    }).then(function () {
+                        duitNowConfirmationModal.hide();
+                        duitNowReceiptModal.show();
+                        $('#duitNowExampleModalToggle2').show();
+                    });
+                }
+            })
+        });
+
 
         $("#emailCheckbox").on('change',function() {
             
@@ -2509,6 +4175,22 @@
             else {
 
                 $('#emailCheckboxes').attr('disabled', true);
+
+            }
+        });
+
+        
+        $("#duitNowEmailCheckbox").on('change',function() {
+            
+            if(this.checked) {
+
+                $('#duitNowEmailCheckboxes').attr('disabled', false);
+
+
+            }
+            else {
+
+                $('#duitNowEmailCheckboxes').attr('disabled', true);
 
             }
         });
@@ -2528,6 +4210,20 @@
             }    
         })
 
+        $("#duitNowSmsCheckbox").on('change',function() {
+            
+            if(this.checked) {
+
+                $('#duitNowSmsCheckboxes').attr('disabled', false);
+            }
+            
+            else {
+
+                $('#duitNowSmsCheckboxes').attr('disabled', true);
+
+            }    
+        })
+
         $('#doTransfer').on('click', function () {
 
 
@@ -2537,6 +4233,25 @@
             $('#secondPage').attr('hidden', false);
 
         });
+
+        $('#doDuitNowTransfer').on('click', function () {
+
+            
+            $('#firstDuitNowPage').attr('hidden', true);
+            $('#secondDuitNowPage').attr('hidden', false);
+            $('#firstPage').attr('hidden', true);
+            $('#secondPage').attr('hidden', true);
+
+        });
+
+        // $('#doDuitNowTransfer').on('click', function () {
+
+
+        //     $(this).attr("href", "sendMoneyDuitNow.html");
+
+
+        // });
+
 
         $(document).ready(function(){
             // Defining the local dataset
@@ -2620,6 +4335,109 @@
 
         })
 
+        var selectDuitNowTimes = document.getElementById("duitNowRecurrTranTimesSelect");
+        for (let i = 1; i <= 60; i++)
+        selectDuitNowTimes.innerHTML += "<option>" + i + "</option>";
+
+        $("#duitNowRecurrTransactionTimes").hide();
+        $("#duitNowRecurrTransactionType").removeClass("col-sm-5 float-sm-start");
+        $("#duitNowRecurrTransactionType").addClass("col-sm-12");
+        $("#duitNowRecurrTranSelect").on('change', function() {
+
+            console.log($(this).children("option:selected").val()=="None");
+
+            if($(this).children("option:selected").val()=="None") {
+
+                $("#duitNowRecurrTransactionTimes").hide();
+                $("#duitNowRecurrTransactionType").removeClass("col-sm-5 float-sm-start");
+                $("#duitNowRecurrTransactionType").addClass("col-sm-12");
+            }
+
+            else {
+
+                $("#duitNowRecurrTransactionTimes").show();
+                $("#duitNowRecurrTransactionType").removeClass("col-sm-12");
+                $("#duitNowRecurrTransactionType").addClass("col-sm-5 float-sm-start").css("margin-right", "16.5%");
+            }
+       
+    
+
+        })
+
+                                   
+        $('#duitNowMobile').hide();
+        $('#duitNowIC').hide();
+        $('#duitNowPassportCountry').hide();
+        $('#duitNowPassportNumber').hide();
+        $('#duitNowArmyPoliceID').hide();
+        $('#duitNowBusinessRegNum').hide();
+
+        
+        $('#duitNowTypes').on('change',function() {
+
+      
+            switch(this.value) {
+
+                case 'defaultSel' :
+                    $('#duitNowMobile').hide();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                case 'mobileNum' :
+                    $('#duitNowMobile').show();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                case 'icNum':
+                    $('#duitNowIC').show();
+                    $('#duitNowMobile').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                    
+                case 'passport' :
+                    $('#duitNowMobile').hide();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').show();
+                    $('#duitNowPassportNumber').show();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                case 'armyPoliceID' :
+                    $('#duitNowMobile').hide();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').show();
+                    $('#duitNowBusinessRegNum').hide();
+                    break;
+                    
+                case 'businessRegNum' :
+                    $('#duitNowMobile').hide();
+                    $('#duitNowIC').hide();
+                    $('#duitNowPassportCountry').hide();
+                    $('#duitNowPassportNumber').hide();
+                    $('#duitNowArmyPoliceID').hide();
+                    $('#duitNowBusinessRegNum').show();
+                    break;
+                    
+            }
+        });
+
+        $('#secondDuitNowBack').on('click', function() {
+
+            $("#secondDuitNowPage").attr('hidden', false);
+            $("#thirdDuitNowPage").attr('hidden', true);
+        })
+
         $(function(){
             $("#transferMethods").select2({
                  templateResult: formatOption
@@ -2649,6 +4467,23 @@
                 $("#duitNowTransferMessage").show();
             }
 
+        })
+
+        $('#fourthNext').on('click', function() {
+
+            $('#firstPage').attr(location.reload(true));
+            $('#secondPage').attr('hidden', true);
+            $('#thirdPage').attr('hidden', true);
+        })
+
+        
+        $('#fourthDuitNowNext').on('click', function() {
+
+            $('#firstPage').attr(location.reload(true));
+            $('#secondDuitNowPage').attr('hidden', true);
+            $('#thirdDuitNowPage').attr('hidden', true);
+            $('#secondPage').attr('hidden', true);
+            $('#thirdPage').attr('hidden', true);
         })
 
 
