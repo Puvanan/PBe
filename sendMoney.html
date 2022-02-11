@@ -42,6 +42,7 @@
     <title>Send Money</title>
 
     <style>
+
         .dropdown-toggle::after {
             float: right;
             margin-top: 10px;
@@ -523,6 +524,35 @@
         }
         .tt-suggestion p {
             margin: 0;
+        }
+
+        #editBtn1 {
+            background-color: transparent !important;
+            color: #212529 !important;
+            border: 1px solid #212529 !important;
+            cursor: pointer !important;
+        }
+
+        #editBtn2 {
+            background-color: transparent !important;
+            color: #212529 !important;
+            border: 1px solid #212529 !important;
+            cursor: pointer !important;
+        }
+
+        #cancelBtn1 {
+            background-color: transparent !important;
+            color: #D64354 !important;
+            border: 1px solid #D64354 !important;
+            cursor: pointer !important;
+        }
+
+        
+        #cancelBtn2 {
+            background-color: transparent !important;
+            color: #D64354 !important;
+            border: 1px solid #D64354 !important;
+            cursor: pointer !important;
         }
 
  
@@ -3281,7 +3311,7 @@
                             <div class="col-12">
                                 <a class="btn btn-outline-danger float-start col-4 col-md-3 col-lg-4 col-xxl-3"
                                     style="min-width: 0;"> Print </a>
-                                <a id="thirdNext"
+                                <a id="setAsFavNext"
                                     class="btn btn-outline-danger col-7 col-md-5 col-lg-7 col-xxl-5 float-end float-md-none float-lg-end float-xxl-none ms-md-2 ms-lg-0 ms-xxl-2">
                                     <span><i class="far fa-heart"></i></span>
                                     <span class="ms-2">Set as Favourite</span>
@@ -3303,6 +3333,110 @@
             </div>
         </div>
     </div>
+
+    <!-- Set As Favourites Form Modal -->
+
+    <div class="modal fade" id="exampleModalToggleSetAsFav" aria-hidden="true" aria-labelledby="exampleModalToggleLabelSetAsFav"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered mt-5 pt-4 p-3 p-sm-auto" style="max-width: 600px;">
+            <div class="modal-content modal-content-bg-none">
+
+                <div class="modal-body bg-transparent p-0">
+
+                    <div class="col-12 pb-2 px-3 bg-white rounded-8 shadow-sm ">
+
+                        <div class="row mt-4">
+
+
+
+                            <div class="col-12 text-center pb-3">
+                                <h3>Add to Favourites</h3>
+
+                                <p class="text-muted small">Ensure the name and account number of the favourite is correct</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row dashed_line px-1">
+                            <hr>
+                        </div>
+
+                        <div class="row border-bottom px-1">
+
+                            <div class="receipt-body my-3">
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="setAsFavReceipientName">Receipient Name</label>
+
+                                    </div>
+
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+
+                                        <input type="text" class="form-control details-input" id="setAsFavReceipientName"
+                                        placeholder="John Doe" value="John Doe" disabled>
+
+                                        <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="editBtn1">
+                                            <i class="far fa-edit"></i> Edit</span>
+                                        <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="cancelBtn1">
+                                                <i class="far fa-times-circle"></i> Cancel</span>
+                            
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="setAsFavAccNumber">Account No.</label>
+
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <input type="text" class="form-control details-input" id="setAsFavAccNumber" value="12345678985215" placeholder="12345678985215" disabled>
+
+                                        <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="editBtn2">
+                                            <i class="far fa-edit"></i> Edit</span>
+                                        <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="cancelBtn2">
+                                                <i class="far fa-times-circle"></i> Cancel</span>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="row my-4 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-dark float-start"> Back </a>
+
+
+                                <a id="confirmAddToFav" data-bs-dismiss="modal" aria-label="Close"
+                                    class="btn btn-primary float-end">
+                                    Confirm</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- <div class="modal-footer">
+                 <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+             </div> -->
+
+            </div>
+        </div>
+    </div>
+    
 
     
     <!-- First DuitNow Modal -->
@@ -3735,9 +3869,14 @@
         var oneMin= 60; //60 seconds (1 minute)
         var confirmationModal = new bootstrap.Modal(document.getElementById('exampleModalToggle'));
         var receiptModal = new bootstrap.Modal(document.getElementById('exampleModalToggle2'));
+        var setAsFavModal = new bootstrap.Modal(document.getElementById('exampleModalToggleSetAsFav'));
         var duitNowConfirmationModal = new bootstrap.Modal(document.getElementById('duitNowExampleModalToggle'));
         var duitNowReceiptModal = new bootstrap.Modal(document.getElementById('duitNowExampleModalToggle2'));
+        var setAsFavNames = $('#setAsFavReceipientName').val();
+        var setAsFavAccNums = $('#setAsFavAccNumber').val();
 
+        console.log(setAsFavNames);
+        console.log(setAsFavAccNums);
 
         $('#bankSearchBar').on('keyup', function () {
             myBank2Function();
@@ -4127,11 +4266,18 @@
                     }).then(function () {
                         confirmationModal.hide();
                         receiptModal.show();
-                        $('#exampleModalToggle2').show();
+                        // setAsFavModal.show();
+                        // $('#exampleModalToggle2').show();
                     });
                 }
             })
         });
+
+        $('#setAsFavNext').on('click', function() {
+
+            receiptModal.hide();
+            setAsFavModal.show();
+        })
 
         $('#secondDuitNowNext').on('click', function () {
 
@@ -4157,7 +4303,7 @@
                     }).then(function () {
                         duitNowConfirmationModal.hide();
                         duitNowReceiptModal.show();
-                        $('#duitNowExampleModalToggle2').show();
+                        // $('#duitNowExampleModalToggle2').show();
                     });
                 }
             })
@@ -4485,6 +4631,50 @@
             $('#secondPage').attr('hidden', true);
             $('#thirdPage').attr('hidden', true);
         })
+
+        $('#cancelBtn1').hide();
+        $('#cancelBtn2').hide();
+        $("#editBtn1").click(function () {
+            $(this).hide();
+            $(this).siblings('#cancelBtn1').show();
+            $('#setAsFavReceipientName').prop('disabled', false);
+
+        });
+
+        $("#editBtn2").click(function () {
+            $(this).hide();
+            $(this).siblings('#cancelBtn2').show();
+            $('#setAsFavAccNumber').prop('disabled', false);
+
+        });
+
+        $("#cancelBtn1").click(function () {
+            $(this).hide();
+            $(this).siblings('#editBtn1').show();
+            $('#setAsFavReceipientName').prop('disabled', true);
+        });
+
+        $("#cancelBtn2").click(function () {
+            $(this).hide();
+            $(this).siblings('#editBtn2').show();
+            $('#setAsFavAccNumber').prop('disabled', true);
+        });
+        
+ 
+        $('#confirmAddToFav').click(function() {
+
+            alert(setAsFavNames);
+            $('#firstPage').attr('hidden', false);
+            $('#secondPage').attr('hidden', true);
+            $('#thirdPage').attr('hidden', true);
+            // $('#firstPage').attr(location.reload(true));
+            // console.log($('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">John</h6><p class="text-muted mb-0" id="favAccNum">48928492248732</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="~/Images/WebsiteImages/pb_logo.png"class="img-fluid float-end" style="max-width:100px;" /></div></div></li></a>'));
+            $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">John Doe</h6><p class="text-muted mb-0" id="favAccNum">12345678985215</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="~/Images/WebsiteImages/pb_logo.png"class="img-fluid float-end" style="max-width:100px;" /></div></div></li></a>');
+
+
+        });
+
+
 
 
 
