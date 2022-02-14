@@ -150,6 +150,8 @@
             }
         }
 
+    
+
         /* failed */
         .failedmark {
             width: 56px;
@@ -185,7 +187,7 @@
                 stroke-dashoffset: 0
             }
         }
-
+        
         @keyframes scale {
 
             0%,
@@ -568,6 +570,13 @@
             cursor: pointer !important;
         }
 
+        #duitNowEditBtn3 {
+            background-color: transparent !important;
+            color: #212529 !important;
+            border: 1px solid #212529 !important;
+            cursor: pointer !important;
+        }
+
         
         #duitNowCancelBtn1 {
             background-color: transparent !important;
@@ -583,6 +592,16 @@
             border: 1px solid #D64354 !important;
             cursor: pointer !important;
         }
+
+                
+        #duitNowCancelBtn3 {
+            background-color: transparent !important;
+            color: #D64354 !important;
+            border: 1px solid #D64354 !important;
+            cursor: pointer !important;
+        }
+
+
 
  
 
@@ -2806,9 +2825,14 @@
                     <div class="col-lg-6 mt-lg-4 d-lg-block d-none ps-5" id='favAccList'>
                         <h3>Favourites</h3>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-8">
                                 <h6 style="font-size: 20px;">Your Frequent Transaction</h6>
                                 <p class="small" style="font-size: 20px;">All of the transfer type are free during this emco period</p>
+                            </div>
+                            <div class="col-4">
+                                <a id="addToFavBtn"
+                                class="btn btn-primary mt-2 mt-sm-0 float-sm-end mt-lg-2 mt-xxl-0"
+                                data-bs-toggle="modal" href="#" role="button">Add New</a>
                             </div>
                         </div>
                         <div class="row">
@@ -3522,17 +3546,36 @@
                                 <div class="row mb-3">
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
-                                        <label for="duitNowSetAsFavAccNumber">Account No.</label>
+                                        <label for="duitNowSetAsFavIDType">DuitNow ID Type</label>
 
                                     </div>
 
                                     <div
                                         class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
-                                        <input type="text" class="form-control details-input" id="duitNowSetAsFavAccNumber" value="12345678985215" placeholder="Enter Account No" disabled>
+                                        <input type="text" class="form-control details-input" id="duitNowSetAsFavIDType" value="Mobile Number" placeholder="Enter Account No" disabled>
 
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="duitNowEditBtn2">
                                             <i class="far fa-edit"></i> Edit</span>
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="duitNowCancelBtn2">
+                                                <i class="far fa-times-circle"></i> Cancel</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="duitNowSetAsFavIDNumber">DuitNow ID No.</label>
+
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <input type="text" class="form-control details-input" id="duitNowSetAsFavIDNumber" value="012-3456789" placeholder="Enter Account No" disabled>
+
+                                        <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="duitNowEditBtn3">
+                                            <i class="far fa-edit"></i> Edit</span>
+                                        <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="duitNowCancelBtn3">
                                                 <i class="far fa-times-circle"></i> Cancel</span>
                                     </div>
 
@@ -4008,7 +4051,8 @@
         var setAsFavNames;
         var setAsFavAccNums;
         var duitNowSetAsFavNames;
-        var duitNowSetAsFavAccNums;
+        var duitNowSetAsFavIDType;
+        var duitNowSetAsFavIDNum;
 
         $('#bankSearchBar').on('keyup', function () {
             myBank2Function();
@@ -4790,7 +4834,7 @@
         $('#cancelBtn2').hide();
         $('#duitNowCancelBtn1').hide();
         $('#duitNowCancelBtn2').hide();
-
+        $('#duitNowCancelBtn3').hide();
         $("#editBtn1").click(function () {
             $(this).hide();
             $(this).siblings('#cancelBtn1').show();
@@ -4829,7 +4873,14 @@
         $("#duitNowEditBtn2").click(function () {
             $(this).hide();
             $(this).siblings('#duitNowCancelBtn2').show();
-            $('#duitNowSetAsFavAccNumber').prop('disabled', false);
+            $('#duitNowSetAsFavIDType').prop('disabled', false);
+
+        });
+
+        $("#duitNowEditBtn3").click(function () {
+            $(this).hide();
+            $(this).siblings('#duitNowCancelBtn3').show();
+            $('#duitNowSetAsFavIDNumber').prop('disabled', false);
 
         });
 
@@ -4844,7 +4895,13 @@
         $("#duitNowCancelBtn2").click(function () {
             $(this).hide();
             $(this).siblings('#duitNowEditBtn2').show();
-            $('#duitNowSetAsFavAccNumber').prop('disabled', true);
+            $('#duitNowSetAsFavIDType').prop('disabled', true);
+        });
+
+        $("#duitNowCancelBtn3").click(function () {
+            $(this).hide();
+            $(this).siblings('#duitNowEditBtn3').show();
+            $('#duitNowSetAsFavIDNumber').prop('disabled', true);
         });
 
 
@@ -4870,19 +4927,25 @@
         $('#duitNowConfirmAddToFav').click(function() {
 
             duitNowSetAsFavNames = $('#duitNowSetAsFavReceipientName').val();
-            duitNowSetAsFavAccNums = $('#duitNowSetAsFavAccNumber').val();
+            duitNowSetAsFavIDNum = $('#duitNowSetAsFavIDNumber').val();
             console.log(duitNowSetAsFavNames);
-            console.log(duitNowSetAsFavAccNums);
+            console.log(duitNowSetAsFavIDNum);
             $('#firstPage').attr('hidden', false);
             $('#firstDuitNowPage').attr('hidden', true);
             $('#secondDuitNowPage').attr('hidden', true);
             $('#thirdDuitNowPage').attr('hidden', true);
             $('#secondPage').attr('hidden', true);
             $('#thirdPage').attr('hidden', true);
-            $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">'+ duitNowSetAsFavNames +'</h6><p class="text-muted mb-0" id="favAccNum">'+ duitNowSetAsFavAccNums +'</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="~/Images/WebsiteImages/pb_logo.png"class="img-fluid float-end" style="max-width:100px;" /></div></div></li></a>');
+            $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">'+ duitNowSetAsFavNames +'</h6><p class="text-muted mb-0" id="favAccNum">'+ duitNowSetAsFavIDNum +'</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="~/Images/WebsiteImages/pb_logo.png"class="img-fluid float-end" style="max-width:100px;" /></div></div></li></a>');
 
 
         });
+
+        $('#addToFavBtn').click(function() {
+
+            setAsFavModal.show();
+        })
+    
 
 
 
