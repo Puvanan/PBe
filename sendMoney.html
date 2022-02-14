@@ -3378,7 +3378,7 @@
                                         class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
 
                                         <input type="text" class="form-control details-input" id="setAsFavReceipientName"
-                                        placeholder="John Doe" value="John Doe" disabled>
+                                        placeholder="Enter Receipient Name" value="John Doe" disabled>
 
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="editBtn1">
                                             <i class="far fa-edit"></i> Edit</span>
@@ -3398,7 +3398,7 @@
 
                                     <div
                                         class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
-                                        <input type="text" class="form-control details-input" id="setAsFavAccNumber" value="12345678985215" placeholder="12345678985215" disabled>
+                                        <input type="text" class="form-control details-input" id="setAsFavAccNumber" value="12345678985215" placeholder="Enter Account No" disabled>
 
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="editBtn2">
                                             <i class="far fa-edit"></i> Edit</span>
@@ -3872,11 +3872,8 @@
         var setAsFavModal = new bootstrap.Modal(document.getElementById('exampleModalToggleSetAsFav'));
         var duitNowConfirmationModal = new bootstrap.Modal(document.getElementById('duitNowExampleModalToggle'));
         var duitNowReceiptModal = new bootstrap.Modal(document.getElementById('duitNowExampleModalToggle2'));
-        var setAsFavNames = $('#setAsFavReceipientName').val();
-        var setAsFavAccNums = $('#setAsFavAccNumber').val();
-
-        console.log(setAsFavNames);
-        console.log(setAsFavAccNums);
+        var setAsFavNames;
+        var setAsFavAccNums;
 
         $('#bankSearchBar').on('keyup', function () {
             myBank2Function();
@@ -4401,13 +4398,13 @@
 
         $(document).ready(function(){
             // Defining the local dataset
-            var cars = ['Happy Birthday', 'Car Payment', 'Lunch', 'Groceries', 'Smartwatch', 'Gaming console', 'Dinner'];
+            var items = ['Happy Birthday', 'Car Payment', 'Lunch', 'Groceries', 'Smartwatch', 'Gaming console', 'Dinner'];
             
             // Constructing the suggestion engine
-            var cars = new Bloodhound({
+            var items = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.whitespace,
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
-                local: cars
+                local: items
             });
             
             // Initializing the typeahead
@@ -4417,8 +4414,8 @@
                 minLength: 1 /* Specify minimum characters required for showing result */
             },
             {
-                name: 'cars',
-                source: cars
+                name: 'items',
+                source: items
             });
         });
         
@@ -4660,16 +4657,18 @@
             $('#setAsFavAccNumber').prop('disabled', true);
         });
         
- 
         $('#confirmAddToFav').click(function() {
 
-            alert(setAsFavNames);
+            setAsFavNames = $('#setAsFavReceipientName').val();
+            setAsFavAccNums = $('#setAsFavAccNumber').val();
+            console.log(setAsFavNames);
+            console.log(setAsFavAccNums);
             $('#firstPage').attr('hidden', false);
             $('#secondPage').attr('hidden', true);
             $('#thirdPage').attr('hidden', true);
             // $('#firstPage').attr(location.reload(true));
             // console.log($('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">John</h6><p class="text-muted mb-0" id="favAccNum">48928492248732</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="~/Images/WebsiteImages/pb_logo.png"class="img-fluid float-end" style="max-width:100px;" /></div></div></li></a>'));
-            $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">John Doe</h6><p class="text-muted mb-0" id="favAccNum">12345678985215</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="~/Images/WebsiteImages/pb_logo.png"class="img-fluid float-end" style="max-width:100px;" /></div></div></li></a>');
+            $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">'+ setAsFavNames +'</h6><p class="text-muted mb-0" id="favAccNum">'+ setAsFavAccNums +'</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="~/Images/WebsiteImages/pb_logo.png"class="img-fluid float-end" style="max-width:100px;" /></div></div></li></a>');
 
 
         });
