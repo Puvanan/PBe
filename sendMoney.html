@@ -2888,7 +2888,7 @@
 
 
                                     </a>
-
+<!-- 
                                     <a href="#">
 
                                         <li>
@@ -2911,7 +2911,33 @@
                                         </li>
 
 
+                                    </a> -->
+
+                                    
+                                    <a href="#">
+
+                                        <li>
+                                            <div class="row bg-white shadow-sm p-3 rounded-8  mt-2">
+                                                <div class="col-7">
+                                                    <h6 class="mb-2" id='favName'>Agnes</h6>
+                                                    <p class="text-muted mb-0" id='favAccNum'>012-3456789</p>
+                                                    <p id='favAccType' hidden>Mobile Number</p>
+                                                    <p id='favBank' hidden>Maybank</p>
+                                                </div>
+                                                <div class="col-12 mt-lg-n4">
+                                                    <i class="fad fa-mobile-alt fa-swap-opacity float-end text-primary" style="font-size:50px;"></i>
+
+                                                        <span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav">
+                                                            <i class="far fa-times-circle"></i>Delete</span>
+                                                        <span class="col-2 float-end badge bg-warning text-dark editFav">
+                                                            <i class="far fa-edit"></i>Edit</span>
+                                                </div>
+                                            </div>
+                                        </li>
+
+
                                     </a>
+
 
                                     <a href="#">
 
@@ -2920,13 +2946,12 @@
                                         <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
                                             <div class="col-7">
                                                 <h6 class="mb-2" id='favName'>Billy</h6>
-                                                <p class="text-muted mb-0" id='favAccNum'>13579246810323</p>
+                                                <p class="text-muted mb-0" id='favAccNum'>950101-12-1234</p>
                                                 <p id='favAccType' hidden>Loans Account</p>
                                                 <p id='favBank' hidden>CIMB</p>
                                             </div>
                                             <div class="col-12 mt-lg-n4">
-                                                <img src="images/cimblogo.png"
-                                                    class="img-fluid float-end" style="max-width:100px;" />
+                                                <i class="fad fa-id-card-alt float-end text-primary" style="font-size:25px;"></i>
                                                     <span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav">
                                                         <i class="far fa-times-circle"></i>Delete</span>
                                                     <span class="col-2 float-end badge bg-warning text-dark editFav">
@@ -3617,10 +3642,10 @@
 
 
                                                                 
-                                <div class="form-switch switchFav">
+                                <!-- <div class="form-switch switchFav">
                                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked2"/>
                                     <label class="form-check-label" for="flexSwitchCheckChecked2">DuitNow Favourite</label>
-                                </div>
+                                </div> -->
 
                             </div>
 
@@ -3840,7 +3865,7 @@
 
                                 </div>
 
-                                <div class="row mb-3">
+                                <div class="row mb-3" id="editAccountNoDiv">
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
                                         <label for="editFavAccNumber">Account No.</label>
@@ -3850,6 +3875,21 @@
                                     <div
                                         class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
                                         <input type="text" class="form-control details-input" id="editFavAccNumber" placeholder="Enter Account No" disabled>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3" id="editDuitNowNoDiv">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="editFavDuitNowNumber">DuitNow ID No.</label>
+
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <input type="text" class="form-control details-input" id="editFavDuitNowNumber" placeholder="Enter DuitNow No" disabled>
 
                                     </div>
 
@@ -4825,7 +4865,7 @@
                     }).then(function () {
                         duitNowConfirmationModal.hide();
                         duitNowReceiptModal.show();
-                        // $('#flexSwitchCheckChecked2').prop('checked', false);
+                        //$('#flexSwitchCheckChecked2').prop('checked', false);
                         // $('#duitNowExampleModalToggle2').show();
                     });
                 }
@@ -5314,7 +5354,8 @@
 
         $('#flexSwitchCheckChecked1').prop('checked', false);
         $('#flexSwitchCheckChecked2').prop('checked', false);
-        $('#flexSwitchCheckChecked1, #flexSwitchCheckChecked2').on('change', function() {
+
+        $('#flexSwitchCheckChecked1').on('change', function() {
 
             if($(this).prop("checked") == true) {
 
@@ -5324,6 +5365,34 @@
                 setAsFavNames = $('#setAsFavReceipientName').val();
                 setAsFavAccNums = $('#setAsFavAccNumber').val();
                 $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">'+ setAsFavNames +'</h6><p class="text-muted mb-0" id="favAccNum">'+ setAsFavAccNums +'</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="images/pblogo.png" class="img-fluid float-end" style="max-width:100px;" /><span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav"><i class="far fa-times-circle"></i>Delete</span><span class="col-2 float-end badge bg-warning text-dark editFav"><i class="far fa-edit"></i>Edit</span></div></div></li></a>');
+
+            }
+
+            else if($(this).prop("checked") == false) {
+                
+                $('#myUL').children().last().remove();
+
+
+            }
+            
+
+            
+        
+        
+
+        })
+
+        $('#flexSwitchCheckChecked2').on('change', function() {
+
+            
+            if($(this).prop("checked") == true) {
+
+
+                // receiptModal.show();
+                // duitNowReceiptModal.hide();
+                // duitNowSetAsFavNames = $('#setAsFavReceipientName').val();
+                // duitNowSetAsFavAccNums = $('#setAsFavAccNumber').val();
+                $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">Joe Biden</h6><p class="text-muted mb-0" id="favAccNum">012-3456789</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="images/pblogo.png" class="img-fluid float-end" style="max-width:100px;" /><span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav"><i class="far fa-times-circle"></i>Delete</span><span class="col-2 float-end badge bg-warning text-dark editFav"><i class="far fa-edit"></i>Edit</span></div></div></li></a>');
 
             }
 
@@ -5356,10 +5425,27 @@
             editFavNode= $(this);
             $('#editFavReceipientName').val(editFavNode.parent().prev().find("#favName").text());
             $('#editFavAccNumber').val(editFavNode.parent().prev().find("#favAccNum").text());
+            $('#editFavDuitNowNumber').val(editFavNode.parent().prev().find("#favAccNum").text());
+
+            if(editFavNode.parent().prev().find("#favName").text() =="Agnes" || editFavNode.parent().prev().find("#favName").text() =="Billy") {
+
+                $('#editDuitNowNoDiv').attr('hidden', false);
+                $('#editAccountNoDiv').attr('hidden', true);
+
+            }
+            else {
+
+                $('#editDuitNowNoDiv').attr('hidden', true);
+                $('#editAccountNoDiv').attr('hidden', false);
+
+            }
             
             $('#editConfirmBtn').click(function() {
                 editFavNode.parent().prev().find("#favName").html($('#editFavReceipientName').val());
                 editFavNode.parent().prev().find("#favAccNum").html($('#editFavAccNumber').val());
+                editFavNode.parent().prev().find("#favAccNum").html($('#editFavDuitNowNumber').val());
+
+                
             // $('#favBank').html(bankFavs);
 
             // switch(bankFavs) {
