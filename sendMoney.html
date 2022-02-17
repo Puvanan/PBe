@@ -3431,10 +3431,10 @@
                                     <span class="ms-2">Set as Favourite</span>
                                 </a> -->
                                                                 
-                                <div class="form-switch col-4 mt-1 float-end">
+                                <a class="col-5 mt-0 float-end btn btn-outline-danger form-switch">
                                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked1"/>
-                                    <label class="form-check-label" for="flexSwitchCheckChecked1">Set as Favourite</label>
-                                </div>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked1">Set As Favourite</label>
+                                </a>
                                 <a id="fourthNext" data-bs-dismiss="modal" aria-label="Close"
                                     class="btn btn-primary mt-2 mt-md-0 mt-lg-2 mt-xxl-0 float-none float-md-end float-lg-none float-xxl-end col-12 col-md-3 col-lg-12 col-xxl-3">
                                     Done </a>
@@ -4300,10 +4300,10 @@
                                 <a class="btn btn-outline-danger float-start col-4 col-md-3 col-lg-4 col-xxl-3"
                                     style="min-width: 0;"> Print </a>
 
-                                <div class="form-switch col-4 mt-1 float-end">
+                                <a class="col-5 mt-0 float-end btn btn-outline-danger form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked2"/>
                                         <label class="form-check-label" for="flexSwitchCheckChecked2">Set as Favourite</label>
-                                </div>
+                                </a>
 
                                 <a id="fourthDuitNowNext" data-bs-dismiss="modal" aria-label="Close"
                                     class="btn btn-primary mt-2 mt-md-0 mt-lg-2 mt-xxl-0 float-none float-md-end float-lg-none float-xxl-end col-12 col-md-3 col-lg-12 col-xxl-3">
@@ -5392,7 +5392,7 @@
                 // duitNowReceiptModal.hide();
                 // duitNowSetAsFavNames = $('#setAsFavReceipientName').val();
                 // duitNowSetAsFavAccNums = $('#setAsFavAccNumber').val();
-                $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">Joe Biden</h6><p class="text-muted mb-0" id="favAccNum">012-3456789</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="images/pblogo.png" class="img-fluid float-end" style="max-width:100px;" /><span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav"><i class="far fa-times-circle"></i>Delete</span><span class="col-2 float-end badge bg-warning text-dark editFav"><i class="far fa-edit"></i>Edit</span></div></div></li></a>');
+                $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">John Lim</h6><p class="text-muted mb-0" id="favAccNum">012-3456789</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="images/pblogo.png" class="img-fluid float-end" style="max-width:100px;" /><span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav"><i class="far fa-times-circle"></i>Delete</span><span class="col-2 float-end badge bg-warning text-dark editFav"><i class="far fa-edit"></i>Edit</span></div></div></li></a>');
 
             }
 
@@ -5427,7 +5427,7 @@
             $('#editFavAccNumber').val(editFavNode.parent().prev().find("#favAccNum").text());
             $('#editFavDuitNowNumber').val(editFavNode.parent().prev().find("#favAccNum").text());
 
-            if(editFavNode.parent().prev().find("#favName").text() =="Agnes" || editFavNode.parent().prev().find("#favName").text() =="Billy") {
+            if(editFavNode.parent().prev().find("#favName").text() =="Agnes" || editFavNode.parent().prev().find("#favName").text() =="Billy" || editFavNode.parent().prev().find("#favName").text() =="John Lim") {
 
                 $('#editDuitNowNoDiv').attr('hidden', false);
                 $('#editAccountNoDiv').attr('hidden', true);
