@@ -3449,10 +3449,10 @@
                                 <p class="text-muted small">Ensure the name and account number of the favourite is correct</p>
 
                                 
-                                <div class="form-switch switchFav">
+                                <!-- <div class="form-switch switchFav">
                                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked1"/>
                                     <label class="form-check-label" for="flexSwitchCheckChecked1">DuitNow Favourite</label>
-                                </div>
+                                </div> -->
                             </div>
 
                         </div>
@@ -5312,44 +5312,26 @@
         })
 
 
-        // $('#flexSwitchCheckChecked1').on('change', function() {
-
-        //     if($(this).prop('checked', true)) {
-
-        //         duitNowSetAsFavModal.show();
-        //         setAsFavModal.hide();
-        //         $('#flexSwitchCheckChecked1').prop('checked', true);
-        //         $('#flexSwitchCheckChecked2').prop('checked', true);
-
-
-
-
-        //     }
-        
-
         $('#flexSwitchCheckChecked1').prop('checked', false);
         $('#flexSwitchCheckChecked2').prop('checked', false);
+
         $('#flexSwitchCheckChecked1, #flexSwitchCheckChecked2').on('change', function() {
 
-            if($(this).prop('checked', true)) {
+            if($(this).prop("checked") == true) {
 
-                Swal.fire({
-                        title: 'The user has been successfully added to your Favourites!',
-                        icon: 'success',
-                        customClass: {
-                            confirmButton: 'btn-okay',
-                            title: 'alertFontStyle'
-                        }
-                    }).then(function () {
 
-                        receiptModal.hide();
-                        duitNowReceiptModal.hide();
-                        setAsFavNames = $('#setAsFavReceipientName').val();
-                        setAsFavAccNums = $('#setAsFavAccNumber').val();
-                        $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">'+ setAsFavNames +'</h6><p class="text-muted mb-0" id="favAccNum">'+ setAsFavAccNums +'</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="images/pblogo.png" class="img-fluid float-end" style="max-width:100px;" /><span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav"><i class="far fa-times-circle"></i>Delete</span><span class="col-2 float-end badge bg-warning text-dark editFav"><i class="far fa-edit"></i>Edit</span></div></div></li></a>');
+                // receiptModal.show();
+                // duitNowReceiptModal.hide();
+                setAsFavNames = $('#setAsFavReceipientName').val();
+                setAsFavAccNums = $('#setAsFavAccNumber').val();
+                $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">'+ setAsFavNames +'</h6><p class="text-muted mb-0" id="favAccNum">'+ setAsFavAccNums +'</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="images/pblogo.png" class="img-fluid float-end" style="max-width:100px;" /><span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav"><i class="far fa-times-circle"></i>Delete</span><span class="col-2 float-end badge bg-warning text-dark editFav"><i class="far fa-edit"></i>Edit</span></div></div></li></a>');
 
-        
-                    });
+            }
+
+            else if($(this).prop("checked") == false) {
+                
+                console.log($('#myUL').children().last().remove());
+
 
             }
             
@@ -5361,22 +5343,6 @@
         })
 
 
-        // $('#flexSwitchCheckChecked2').on('change', function() {
-
-        //     if($(this).prop('checked', true)) {
-
-        //         duitNowSetAsFavModal.hide();
-        //         setAsFavModal.show();
-        //         $('#flexSwitchCheckChecked1').prop('checked', false);
-        //         $('#flexSwitchCheckChecked2').prop('checked', false);
-
-
-
-
-        //     }
-
-
-        // })
 
         var bankFavs;
         $('#editBankList li').click(function() {
