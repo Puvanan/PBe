@@ -4739,7 +4739,7 @@
                     }).then(function () {
                         confirmationModal.hide();
                         receiptModal.show();
-                        $('#flexSwitchCheckChecked1').prop('checked', false);
+                        // $('#flexSwitchCheckChecked1').prop('checked', false);
                         // setAsFavModal.show();
                         // $('#exampleModalToggle2').show();
                     });
@@ -4825,7 +4825,7 @@
                     }).then(function () {
                         duitNowConfirmationModal.hide();
                         duitNowReceiptModal.show();
-                        $('#flexSwitchCheckChecked2').prop('checked', false);
+                        // $('#flexSwitchCheckChecked2').prop('checked', false);
                         // $('#duitNowExampleModalToggle2').show();
                     });
                 }
@@ -5314,7 +5314,6 @@
 
         $('#flexSwitchCheckChecked1').prop('checked', false);
         $('#flexSwitchCheckChecked2').prop('checked', false);
-
         $('#flexSwitchCheckChecked1, #flexSwitchCheckChecked2').on('change', function() {
 
             if($(this).prop("checked") == true) {
@@ -5330,7 +5329,7 @@
 
             else if($(this).prop("checked") == false) {
                 
-                console.log($('#myUL').children().last().remove());
+                $('#myUL').children().last().remove();
 
 
             }
