@@ -531,6 +531,23 @@
             cursor: pointer !important;
         }
 
+        .editFav{
+            background-color: transparent !important;
+            color: #D64354 !important;
+            border: 1px solid #D64354 !important;
+            cursor: pointer !important;
+        }
+
+        
+        .deleteFav{
+            background-color: transparent !important;
+            color: #D64354 !important;
+            border: 1px solid #D64354 !important;
+            cursor: pointer !important;
+        }
+
+        
+
         #editBtn2 {
             background-color: transparent !important;
             color: #212529 !important;
@@ -2832,7 +2849,7 @@
                             <div class="col-4">
                                 <a id="addToFavBtn"
                                 class="btn btn-primary mt-2 mt-sm-0 float-sm-end mt-lg-2 mt-xxl-0"
-                                data-bs-toggle="modal" href="#" role="button">Add New</a>
+                                data-bs-toggle="modal" href="#" role="button" hidden>Add New</a>
                             </div>
                         </div>
                         <div class="row">
@@ -2859,7 +2876,12 @@
                                                 </div>
                                                 <div class="col-12 mt-lg-n4">
                                                     <img src="images/pblogo.png"
-                                                        class="img-fluid float-end" style="max-width:100px;" />
+                                                        class="img-fluid float-end" style="max-width:100px;" id="favAccBankPic"/>
+                                                        <span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav">
+                                                            <i class="far fa-times-circle"></i>Delete</span>
+                                                        <span class="col-2 float-end badge bg-warning text-dark editFav">
+                                                            <i class="far fa-edit"></i>Edit</span>
+                                                        
                                                 </div>
                                             </div>
                                         </li>
@@ -2879,9 +2901,11 @@
                                                 </div>
                                                 <div class="col-12 mt-lg-n4">
                                                     <img src="images/maybanklogo.png"
-                                                        class="img-fluid float-end" style="max-width:25px;" />
-                                                    <!-- <i class="fad fa-phone float-end text-primary"
-                                                        style="font-size:25px;"></i> -->
+                                                        class="img-fluid float-end" style="max-width:100px;" id="favAccBankPic" />
+                                                        <span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav">
+                                                            <i class="far fa-times-circle"></i>Delete</span>
+                                                        <span class="col-2 float-end badge bg-warning text-dark editFav">
+                                                            <i class="far fa-edit"></i>Edit</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -2903,6 +2927,10 @@
                                             <div class="col-12 mt-lg-n4">
                                                 <img src="images/cimblogo.png"
                                                     class="img-fluid float-end" style="max-width:100px;" />
+                                                    <span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav">
+                                                        <i class="far fa-times-circle"></i>Delete</span>
+                                                    <span class="col-2 float-end badge bg-warning text-dark editFav">
+                                                        <i class="far fa-edit"></i>Edit</span>
                                             </div>
                                         </div>
                                     </li>
@@ -2925,6 +2953,10 @@
                                             <div class="col-12 mt-lg-n4">
                                                 <img src="images/pblogo.png"
                                                     class="img-fluid float-end" style="max-width:100px;" />
+                                                    <span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav">
+                                                        <i class="far fa-times-circle"></i>Delete</span>
+                                                    <span class="col-2 float-end badge bg-warning text-dark editFav">
+                                                        <i class="far fa-edit"></i>Edit</span>
                                             </div>
                                         </div>
                                     </li>
@@ -2944,16 +2976,19 @@
                                                 </div>
                                                 <div class="col-12 mt-lg-n4">
                                                     <img src="images/maybanklogo.png"
-                                                    class="img-fluid float-end" style="max-width:25px;" />
-                                                    <!-- <i class="fad fa-id-card float-end text-primary"
-                                                        style="font-size:25px;"></i> -->
+                                                    class="img-fluid float-end" style="max-width:100px;" />
+                                                    <span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav">
+                                                        <i class="far fa-times-circle"></i>Delete</span>
+                                                    <span class="col-2 float-end badge bg-warning text-dark editFav">
+                                                        <i class="far fa-edit"></i>Edit</span>
+                                       
                                                 </div>
                                             </div>
                                         </li>
 
 
                                     </a>
-
+ 
                                     <a href="#">
 
                                         <li>
@@ -2965,8 +3000,12 @@
                                                     <p id='favBank' hidden>BSN</p>
                                                 </div>
                                                 <div class="col-12 mt-lg-n4">
-                                                    <img src="~/Images/WebsiteImages/pb_logo.png"
-                                                        class="img-fluid float-end" style="max-width:100px;" />
+                                                    <img src="images/bsnlogo.png"
+                                                        class="img-fluid float-end" style="width: 40px;" />
+                                                        <span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav">
+                                                            <i class="far fa-times-circle"></i>Delete</span>
+                                                        <span class="col-2 float-end badge bg-warning text-dark editFav">
+                                                            <i class="far fa-edit"></i>Edit</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -3361,11 +3400,16 @@
                             <div class="col-12">
                                 <a class="btn btn-outline-danger float-start col-4 col-md-3 col-lg-4 col-xxl-3"
                                     style="min-width: 0;"> Print </a>
-                                <a id="setAsFavNext"
+                                <!-- <a id="setAsFavNext"
                                     class="btn btn-outline-danger col-7 col-md-5 col-lg-7 col-xxl-5 float-end float-md-none float-lg-end float-xxl-none ms-md-2 ms-lg-0 ms-xxl-2">
                                     <span><i class="far fa-heart"></i></span>
                                     <span class="ms-2">Set as Favourite</span>
-                                </a>
+                                </a> -->
+                                                                
+                                <div class="form-switch col-4 mt-1 float-end">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked1"/>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked1">Set as Favourite</label>
+                                </div>
                                 <a id="fourthNext" data-bs-dismiss="modal" aria-label="Close"
                                     class="btn btn-primary mt-2 mt-md-0 mt-lg-2 mt-xxl-0 float-none float-md-end float-lg-none float-xxl-end col-12 col-md-3 col-lg-12 col-xxl-3">
                                     Done </a>
@@ -3400,10 +3444,15 @@
 
 
                             <div class="col-12 text-center pb-3">
-                                <h3>Add to Favourites</h3>
+                                <h3>Add New Favourites</h3>
 
                                 <p class="text-muted small">Ensure the name and account number of the favourite is correct</p>
 
+                                
+                                <div class="form-switch switchFav">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked1"/>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked1">DuitNow Favourite</label>
+                                </div>
                             </div>
 
                         </div>
@@ -3438,6 +3487,64 @@
                                     </div>
 
                                 </div>
+
+                                
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="setAsFavAccNumber">Select Bank</label>
+
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                                
+                                        <div class="dropdown">
+
+                                            <button class="col-12 btn bg-white border border-1 dropdown-toggle text-start"
+                                                type="button" id="addNewDropdownMenuButton1" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                Please select
+                                            </button>
+
+                                            <ul id="addNewBankList" class="dropdown-menu px-3" aria-labelledby="addNewDropdownMenuButton1">
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="email" class="form-control search" id="addNewBankSearchBar"
+                                                                placeholder="name@example.com">
+                                                            <label for="addNewBankSearchBar" class="searchLabel">Search</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <li class="mb-1" value="PublicBank"><img src="images/pblogo.png"
+                                                            style="width: 40px; height: 40px;"></img>
+                                                    <span class="ms-2">Public Bank Berhad</span>
+                                                </li>
+                                                <li class="mb-1" value="CIMB"><img src="images/cimblogo.png"
+                                                        style="width: 40px; height: 40px;"></img>
+                                                    <span class="ms-2">CIMB Bank</span>
+                                                </li>
+                                                <li class="mb-1" value="Maybank"><img src="images/maybanklogo.png"
+                                                        style="width: 40px; height: 40px;"></img>
+                                                    <span class="ms-2">Maybank Berhad</span>
+                                                </li>
+                                                <li class="mb-1" value="BSN"><img src="images/bsnlogo.png"
+                                                        style="width: 40px; height: 40px;"></img>
+                                                    <span class="ms-2">Bank Simpanan Nasional</span>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+
+                                
 
                                 <div class="row mb-3">
 
@@ -3504,9 +3611,16 @@
 
 
                             <div class="col-12 text-center pb-3">
-                                <h3>Add to Favourites</h3>
+                                <h3>Add New DuitNow Favourites</h3>
 
-                                <p class="text-muted small">Ensure the name and account number of the favourite is correct</p>
+                                <p class="text-muted small">Ensure the name, DuitNow ID Type and DuitNow ID number of the favourite is correct</p>
+
+
+                                                                
+                                <div class="form-switch switchFav">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked2"/>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked2">DuitNow Favourite</label>
+                                </div>
 
                             </div>
 
@@ -3552,7 +3666,17 @@
 
                                     <div
                                         class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
-                                        <input type="text" class="form-control details-input" id="duitNowSetAsFavIDType" value="Mobile Number" placeholder="Enter Account No" disabled>
+                                        <!-- <input type="text" class="form-control details-input" id="duitNowSetAsFavIDType" value="Mobile Number" placeholder="Enter Account No" disabled> -->
+
+                                                            
+                                        <select class="form-select" id="duitNowSetAsFavIDType" aria-label="Default select example" disabled>
+                                            <option selected value="defaultSel">Please select</option>
+                                            <option value="mobileNum">Mobile Number</option>
+                                            <option value="icNum">I/C Number</option>
+                                            <option value="passport">Passport Number</option>   
+                                            <option value="armyPoliceID">Army / Police ID</option>
+                                            <option value="businessRegNum">Business Registration Number</option>
+                                        </select>
 
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="duitNowEditBtn2">
                                             <i class="far fa-edit"></i> Edit</span>
@@ -3609,9 +3733,156 @@
             </div>
         </div>
     </div>
-    
 
-    
+    <!-- Edit Favourites Form Modal -->
+
+    <div class="modal fade" id="exampleModalToggleEditFav" aria-hidden="true" aria-labelledby="exampleModalToggleLabelEditFav"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered mt-5 pt-4 p-3 p-sm-auto" style="max-width: 600px;">
+            <div class="modal-content modal-content-bg-none">
+
+                <div class="modal-body bg-transparent p-0">
+
+                    <div class="col-12 pb-2 px-3 bg-white rounded-8 shadow-sm ">
+
+                        <div class="row mt-4">
+
+
+
+                            <div class="col-12 text-center pb-3">
+                                <h3>Edit Favourites</h3>
+
+                                <p class="text-muted small">Ensure the name and account number of the favourite is correct</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row dashed_line px-1">
+                            <hr>
+                        </div>
+
+                        <div class="row border-bottom px-1">
+
+                            <div class="receipt-body my-3">
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="editFavReceipientName">Receipient Name</label>
+
+                                    </div>
+
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+
+                                        <input type="text" class="form-control details-input" id="editFavReceipientName"
+                                        placeholder="Enter Receipient Name">
+
+
+                            
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3" hidden>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="setAsFavAccNumber">Select Bank</label>
+
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                                
+                                        <div class="dropdown">
+
+                                            <button class="col-12 btn bg-white border border-1 dropdown-toggle text-start"
+                                                type="button" id="editDropdownMenuButton1" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                Please select
+                                            </button>
+
+                                            <ul id="editBankList" class="dropdown-menu px-3" aria-labelledby="editDropdownMenuButton1">
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="email" class="form-control search" id="editBankSearchBar"
+                                                                placeholder="name@example.com">
+                                                            <label for="editBankSearchBar" class="searchLabel">Search</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <li class="mb-1" value="PublicBank"><img src="images/pblogo.png"
+                                                            style="width: 40px; height: 40px;"></img>
+                                                    <span class="ms-2">Public Bank Berhad</span>
+                                                </li>
+                                                <li class="mb-1" value="CIMB"><img src="images/cimblogo.png"
+                                                        style="width: 40px; height: 40px;"></img>
+                                                    <span class="ms-2">CIMB Bank</span>
+                                                </li>
+                                                <li class="mb-1" value="Maybank"><img src="images/maybanklogo.png"
+                                                        style="width: 40px; height: 40px;"></img>
+                                                    <span class="ms-2">Maybank Berhad</span>
+                                                </li>
+                                                <li class="mb-1" value="BSN"><img src="images/bsnlogo.png"
+                                                        style="width: 40px; height: 40px;"></img>
+                                                    <span class="ms-2">Bank Simpanan Nasional</span>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-3">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                        <label for="editFavAccNumber">Account No.</label>
+
+                                    </div>
+
+                                    <div
+                                        class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                        <input type="text" class="form-control details-input" id="editFavAccNumber" placeholder="Enter Account No" disabled>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="row my-4 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-dark float-start"> Back </a>
+
+
+                                <a data-bs-dismiss="modal" aria-label="Close"
+                                    class="btn btn-primary float-end" id="editConfirmBtn">
+                                    Confirm</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- <div class="modal-footer">
+                 <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+             </div> -->
+
+            </div>
+        </div>
+    </div>
 
     
     <!-- First DuitNow Modal -->
@@ -3988,11 +4259,12 @@
                             <div class="col-12">
                                 <a class="btn btn-outline-danger float-start col-4 col-md-3 col-lg-4 col-xxl-3"
                                     style="min-width: 0;"> Print </a>
-                                <a id="duitNowSetAsFavNext"
-                                    class="btn btn-outline-danger col-7 col-md-5 col-lg-7 col-xxl-5 float-end float-md-none float-lg-end float-xxl-none ms-md-2 ms-lg-0 ms-xxl-2">
-                                    <span><i class="far fa-heart"></i></span>
-                                    <span class="ms-2">Set as Favourite</span>
-                                </a>
+
+                                <div class="form-switch col-4 mt-1 float-end">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked2"/>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked2">Set as Favourite</label>
+                                </div>
+
                                 <a id="fourthDuitNowNext" data-bs-dismiss="modal" aria-label="Close"
                                     class="btn btn-primary mt-2 mt-md-0 mt-lg-2 mt-xxl-0 float-none float-md-end float-lg-none float-xxl-end col-12 col-md-3 col-lg-12 col-xxl-3">
                                     Done </a>
@@ -4046,6 +4318,7 @@
         var receiptModal = new bootstrap.Modal(document.getElementById('exampleModalToggle2'));
         var setAsFavModal = new bootstrap.Modal(document.getElementById('exampleModalToggleSetAsFav'));
         var duitNowSetAsFavModal = new bootstrap.Modal(document.getElementById('exampleModalToggleDuitNowSetAsFav'));
+        var editFavModal = new bootstrap.Modal(document.getElementById('exampleModalToggleEditFav'));
         var duitNowConfirmationModal = new bootstrap.Modal(document.getElementById('duitNowExampleModalToggle'));
         var duitNowReceiptModal = new bootstrap.Modal(document.getElementById('duitNowExampleModalToggle2'));
         var setAsFavNames;
@@ -4056,6 +4329,30 @@
 
         $('#bankSearchBar').on('keyup', function () {
             myBank2Function();
+        });
+
+        function editBankFunction() {
+            // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('editBankSearchBar');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("editBankList");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("span")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        $('#editBankSearchBar').on('keyup', function () {
+            editBankFunction();
         });
 
         function myBank2Function() {
@@ -4442,6 +4739,7 @@
                     }).then(function () {
                         confirmationModal.hide();
                         receiptModal.show();
+                        $('#flexSwitchCheckChecked1').prop('checked', false);
                         // setAsFavModal.show();
                         // $('#exampleModalToggle2').show();
                     });
@@ -4453,12 +4751,40 @@
 
             receiptModal.hide();
             setAsFavModal.show();
+            $('.switchFav').hide();
+            $('#setAsFavReceipientName').prop('disabled', true);
+            $('#setAsFavReceipientName').val("John Doe");
+            $('#setAsFavAccNumber').prop('disabled', true);
+            $('#setAsFavAccNumber').val("12345678985215");
+            $('#editBtn1').show();
+            $('#editBtn2').show();
+            $('#cancelBtn1').hide();
+            $('#cancelBtn2').hide();
+
+
         })
 
         $('#duitNowSetAsFavNext').on('click', function() {
 
             duitNowReceiptModal.hide();
             duitNowSetAsFavModal.show();
+            $('.switchFav').hide();
+            $('#duitNowSetAsFavReceipientName').prop('disabled', true);
+            $('#duitNowSetAsFavReceipientName').val("John Doe");
+            $('#duitNowSetAsFavIDType').prop('disabled', true);
+            // $('#duitNowSetAsFavIDType').val() =="mobileNum";
+            var duitNowFavIDSelect ="mobileNum";
+            $("#duitNowSetAsFavIDType option[value='"+ duitNowFavIDSelect +"']").attr('selected', 'selected');
+            $('#duitNowSetAsFavIDNumber').prop('disabled', true);
+            $('#duitNowSetAsFavIDNumber').val("012-3456789");
+            $('#duitNowEditBtn1').show();
+            $('#duitNowEditBtn2').show();
+            $('#duitNowEditBtn3').show();
+            $('#duitNowCancelBtn1').hide();
+            $('#duitNowCancelBtn2').hide();
+            $('#duitNowCancelBtn3').hide();
+            
+
         })
 
         $('#addToFavBack').on('click', function() {
@@ -4499,6 +4825,7 @@
                     }).then(function () {
                         duitNowConfirmationModal.hide();
                         duitNowReceiptModal.show();
+                        $('#flexSwitchCheckChecked2').prop('checked', false);
                         // $('#duitNowExampleModalToggle2').show();
                     });
                 }
@@ -4941,10 +5268,208 @@
 
         });
 
+        // $('#setAsFavReceipientName').prop('disabled', true);
+        // $('#setAsFavAccNumber').prop('disabled', true);
+        // $('#duitNowSetAsFavReceipientName').prop('disabled', true);
+        // $('#duitNowSetAsFavIDType').prop('disabled', true);
+        // $('#duitNowSetAsFavIDNumber').prop('disabled', true);
+        // $('#editBtn1').show();
+        // $('#editBtn2').show();
+        // $('#duitNowEditBtn1').show();
+        // $('#duitNowEditBtn2').show();
+        // $('#duitNowEditBtn3').show();
+
         $('#addToFavBtn').click(function() {
 
             setAsFavModal.show();
+            $('.switchFav').show();
+            $('#setAsFavReceipientName').prop('disabled', false);
+            $('#setAsFavReceipientName').val("");
+            $('#setAsFavAccNumber').prop('disabled', false);
+            $('#setAsFavAccNumber').val("");
+            $('#duitNowSetAsFavReceipientName').prop('disabled', false);
+            $('#duitNowSetAsFavReceipientName').val("");
+            $('#duitNowSetAsFavIDType').prop('disabled', false);
+            // $('#duitNowSetAsFavIDType').val =="defaultSel";
+            $("#duitNowSetAsFavIDType option:selected").removeAttr("selected");
+            var duitNowFavIDSelect2 ="defaultSel";
+            $("#duitNowSetAsFavIDType option[value='"+ duitNowFavIDSelect2 +"']").attr('selected', 'selected');
+            $('#duitNowSetAsFavIDNumber').prop('disabled', false);
+            $('#duitNowSetAsFavIDNumber').val("");
+            $('#editBtn1').hide();
+            $('#editBtn2').hide();
+            $('#duitNowEditBtn1').hide();
+            $('#duitNowEditBtn2').hide();
+            $('#duitNowEditBtn3').hide();
+            $('#cancelBtn1').hide();
+            $('#cancelBtn2').hide();
+            $('#duitNowCancelBtn1').hide();
+            $('#duitNowCancelBtn2').hide();
+            $('#duitNowCancelBtn3').hide();
+            $('#flexSwitchCheckChecked1').prop('checked', false);
+            $('#flexSwitchCheckChecked2').prop('checked', false);
+
         })
+
+
+        // $('#flexSwitchCheckChecked1').on('change', function() {
+
+        //     if($(this).prop('checked', true)) {
+
+        //         duitNowSetAsFavModal.show();
+        //         setAsFavModal.hide();
+        //         $('#flexSwitchCheckChecked1').prop('checked', true);
+        //         $('#flexSwitchCheckChecked2').prop('checked', true);
+
+
+
+
+        //     }
+        
+
+        $('#flexSwitchCheckChecked1').prop('checked', false);
+        $('#flexSwitchCheckChecked2').prop('checked', false);
+        $('#flexSwitchCheckChecked1, #flexSwitchCheckChecked2').on('change', function() {
+
+            if($(this).prop('checked', true)) {
+
+                Swal.fire({
+                        title: 'The user has been successfully added to your Favourites!',
+                        icon: 'success',
+                        customClass: {
+                            confirmButton: 'btn-okay',
+                            title: 'alertFontStyle'
+                        }
+                    }).then(function () {
+
+                        receiptModal.hide();
+                        duitNowReceiptModal.hide();
+                        setAsFavNames = $('#setAsFavReceipientName').val();
+                        setAsFavAccNums = $('#setAsFavAccNumber').val();
+                        $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">'+ setAsFavNames +'</h6><p class="text-muted mb-0" id="favAccNum">'+ setAsFavAccNums +'</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="images/pblogo.png" class="img-fluid float-end" style="max-width:100px;" /><span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav"><i class="far fa-times-circle"></i>Delete</span><span class="col-2 float-end badge bg-warning text-dark editFav"><i class="far fa-edit"></i>Edit</span></div></div></li></a>');
+
+        
+                    });
+
+            }
+            
+
+            
+        
+        
+
+        })
+
+
+        // $('#flexSwitchCheckChecked2').on('change', function() {
+
+        //     if($(this).prop('checked', true)) {
+
+        //         duitNowSetAsFavModal.hide();
+        //         setAsFavModal.show();
+        //         $('#flexSwitchCheckChecked1').prop('checked', false);
+        //         $('#flexSwitchCheckChecked2').prop('checked', false);
+
+
+
+
+        //     }
+
+
+        // })
+
+        var bankFavs;
+        $('#editBankList li').click(function() {
+
+            bankFavs = $(this).attr('value');
+
+        })
+        var editFavNode;
+        $(document).on('click', '.editFav', function() {
+            editFavModal.show();
+            
+            editFavNode= $(this);
+            $('#editFavReceipientName').val(editFavNode.parent().prev().find("#favName").text());
+            $('#editFavAccNumber').val(editFavNode.parent().prev().find("#favAccNum").text());
+            
+            $('#editConfirmBtn').click(function() {
+                editFavNode.parent().prev().find("#favName").html($('#editFavReceipientName').val());
+                editFavNode.parent().prev().find("#favAccNum").html($('#editFavAccNumber').val());
+            // $('#favBank').html(bankFavs);
+
+            // switch(bankFavs) {
+
+            //     case "PublicBank":
+
+            //         $('#favAccBankPic').attr("src", bankPicsArr[0]);
+            //         break;
+                
+                
+            //     case "CIMB":
+
+            //         $('#favAccBankPic').attr("src", bankPicsArr[2]);
+            //         break;
+                
+                
+            //     case "Maybank":
+
+            //         $('#favAccBankPic').attr("src", bankPicsArr[1]);
+            //         break;
+
+                
+            //     case "BSN":
+
+            //         $('#favAccBankPic').attr("src", bankPicsArr[3]);
+            //         break;
+
+            //     default:
+            //         $('#favAccBankPic').attr("src", "");
+                
+            // }
+
+        })
+        })
+        var currentNode;
+        $(document).on('click', '.deleteFav', function() {
+            currentNode = $(this);
+            Swal.fire({
+                title: 'Do you want to proceed to remove the favourite?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Confirm',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'alertFontStyle'
+                }
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'The favourite has been deleted successfully!',
+                        icon: 'success',
+                        customClass: {
+                            confirmButton: 'btn-okay',
+                            title: 'alertFontStyle'
+                        }
+                    }).then(function () {
+                        currentNode.parent().parent().parent().parent().remove();       
+                    });
+                }
+            })
+
+        })
+
+        var bankPicsArr = ["images/pblogo.png","images/maybanklogo.png", "images/cimblogo.png", "images/bsnlogo.png"];
+        
+
+ 
+
+        
+
+        
+
+        
+
     
 
 
