@@ -881,16 +881,16 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-2" id="receipientNames">
-                                <label for="receipientName" class="col-sm-12 col-form-label">Receipient Name</label>
+                            <div class="row mb-2" id="recipientNames">
+                                <label for="recipientName" class="col-sm-12 col-form-label">Recipient Name</label>
                                 <div class="col-sm-12 mb-2">
-                                    <input type="text" class="form-control mb-2" id="receipientName"
-                                        placeholder="Enter Receipient Name">
+                                    <input type="text" class="form-control mb-2" id="recipientName"
+                                        placeholder="Enter Recipient Name">
 
                                 </div>
                             </div>
 
-                            <div class="row mb-2" id="receipientAccountType">
+                            <div class="row mb-2" id="recipientAccountType">
                                 <label for="accType" class="col-sm-12 col-form-label">Account Type</label>
                                 <div class="col-sm-12 mb-2">
 
@@ -920,7 +920,7 @@
 
                             <div class="row mb-2">                                             
 
-                                    <label class="col-sm-12 col-form-label " for="rrSuggestions">Receipient Reference</label>
+                                    <label class="col-sm-12 col-form-label " for="rrSuggestions">Recipient Reference</label>
                                 
                                   
                                         <input type="text" id="recRef" class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
@@ -971,8 +971,8 @@
                             </div>
 
                             
-                            <div class="row mb-2" id="receipientNotification">
-                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Receipient <span class="text-muted">(Optional)</span></label>
+                            <div class="row mb-2" id="recipientNotification">
+                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Recipient <span class="text-muted">(Optional)</span></label>
                                 
                                 
                                     <div class="col-sm-12 mb-2">
@@ -1152,24 +1152,26 @@
                     
                                     <select class="form-select" disabled id="transferMethodsDisabled" aria-label="Default select example">
                                      
-                                        <option>DuitNow Transfer (before known as Instant Transfer)</option>
+                                        <option>DuitNow Transfer</option>
                     
                                     </select>
+                                    <small class="text-muted ms-1"><i>(DuitNow Transfer is formerly known as Instant Transfer)</i></small>
+
                                     <!-- <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
                                         data-valmsg-replace="true"></span> -->
                                 </div>
                             </div>
                     
-                            <div class="row mb-2" id="receipientNames">
-                                <label for="receipientName" class="col-sm-12 col-form-label">Receipient Name</label>
+                            <div class="row mb-2" id="recipientNames">
+                                <label for="recipientName" class="col-sm-12 col-form-label">Recipient Name</label>
                                 <div class="col-sm-12 mb-2">
                           
-                                    <input type="text" class="form-control mb-2" id="receipientNameDisabled"
+                                    <input type="text" class="form-control mb-2" id="recipientNameDisabled"
                                         placeholder="Bob" disabled>
                                 </div>
                             </div>
                     
-                            <div class="row mb-2" id="receipientAccountType">
+                            <div class="row mb-2" id="recipientAccountType">
                                 <label for="accType" class="col-sm-12 col-form-label">Account Type</label>
                                 <div class="col-sm-12 mb-2">
                     
@@ -1195,14 +1197,10 @@
                     
                             <div class="row mb-2">                                             
                     
-                                    <label class="col-sm-12 col-form-label " for="rrSuggestions">Receipient Reference</label>
-                                
-                                    
-                                <div class="col-sm-12 mb-2">
+                                <label class="col-sm-12 col-form-label " for="rrSuggestions">Recipient Reference</label>
+                                                                    
+                                <input type="text" id="recRefDisabled" placeholder="Groceries" disabled class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
 
-                                    <input type="text" id="recRefDisabled" placeholder="Groceries" disabled class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
-
-                                </div>
                     
                             </div>
                     
@@ -1243,8 +1241,8 @@
                             </div>
                     
                             
-                            <div class="row mb-2" id="receipientNotification">
-                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Receipient <span class="text-muted">(Optional)</span></label>
+                            <div class="row mb-2" id="recipientNotification">
+                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Recipient <span class="text-muted">(Optional)</span></label>
                                 
                                 
                                     <div class="col-sm-12 mb-2">
@@ -1783,7 +1781,7 @@
                             </div> -->
 
                             <div class="row mb-2">
-                                <label for="tranAmount" class="col-sm-12 col-form-label">Receipient DuitNow ID Type</label>
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Recipient DuitNow ID Type</label>
                                 <div class="col-sm-12 mb-2">
                 
                                     <select class="form-select" id="duitNowTypes" aria-label="Default select example">
@@ -1802,7 +1800,7 @@
                             <div class="row mb-2" class="myDiv" id="duitNowMobile">
                                 <label for="tranAmount" class="col-sm-12 col-form-label">Mobile Number</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's mobile number...">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter recipient's mobile number...">
                                     
                                 </div>
                             </div>
@@ -1810,7 +1808,7 @@
                             <div class="row mb-2" id="duitNowIC">
                                 <label for="tranAmount" class="col-sm-12 col-form-label">I/C Number</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's I/C number...">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter recipient's I/C number...">
                                     
                                 </div>
                             </div>
@@ -2072,7 +2070,7 @@
                             <div class="row mb-2" id="duitNowPassportNumber">
                                 <label for="tranAmount" class="col-sm-12 col-form-label">Passport Number</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's passport number...">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter recipient's passport number...">
                                     
                                 </div>
                             </div>
@@ -2080,7 +2078,7 @@
                             <div class="row mb-2" id="duitNowArmyPoliceID">
                                 <label for="tranAmount" class="col-sm-12 col-form-label">Army / Police ID</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's army / police ID...">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter recipient's army / police ID...">
                                     
                                 </div>
                             </div>
@@ -2088,17 +2086,17 @@
                             <div class="row mb-2" id="duitNowBusinessRegNum">
                                 <label for="tranAmount" class="col-sm-12 col-form-label">Business Registration Number</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control mb-2" placeholder=" Enter receipient's business registration number...">
+                                    <input type="text" class="form-control mb-2" placeholder=" Enter recipient's business registration number...">
                                     
                                 </div>
                             </div>
 
                         
-                            <div class="row mb-2" id="duitNowReceipientNames">
-                                <label for="receipientName" class="col-sm-12 col-form-label">Receipient Name</label>
+                            <div class="row mb-2" id="duitNowRecipientNames">
+                                <label for="recipientName" class="col-sm-12 col-form-label">Recipient Name</label>
                                 <div class="col-sm-12 mb-2">
-                                    <input type="text" class="form-control mb-2" id="duitNowReceipientName"
-                                        placeholder="Enter Receipient Name">
+                                    <input type="text" class="form-control mb-2" id="duitNowRecipientName"
+                                        placeholder="Enter Recipient Name">
 
                                 </div>
                             </div>
@@ -2116,7 +2114,7 @@
 
                             <div class="row mb-2">                                             
 
-                                    <label class="col-sm-12 col-form-label " for="rrSuggestions">Receipient Reference</label>
+                                    <label class="col-sm-12 col-form-label " for="rrSuggestions">Recipient Reference</label>
                                 
                                     
                                     <input type="text" id="duitNowRecRef" class="typeahead tt-query form-control mb-2" autocomplete="off" spellcheck="false">
@@ -2169,8 +2167,8 @@
                             </div>
 
                             
-                            <div class="row mb-2" id="duitNowReceipientNotification">
-                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Receipient <span class="text-muted">(Optional)</span></label>
+                            <div class="row mb-2" id="duitNowRecipientNotification">
+                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Recipient <span class="text-muted">(Optional)</span></label>
                                 
                                 
                                     <div class="col-sm-12 mb-2">
@@ -2291,7 +2289,7 @@
 
                             
                             <div class="row mb-2">
-                                <label for="tranAmount" class="col-sm-12 col-form-label">Receipient DuitNow ID Type</label>
+                                <label for="tranAmount" class="col-sm-12 col-form-label">Recipient DuitNow ID Type</label>
                                 <div class="col-sm-12 mb-2">
                 
                                     <select class="form-select" disabled id="duitNowTypes" aria-label="Default select example">
@@ -2312,11 +2310,11 @@
 
                     
                     
-                            <div class="row mb-2" id="duitNowReceipientNames">
-                                <label for="duitNowReceipientName" class="col-sm-12 col-form-label">Receipient Name</label>
+                            <div class="row mb-2" id="duitNowRecipientNames">
+                                <label for="duitNowRecipientName" class="col-sm-12 col-form-label">Recipient Name</label>
                                 <div class="col-sm-12 mb-2">
                           
-                                    <input type="text" class="form-control mb-2" id="duitNowReceipientNameDisabled"
+                                    <input type="text" class="form-control mb-2" id="duitNowRecipientNameDisabled"
                                         placeholder="Bob" disabled>
                                 </div>
                             </div>
@@ -2334,7 +2332,7 @@
                     
                             <div class="row mb-2">                                             
                     
-                                    <label class="col-sm-12 col-form-label " for="rrSuggestions">Receipient Reference</label>
+                                    <label class="col-sm-12 col-form-label " for="rrSuggestions">Recipient Reference</label>
                                 
                                     
                     
@@ -2381,8 +2379,8 @@
                             </div>
                     
                             
-                            <div class="row mb-2" id="duitNowReceipientNotification">
-                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Receipient <span class="text-muted">(Optional)</span></label>
+                            <div class="row mb-2" id="duitNowRecipientNotification">
+                                <label for="statementPeriod" class="col-sm-12 col-form-label">Notify Recipient <span class="text-muted">(Optional)</span></label>
                                 
                                 
                                     <div class="col-sm-12 mb-2">
@@ -2861,8 +2859,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 px-3">
+                        <div class="row flex-column">
+                            <div class="col-md-12 mw-100 px-3">
                                 <ul id="myUL" style="list-style:none" class="ps-0">
                                     <a href="#">
 
@@ -2925,7 +2923,7 @@
                                                     <p id='favBank' hidden>Maybank</p>
                                                 </div>
                                                 <div class="col-12 mt-lg-n4">
-                                                    <i class="fad fa-mobile-alt fa-swap-opacity float-end text-primary" style="font-size:50px;"></i>
+                                                    <i class="fad fa-mobile-alt fa-swap-opacity float-end text-primary" style="font-size:25px;"></i>
 
                                                         <span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav">
                                                             <i class="far fa-times-circle"></i>Delete</span>
@@ -3039,7 +3037,58 @@
                                     </a>
   
                                 </ul>
-                            </div>
+                            </div>               
+                           
+                            <!-- <hr style="height:5px; width:100%; border-width:0; color:#d64354; background-color: #d64354">  -->
+                            <!-- <div class="col-md-12 mw-100 px-3">
+                                <h3>Recent Transactions</h3>
+                                <div class="col-12 table-responsive mt-1">
+                                  
+        
+                                    <table id="etransHistoryTable"
+                                           class="table table-borderless table-hover p-lg-2 p-0 shadow  bg-white "
+                                           style="width:100%">
+                                        <thead class="bg-dark text-white rounded-8">
+                                            <tr>
+                                                <th class="small">Recipient Name</th>
+                                                <th class="small">Transaction Date</th>
+                                                <th class="small">Transaction Type</th>
+                                                <th class="small">Transaction Reference</th>
+                                                <th class="small">Transaction Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="pbe-data">   
+                                                <td>Bob</td>
+                                                <td>29-SEP-21</td>
+                                                <td class="title1">DuitNow Transfer</td>
+                                                <td>829588</td>
+                                                <td class="text-success">RM5.06</td>
+                                            </tr>
+                                            <tr class="pbe-data">
+                                                <td>Alice</td>
+                                                <td>27-SEP-21</td>
+                                                <td class="title1">IBG Transfer</td>
+                                                <td>907234</td>
+                                                <td class="text-success">RM200.00</td>
+                                            </tr>
+
+                                            <tr class="pbe-data">
+                                                <td>Christina</td>
+                                                <td>25-SEP-21</td>
+                                                <td class="title1">DuitNow</td>
+                                                <td>907234</td>
+                                                <td class="text-success">RM1230.00</td>
+                                            </tr>
+ 
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> -->
+                            
+                          
+                        
                         </div>
                     </div>
 
@@ -3493,7 +3542,7 @@
                                 <div class="row mb-3">
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
-                                        <label for="setAsFavReceipientName">Receipient Name</label>
+                                        <label for="setAsFavRecipientName">Recipient Name</label>
 
                                     </div>
 
@@ -3501,8 +3550,8 @@
                                     <div
                                         class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
 
-                                        <input type="text" class="form-control details-input" id="setAsFavReceipientName"
-                                        placeholder="Enter Receipient Name" value="John Doe" disabled>
+                                        <input type="text" class="form-control details-input" id="setAsFavRecipientName"
+                                        placeholder="Enter Recipient Name" value="John Doe" disabled>
 
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="editBtn1">
                                             <i class="far fa-edit"></i> Edit</span>
@@ -3662,7 +3711,7 @@
                                 <div class="row mb-3">
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
-                                        <label for="duitNowSetAsFavReceipientName">Receipient Name</label>
+                                        <label for="duitNowSetAsFavRecipientName">Recipient Name</label>
 
                                     </div>
 
@@ -3670,8 +3719,8 @@
                                     <div
                                         class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
 
-                                        <input type="text" class="form-control details-input" id="duitNowSetAsFavReceipientName"
-                                        placeholder="Enter Receipient Name" value="John Doe" disabled>
+                                        <input type="text" class="form-control details-input" id="duitNowSetAsFavRecipientName"
+                                        placeholder="Enter Recipient Name" value="John Doe" disabled>
 
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 badge bg-warning text-dark" id="duitNowEditBtn1">
                                             <i class="far fa-edit"></i> Edit</span>
@@ -3794,7 +3843,7 @@
                                 <div class="row mb-3">
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
-                                        <label for="editFavReceipientName">Receipient Name</label>
+                                        <label for="editFavRecipientName">Recipient Name</label>
 
                                     </div>
 
@@ -3802,8 +3851,8 @@
                                     <div
                                         class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
 
-                                        <input type="text" class="form-control details-input" id="editFavReceipientName"
-                                        placeholder="Enter Receipient Name">
+                                        <input type="text" class="form-control details-input" id="editFavRecipientName"
+                                        placeholder="Enter Recipient Name">
 
 
                             
@@ -4721,7 +4770,7 @@
 
         var bankName;
         $('#myUL li').click(function () {
-            $('#receipientName').val($(this).find('#favName').text());
+            $('#recipientName').val($(this).find('#favName').text());
             $('#accNumber').val($(this).find('#favAccNum').text());
 
             var selectedAccType = $(this).find('#favAccType').text();
@@ -4792,8 +4841,8 @@
             receiptModal.hide();
             setAsFavModal.show();
             $('.switchFav').hide();
-            $('#setAsFavReceipientName').prop('disabled', true);
-            $('#setAsFavReceipientName').val("John Doe");
+            $('#setAsFavRecipientName').prop('disabled', true);
+            $('#setAsFavRecipientName').val("John Doe");
             $('#setAsFavAccNumber').prop('disabled', true);
             $('#setAsFavAccNumber').val("12345678985215");
             $('#editBtn1').show();
@@ -4809,8 +4858,8 @@
             duitNowReceiptModal.hide();
             duitNowSetAsFavModal.show();
             $('.switchFav').hide();
-            $('#duitNowSetAsFavReceipientName').prop('disabled', true);
-            $('#duitNowSetAsFavReceipientName').val("John Doe");
+            $('#duitNowSetAsFavRecipientName').prop('disabled', true);
+            $('#duitNowSetAsFavRecipientName').val("John Doe");
             $('#duitNowSetAsFavIDType').prop('disabled', true);
             // $('#duitNowSetAsFavIDType').val() =="mobileNum";
             var duitNowFavIDSelect ="mobileNum";
@@ -4986,9 +5035,9 @@
         });
         
         
-        // $('#receipientNames').show();
-        // $('#receipientAccountType').show();
-        // $('#receipientNotification').show();
+        // $('#recipientNames').show();
+        // $('#recipientAccountType').show();
+        // $('#recipientNotification').show();
 
         $(".dropdown ul li").on('click', function(e) {
 
@@ -4997,17 +5046,17 @@
 
             if(value =="PublicBank") {
 
-                $('#receipientNames').hide();
-                $('#receipientAccountType').hide();
-                $('#receipientNotification').hide();
+                $('#recipientNames').hide();
+                $('#recipientAccountType').hide();
+                $('#recipientNotification').hide();
 
             }
  
             else {
 
-                $('#receipientNames').show();
-                $('#receipientAccountType').show();
-                $('#receipientNotification').show();
+                $('#recipientNames').show();
+                $('#recipientAccountType').show();
+                $('#recipientNotification').show();
             }
 
 
@@ -5205,7 +5254,7 @@
         $("#editBtn1").click(function () {
             $(this).hide();
             $(this).siblings('#cancelBtn1').show();
-            $('#setAsFavReceipientName').prop('disabled', false);
+            $('#setAsFavRecipientName').prop('disabled', false);
 
         });
 
@@ -5221,7 +5270,7 @@
         $("#cancelBtn1").click(function () {
             $(this).hide();
             $(this).siblings('#editBtn1').show();
-            $('#setAsFavReceipientName').prop('disabled', true);
+            $('#setAsFavRecipientName').prop('disabled', true);
         });
 
         $("#cancelBtn2").click(function () {
@@ -5233,7 +5282,7 @@
         $("#duitNowEditBtn1").click(function () {
             $(this).hide();
             $(this).siblings('#duitNowCancelBtn1').show();
-            $('#duitNowSetAsFavReceipientName').prop('disabled', false);
+            $('#duitNowSetAsFavRecipientName').prop('disabled', false);
 
         });
 
@@ -5256,7 +5305,7 @@
         $("#duitNowCancelBtn1").click(function () {
             $(this).hide();
             $(this).siblings('#duitNowEditBtn1').show();
-            $('#duitNowSetAsFavReceipientName').prop('disabled', true);
+            $('#duitNowSetAsFavRecipientName').prop('disabled', true);
         });
 
         $("#duitNowCancelBtn2").click(function () {
@@ -5275,7 +5324,7 @@
         
         $('#confirmAddToFav').click(function() {
 
-            setAsFavNames = $('#setAsFavReceipientName').val();
+            setAsFavNames = $('#setAsFavRecipientName').val();
             setAsFavAccNums = $('#setAsFavAccNumber').val();
             console.log(setAsFavNames);
             console.log(setAsFavAccNums);
@@ -5293,7 +5342,7 @@
         
         $('#duitNowConfirmAddToFav').click(function() {
 
-            duitNowSetAsFavNames = $('#duitNowSetAsFavReceipientName').val();
+            duitNowSetAsFavNames = $('#duitNowSetAsFavRecipientName').val();
             duitNowSetAsFavIDNum = $('#duitNowSetAsFavIDNumber').val();
             console.log(duitNowSetAsFavNames);
             console.log(duitNowSetAsFavIDNum);
@@ -5308,9 +5357,9 @@
 
         });
 
-        // $('#setAsFavReceipientName').prop('disabled', true);
+        // $('#setAsFavRecipientName').prop('disabled', true);
         // $('#setAsFavAccNumber').prop('disabled', true);
-        // $('#duitNowSetAsFavReceipientName').prop('disabled', true);
+        // $('#duitNowSetAsFavRecipientName').prop('disabled', true);
         // $('#duitNowSetAsFavIDType').prop('disabled', true);
         // $('#duitNowSetAsFavIDNumber').prop('disabled', true);
         // $('#editBtn1').show();
@@ -5323,12 +5372,12 @@
 
             setAsFavModal.show();
             $('.switchFav').show();
-            $('#setAsFavReceipientName').prop('disabled', false);
-            $('#setAsFavReceipientName').val("");
+            $('#setAsFavRecipientName').prop('disabled', false);
+            $('#setAsFavRecipientName').val("");
             $('#setAsFavAccNumber').prop('disabled', false);
             $('#setAsFavAccNumber').val("");
-            $('#duitNowSetAsFavReceipientName').prop('disabled', false);
-            $('#duitNowSetAsFavReceipientName').val("");
+            $('#duitNowSetAsFavRecipientName').prop('disabled', false);
+            $('#duitNowSetAsFavRecipientName').val("");
             $('#duitNowSetAsFavIDType').prop('disabled', false);
             // $('#duitNowSetAsFavIDType').val =="defaultSel";
             $("#duitNowSetAsFavIDType option:selected").removeAttr("selected");
@@ -5362,7 +5411,7 @@
 
                 // receiptModal.show();
                 // duitNowReceiptModal.hide();
-                setAsFavNames = $('#setAsFavReceipientName').val();
+                setAsFavNames = $('#setAsFavRecipientName').val();
                 setAsFavAccNums = $('#setAsFavAccNumber').val();
                 $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">'+ setAsFavNames +'</h6><p class="text-muted mb-0" id="favAccNum">'+ setAsFavAccNums +'</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="images/pblogo.png" class="img-fluid float-end" style="max-width:100px;" /><span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav"><i class="far fa-times-circle"></i>Delete</span><span class="col-2 float-end badge bg-warning text-dark editFav"><i class="far fa-edit"></i>Edit</span></div></div></li></a>');
 
@@ -5390,7 +5439,7 @@
 
                 // receiptModal.show();
                 // duitNowReceiptModal.hide();
-                // duitNowSetAsFavNames = $('#setAsFavReceipientName').val();
+                // duitNowSetAsFavNames = $('#setAsFavRecipientName').val();
                 // duitNowSetAsFavAccNums = $('#setAsFavAccNumber').val();
                 $('#myUL').append('<a href="#"><li><div class="row bg-white shadow-sm p-3 rounded-8 mt-2"><div class="col-7"><h6 class="mb-2" id="favName">John Lim</h6><p class="text-muted mb-0" id="favAccNum">012-3456789</p><p id="favAccType" hidden>Credit / Debit Card</p><p id="favBank" hidden>BSN</p></div><div class="col-12 mt-lg-n4"><img src="images/pblogo.png" class="img-fluid float-end" style="max-width:100px;" /><span class="col-2 mx-3 float-end badge bg-warning text-dark deleteFav"><i class="far fa-times-circle"></i>Delete</span><span class="col-2 float-end badge bg-warning text-dark editFav"><i class="far fa-edit"></i>Edit</span></div></div></li></a>');
 
@@ -5423,7 +5472,7 @@
             editFavModal.show();
             
             editFavNode= $(this);
-            $('#editFavReceipientName').val(editFavNode.parent().prev().find("#favName").text());
+            $('#editFavRecipientName').val(editFavNode.parent().prev().find("#favName").text());
             $('#editFavAccNumber').val(editFavNode.parent().prev().find("#favAccNum").text());
             $('#editFavDuitNowNumber').val(editFavNode.parent().prev().find("#favAccNum").text());
 
@@ -5441,7 +5490,7 @@
             }
             
             $('#editConfirmBtn').click(function() {
-                editFavNode.parent().prev().find("#favName").html($('#editFavReceipientName').val());
+                editFavNode.parent().prev().find("#favName").html($('#editFavRecipientName').val());
                 editFavNode.parent().prev().find("#favAccNum").html($('#editFavAccNumber').val());
                 editFavNode.parent().prev().find("#favAccNum").html($('#editFavDuitNowNumber').val());
 
