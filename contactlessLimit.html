@@ -1,0 +1,1397 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Style-Puvan -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- Fonts -->
+    <link href="http://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
+    <!-- MultiSelect Choices CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+
+
+
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <!--jQuery UI Autocomplete-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript"
+        src="http://dev.jquery.com/view/trunk/plugins/autocomplete/jquery.autocomplete.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Contactless Limit</title>
+
+    <style>
+        .dropdown-toggle::after {
+            float: right;
+            margin-top: 10px;
+        }
+
+        hr {
+            border-style: dashed;
+            border-top: 2px dashed;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .search {
+            background-image: url(../../Images/WebDecoratives/magnifying-glass.svg);
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.1875rem) center;
+            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+            border: none;
+            border-bottom: 1px solid #bdbdbd;
+            border-radius: 0;
+            background-color: transparent;
+            padding-left: 0.2rem !important;
+            padding-right: 0.2rem !important;
+        }
+
+        .search:focus {
+            box-shadow: none !important;
+            border-bottom: 1px solid #d64354 !important;
+            background-color: transparent !important;
+        }
+
+        .searchLabel {
+            padding: 1rem 0 !important;
+        }
+
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+
+        body {
+
+            background-color: #f3f4fa;
+        }
+
+        i.fa.fa-arrow-right.text-primary::before {
+
+            color: #d64354;
+        }
+
+        .form-check-input:checked {
+
+            background-color: #d64354;
+            border-color: #d64354;
+        }
+
+        /* success
+            .checkmark__circle {
+                stroke-dasharray: 166;
+                stroke-dashoffset: 166;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+                stroke: #7ac142;
+                fill: none;
+                animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+            }
+
+            .checkmark {
+                width: 86px;
+                height: 86px;
+                border-radius: 50%;
+                display: block;
+                stroke-width: 5;
+                stroke: #fff;
+                stroke-miterlimit: 10;
+                margin: 10% auto;
+                margin-top: -60px;
+                box-shadow: inset 0px 0px 0px #7ac142;
+                animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+            }
+
+            .checkmark__check {
+                transform-origin: 50% 50%;
+                stroke-dasharray: 48;
+                stroke-dashoffset: 48;
+                animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+            }
+
+            @keyframes stroke {
+                100% {
+                    stroke-dashoffset: 0
+                }
+            }
+
+            @keyframes scale {
+
+                0%,
+                100% {
+                    transform: none
+                }
+
+                50% {
+                    transform: scale3d(1.1, 1.1, 1)
+                }
+            }
+
+            @keyframes fill {
+                100% {
+                    box-shadow: inset 0px 0px 0px 86px #7ac142
+                }
+            }
+
+            /* failed */
+        .failedmark {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            box-shadow: inset 0px 0px 0px #ff0000;
+            animation: fill2 .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+        }
+
+        .failedmark_circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #ff0000;
+            fill: none;
+            animation: stroke2 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+        }
+
+        .failedmark_check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke2 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+        }
+
+        @keyframes stroke2 {
+            100% {
+                stroke-dashoffset: 0
+            }
+        }
+
+        @keyframes scale {
+
+            0%,
+            100% {
+                transform: none
+            }
+
+            50% {
+                transform: scale3d(1.1, 1.1, 1)
+            }
+        }
+
+        @keyframes fill2 {
+            100% {
+                box-shadow: inset 0px 0px 0px 30px #ff0000
+            }
+        }
+
+        [list]::-webkit-calendar-picker-indicator {
+            display: none;
+            opacity: 0;
+        }
+
+
+        @media screen and (min-width: 580px) {
+
+            .col-form-label {
+
+                line-height: 0.9;
+            }
+
+            .px-4 {
+
+                padding-left: 0rem;
+                padding-right: 0rem;
+            }
+
+            .row {
+
+                --bs-gutter-x: 0rem;
+            }
+
+
+
+        }
+
+        @media screen and (min-width: 992px) {
+
+            .mt-lg-4 {
+
+                margin-top: 0rem !important;
+            }
+
+
+
+        }
+
+
+
+
+        @media screen and (min-width: 1330px) {
+
+            .px-4 {
+
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            #emailCheckboxes {
+
+                padding: 0;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            #smsCheckboxes {
+
+                padding: 0;
+                margin: 0;
+                line-height: 1.5;
+
+            }
+
+            .mb-2 {
+
+                margin-bottom: 0.9rem !important;
+            }
+
+
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="d-none d-lg-block" style="height:5vh;"></div>
+
+    <div class="container gx-1 gx-lg-0 mt-3 mt-lg-5 h-100 my-auto px-3 px-lg-0">
+        <div class="row mt-2 justify-content-center h-100 my-auto">
+            <div class="col-lg-8">
+                <div class="row justify-content-center ">
+
+                    <div class="col-12 col-lg-5 text-center">
+                        <h3>Manage Contactless Transaction Alert Limit</h3>
+                        <p>
+                            Manage Contactless Transaction Alert Limit
+                        </p>
+                    </div>
+
+
+                    <div id="firstPage" class="col-12 col-lg-10 px-lg-0 px-4">
+
+                        <div class="row mb-2 d-flex justify-content-center">
+                            <label class="col-sm-12 col-form-label">Select your card</label>
+                            <div class="col-sm-12 my-1">
+
+                                <div class="col-sm-12 mb-2">
+
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="contactlessCardNumber">
+                                        <option selected class="text-muted">Please select</option>
+                                        <option value="4388990011223344 (PB Visa Lifestyle Debit Card)">4388990011223344 (PB Visa Lifestyle Debit Card)
+                                        </option>
+                                        <option value="6234880077889900 (PB UnionPay Lifestyle Debit Card)">6234880077889900 (PB UnionPay Lifestyle Debit Card)</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row my-5 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-dark float-start" href="@Url.Action(" lifestyleSettings", "Home" )">
+                                    Back
+                                </a>
+                                <a id="firstNext" class="btn btn-primary  float-end"> Next </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div hidden id="secondPage" class="col-12 col-lg-10 px-lg-0 px-4">
+
+
+
+                        <div class="row mb-2">
+                            <label class="col-sm-12 col-form-label">Card No.</label>
+                            <div class="col-sm-12 mb-2">
+                                <select class="form-select" aria-label="selectovrseas" disabled id="cardNumberDisabled">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <label class="col-sm-12 col-form-label">
+                                Account No.
+                            </label>
+                            <div class="col-sm-12 my-1">
+                                <input type="text" id="accNumlbl" class="form-control" name="cardNumber"
+                                    value="6900013718" disabled>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <label class="col-sm-12 col-form-label">Current Contactless Transaction Alert Limit</label>
+                            <div class="col-sm-12 my-1">
+                                <input type="text" id="currStatus" class="form-control" name="currStatus"
+                                    value="RM 50 and above" disabled>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2 d-flex justify-content-center">
+                            <label class="col-sm-12 col-form-label">New Contactless Transaction Alert Limit</label>
+                            <div class="col-sm-12 my-1">
+                                <div class="radio">
+                                    <input id="radio1" name="radio" type="radio">
+                                    <label for="radio1" class="radio-label">All amount</label>
+                                </div>
+                                <div class="radio">
+                                    <input id="radio2" name="radio" type="radio">
+                                    <label for="radio2" class="radio-label">RM50 and above</label>
+                                </div>
+                                <div class="radio">
+                                    <input id="radio3" name="radio" type="radio">
+                                    <label for="radio3" class="radio-label">RM100 and above</label>
+                                </div>
+                                <div class="radio">
+                                    <input id="radio4" name="radio" type="radio">
+                                    <label for="radio4" class="radio-label">RM500 and above</label>
+                                </div>
+                                <div class="radio">
+                                    <input id="radioOtherAmount" name="radio" type="radio">
+                                    <label for="radioOtherAmount" class="radio-label">
+                                        Other Amount (Multiple of RM10 up to a maximum
+                                        of RM1,000)
+                                    </label>
+                                    <input type="text" id="otherAmountStatus" class="form-control mb-2"
+                                        name="otherAmountStatus" oninput="checkOtherAmount();">
+                                </div>
+                                <div class="radio">
+                                    <input id="radio5" type="radio">
+                                    <label for="radio5" class="radio-label">
+                                        I do not want to receive any SMS notification
+                                        for Contactless Transaction
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-5 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-dark float-start" href="@Url.Action(" lifestyleSettings", "Home" )">
+                                    Back
+                                </a>
+                                <a class="btn btn-outline-primary btnReset ms-2">
+                                    Clear </a>
+                                <a id="secondNext" class="btn btn-primary  float-end"> Next </a>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <!-- dont have amount-->
+                    <div hidden id="thirdPage" class="col-12 col-lg-10 px-lg-0 px-4">
+
+                        <div class="row mb-2">
+                            <label class="col-sm-12 col-form-label">
+                                Account No.
+                            </label>
+                            <div class="col-sm-12 my-1">
+                                <input type="text" id="accNumlbl" class="form-control" name="cardNumber"
+                                    value="6900013718" disabled>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <label class="col-sm-12 col-form-label">Card No.</label>
+                            <div class="col-sm-12 mb-2">
+                                <select class="form-select" aria-label="selectovrseas" disabled>
+                                    <option value="4388990011223344">4388990011223344 (PB Visa Lifestyle Debit Card)
+                                    </option>
+                                    <option value="6234880077889900">6234880077889900 (PB UnionPay Lifestyle Debit Card)
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <label class="col-sm-12 col-form-label">New Contactless Transaction Alert Limit</label>
+                            <div class="col-sm-12 my-1">
+                                <input type="text" id="currStatus" class="form-control" name="currStatus"
+                                    value="I do not want to receive any SMS notification for Contactless Transaction"
+                                    disabled>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row my-5 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-dark float-start" href="@Url.Action(" lifestyleSettings", "Home" )">
+                                    Back
+                                </a>
+
+                                <a id="thirdNext" class="btn btn-primary  float-end"> Confirm </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- have amount -->
+                    <div hidden id="forthPage" class="col-12 col-lg-10 px-lg-0 px-4">
+
+                        <div class="row mb-2">
+                            <div class="row mb-2">
+                                <label class="col-sm-12 col-form-label">
+                                    Account No.
+                                </label>
+                                <div class="col-sm-12 my-1">
+                                    <input type="text" id="accNumlbl" class="form-control" name="cardNumber"
+                                        value="6900013718" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <label class="col-sm-12 col-form-label">Card No.</label>
+                                <div class="col-sm-12 mb-2">
+                                    <select class="form-select" aria-label="selectovrseas" disabled id="confirmationCardNumberDisabled">
+                                        
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <label class="col-sm-12 col-form-label">New Contactless Transaction Alert Limit</label>
+                                <div class="col-sm-12 my-1">
+                                    <input type="text" id="currStatus" class="form-control" name="currStatus"
+                                        value="RM30.00 and above" disabled>
+                                </div>
+                            </div>
+
+
+                            <div class="row myFA1 mb-2">
+                                <label class="col-sm-12 col-form-label">Approve this update with</label>
+
+                                <div class="col-sm-12 mb-2">
+                                    <select class="form-select" aria-label="Default select example" id="authMethod">
+                                        <option value="" disabled selected>Please select your approval method</option>
+                                        <option value="noti">PB SecureSign (Push Notification)</option>
+                                        <option value="secure">PB SecureSign (SecurePAC)</option>
+                                        <option value="token">SecureSign Token</option>
+                                        <option value="pac">SMS PAC</option>
+                                    </select>
+
+
+                                </div>
+                                <div class="col-sm-3 ps-sm-1 authConfirmBtn" hidden>
+                                    <button class="btn btn-danger bg-primary col-12">Confirm</button>
+                                </div>
+
+                                <div class="col-sm-12 authField" hidden>
+
+                                    <div class="row justify-content-between  myFA2" id="pac" mt-2>
+
+                                        <div class="zz col-3 col-lg-2 col-xxl-3">
+                                            <label for="PAC" class="col-sm-3 col-form-label">
+                                                <img src="/puvan/icon/twoFA/otp.png" alt="" width="100" height="100">
+                                            </label>
+                                        </div>
+
+                                        <div class="col-8 col-md-9 row d-block d-md-none" id="pacTextandBtn">
+
+                                            <div class="digitPac col-12 col-md-6 col-lg-8">
+
+                                                <input type="text" class="form-control mt-2 mt-lg-0" id="PAC">
+
+                                            </div>
+
+                                            <div class="col-12 col-md-3">
+                                                <button type="button"
+                                                    class="col-12 reqPacBtn pac btn btn-info pac text-white float-lg-end mt-2"
+                                                    id="reqPacBtn">
+                                                    Request
+                                                    PAC
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-12 d-block d-md-none">
+                                            <p class="text-muted">
+                                                A 6 digit PAC will be sent to your registered mobile phone
+                                                number
+                                                ***6168. Please click "Request PAC" if you wish to proceed
+                                            </p>
+
+                                        </div>
+
+                                        <div class="digitPac col-md-5 col-xxl-5 d-none d-md-block">
+
+                                            <input type="text" class="form-control mt-2" id="PAC">
+
+                                            <p class="text-muted  d-none d-md-block">
+                                                A 6 digit PAC will be sent to your registered mobile phone
+                                                number
+                                                ***6168. Please click "Request PAC" if you wish to proceed
+                                            </p>
+
+                                        </div>
+
+                                        <div class=" col-12 col-md-3 ps-md-1 d-none d-md-block">
+                                            <button type="button"
+                                                class="reqPacBtn col-12 btn btn-info pac text-white  mt-2"
+                                                id="reqPacBtn">
+                                                Request
+                                                PAC
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row myFA3 d-none" id="token" mt-2>
+
+                                        <div class="zz col-3">
+                                            <label for="hToken" class="col-sm-3 col-form-label">
+                                                <img src="/puvan/icon/twoFA/securesigntoken.png" alt="" width="90"
+                                                    height="120">
+                                            </label>
+                                        </div>
+
+                                        <div class="col-9">
+
+                                            <p class="text-muted my-2" id="tokenText">
+                                                Switch on your SecureSign token and follow the instrution
+                                                below to
+                                                generate on your SecureSign Code.
+                                            </p>
+
+                                            <ol class="d-none d-md-block">
+                                                <li>Press "sign" button. You will see a '1' display on the screen.</li>
+                                                <li>Enter xxxxx and press 'OK'.</li>
+                                                <li>You will see a '2" dispaly on screen.</li>
+                                                <li>Enter xxxx and press 'OK.'</li>
+                                                <li>The SecureSign will be displayed on screen.</li>
+                                            </ol>
+
+                                            <input type="text" class="form-control mt-0" id="hToken"
+                                                placeholder="Enter your SecureSign Code">
+
+                                        </div>
+
+                                        <div class="col-12 d-block d-md-none mt-2">
+                                            <ol>
+                                                <li>Press "sign" button. You will see a '1' display on the screen.</li>
+                                                <li>Enter xxxxx and press 'OK'.</li>
+                                                <li>You will see a '2" dispaly on screen.</li>
+                                                <li>Enter xxxx and press 'OK.'</li>
+                                                <li>The SecureSign will be displayed on screen.</li>
+                                            </ol>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row myFA4 d-none" id="noti" mt-2>
+
+                                        <div class="zz col-3 col-lg-3 col-xl-2">
+                                            <label for="notification" class="col-sm-3 col-form-label">
+                                                <img src="/puvan/icon/twoFA/success.png" alt="" width="90" height="90">
+                                            </label>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-6 col-xl-7 col-9 mt-2 mt-lg-0">
+
+                                            <p id="notiText" class="px-4">
+                                                A push notification will be sent to your mobile phone. Please verify the
+                                                details
+                                                at
+                                                your PB SecureSign screen before approving transaction.
+                                            </p>
+
+                                        </div>
+
+                                        <div class="d-block d-md-none">
+                                            <a class="btn btn-info pac text-white float-lg-end w-100"
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdropPhone">Push
+                                                Notification</a>
+
+                                            <!-- Modal -->
+
+                                            <div class="modal fade" id="staticBackdropPhone" data-bs-backdrop="static"
+                                                data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropPhoneLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog modal-dialog-centered">
+
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLabel">
+                                                                PB SecureSign
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+
+                                                            <div class="container-fluid">
+
+                                                                <div class="row">
+
+                                                                    <div
+                                                                        class="col-sm-12 d-flex justify-content-center">
+                                                                        <img src="/puvan/icon/twoFA/animation_500_kugn1p08.gif"
+                                                                            alt="" width="300" height="300">
+                                                                    </div>
+
+                                                                    <div class="col-sm-12">
+                                                                        <p>
+                                                                            Please check your mobile device (iPhone 13)
+                                                                            for a
+                                                                            push
+                                                                            notification to approve the transacion
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="col-sm-12">
+
+                                                                        <div class="progress">
+
+                                                                            <div class="progress-bar bg-danger active"
+                                                                                role="progressbar" aria-valuenow="0"
+                                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                                style="width:0%">
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 col-9 ps-md-1 d-none d-md-block">
+                                            <button type="button" class="btn btn-info col-12 pac text-white  mt-2"
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">Push
+                                                Notification</button>
+
+                                            <!-- Modal -->
+
+                                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                                data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog modal-dialog-centered">
+
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLabel">
+                                                                PB SecureSign
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+
+                                                            <div class="container-fluid">
+
+                                                                <div class="row">
+
+                                                                    <div
+                                                                        class="col-sm-12 d-flex justify-content-center">
+                                                                        <img src="/puvan/icon/twoFA/animation_500_kugn1p08.gif"
+                                                                            alt="" width="300" height="300">
+                                                                    </div>
+
+                                                                    <div class="col-sm-12">
+                                                                        <p>
+                                                                            Please check your mobile device (iPhone 13)
+                                                                            for a
+                                                                            push
+                                                                            notification to approve the transacion
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="col-sm-12">
+
+                                                                        <div class="progress">
+
+                                                                            <div class="progress-bar bg-danger active"
+                                                                                role="progressbar" aria-valuenow="0"
+                                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                                style="width:0%">
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row myFA5 d-none" id="secure" mt-2>
+
+                                        <div class="zz col-3">
+                                            <label for="secure" class="col-sm-3 col-form-label">
+                                                <img src="/puvan/icon/twoFA/kp2.png" alt="" width="90" height="90">
+                                            </label>
+                                        </div>
+
+                                        <div class="col-9">
+
+                                            <p class="text-muted mt-1" id="secureText">
+                                                Open your PB engage mobile app and follow the instruction
+                                                below to
+                                                generate your SecurePac
+                                            </p>
+
+                                            <ol class="d-none d-sm-block">
+                                                <li>Launch your PB engage mobile app.</li>
+                                                <li>From the side menu, select "PB SecureSign".</li>
+                                                <li>Verify the transaction details before you click "proceed".</li>
+                                                <li>Enter your SecurePIN or authentucate with your fingerpint/Face ID
+                                                </li>
+                                                <li>The 6 digits SecurePAC will be displayed on the screen</li>
+                                            </ol>
+
+                                            <input type="text" class="form-control d-none d-sm-block" id="secure"
+                                                placeholder="Enter SecurePAC">
+
+                                        </div>
+
+                                        <div class="col-12 d-block d-sm-none">
+
+                                            <ol>
+                                                <li>Launch your PB engage mobile app.</li>
+                                                <li>From the side menu, select "PB SecureSign".</li>
+                                                <li>Verify the transaction details before you click "proceed".</li>
+                                                <li>Enter your SecurePIN or authentucate with your fingerpint/Face ID
+                                                </li>
+                                                <li>The 6 digits SecurePAC will be displayed on the screen</li>
+                                            </ol>
+
+                                            <input type="text" class="form-control d-block d-lg-none" id="secure"
+                                                placeholder="Enter SecurePAC">
+
+                                        </div>
+
+                                    </div>
+
+                                    <p class="timerText" hidden>Time remaining: <span id="time"
+                                            style="color:#d64354"></span></p>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="row my-5 last-row">
+                                <div class="col-12">
+                                    <a class="btn btn-dark float-start" href="@Url.Action(" lifestyleSettings", "Home"
+                                        )">
+                                        Back
+                                    </a>
+
+                                    <a id="fourthNext" class="btn btn-primary  float-end"> Confirm </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- have amount acknowledgement -->
+                    <div hidden id="sixthPage" class="col-12 col-lg-10 px-lg-0 px-4">
+
+                        <div class="p-4 shadow bg-white rounded-8">
+
+                            <div class="row logoRow mb-4">
+
+                                <div class="col-lg-2 col-3 checkIconDIV">
+
+                                    <div class="successIcon text-start">
+                                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                            <path class="checkmark__check" fill="none"
+                                                d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                        </svg>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-10 col-9 checkTextDIV">
+                                    <h5 class="text-danger">Contactless Transaction Alert Limit updated successfully!
+                                    </h5>
+                                    <p class="text-muted">4 May 2018, 12:59:12pm</p>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                    <label>Reference No.</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                    <label>776544</label>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                    <label>Card No.</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                    <label id="cardNumberReceiptLabel"></label>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                    <label>New Contactless Transaction Alert Limit (SMS)</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                    <label>RM100.00 and above</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row my-5 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-outline-primary float-start"> Print </a>
+                                <a id="sixthNext" class="btn btn-primary  float-end"> Done </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- dont have acknowledgement-->
+                    <div hidden id="seventhPage" class="col-12 col-lg-10 px-lg-0 px-4">
+
+                        <div class="p-4 shadow bg-white rounded-8">
+
+                            <div class="row logoRow mb-4">
+
+                                <div class="col-lg-2 col-3 checkIconDIV">
+
+                                    <div class="successIcon text-start">
+                                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                            <path class="checkmark__check" fill="none"
+                                                d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                        </svg>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-10 col-9 checkTextDIV">
+                                    <h5 class="text-danger">Contactless Transaction Alert Limit updated successfully!
+                                    </h5>
+                                    <p class="text-muted">4 May 2018, 12:59:12pm</p>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                    <label>Reference No.</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                    <label>776544</label>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                    <label>Card No.</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                    <label>4388990011223344 (PB Visa Lifestyle Debit Card)</label>
+                                </div>
+
+                            </div>
+
+                            <div class="row detailsRow">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start leftReference">
+                                    <label>New Contactless Transaction Alert Limit (SMS)</label>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
+                                    <label>
+                                        I do not want to receive any SMS Notification for Contactless
+                                        Transaction
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row my-5 last-row">
+                            <div class="col-12">
+                                <a class="btn btn-outline-primary float-start"> Print </a>
+                                <a id="sixthNext" class="btn btn-primary  float-end"> Done </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="alert alert-info col-10 col-sm-11 col-xxl-10 col-lg-10 rounded-8 shadow-sm my-5 px-3"
+                        role="alert">
+                        <b>Note</b><br>
+                        <ul>
+                            <li>
+                                Set your own Contactless Transaction (ie. paywave/paypass/quickpass) Alert Limit to
+                                receive SMS notification for purchase made using your ATM/Debit Card (PB Lifestyle Debit
+                                Card).
+                            </li>
+                            <li>
+                                Cardholder are allowed to set their preferred contacless transcation alert limit SMS to
+                                maximum of RM 1,000.00 and the minimum of RM 0.00
+                            </li>
+                            <li>
+                                The manage contactless transcation alert limit via SMS will take immediate effect.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-12 col-lg-4 last-row p-4 mt-4 p-sm-2 text-center pictureRow">
+                <img src="~/Images/WebsiteImages/register-win-pbe-login02.jpg" class="img-fluid ads-form" />
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- J-Query -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/js") -->
+    <script>
+        var oneMin = 60,
+            display = $('#time');
+
+        function startTimer(duration, display) {
+            var timer = duration,
+                minutes, seconds;
+            var timerInterval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.text(minutes + " : " + seconds);
+
+                if (--timer < 0) {
+                    clearInterval(timerInterval);
+                    timer = duration;
+                    $('.reqPacBtn').attr('disabled', false);
+                    $('.timerText').prop("hidden", true);
+                }
+            }, 1000);
+        }
+        $(document).ready(function () {
+
+
+            $('#authMethod').change(function () {
+                var selectedIndex = $(this).children('option:selected').index();
+                if (selectedIndex != 0) {
+                    $(this).parent().removeClass('col-sm-12').addClass('col-sm-9');
+                    $(this).parent().siblings('.authConfirmBtn').attr('hidden', false);
+                }
+
+                var cases = $("#authMethod option:selected").val();
+                if (cases == "pac") {
+                    $("#PAC").removeClass("d-none");
+                    $("#secure").addClass("d-none");
+                    $("#noti").addClass("d-none");
+                    $("#token").addClass("d-none");
+                }
+                if (cases == "token") {
+                    $("#token").removeClass("d-none");
+                    $("#PAC").addClass("d-none");
+                    $("#secure").addClass("d-none");
+                    $("#noti").addClass("d-none");
+                }
+                if (cases == "secure") {
+                    $("#secure").removeClass("d-none");
+                    $("#PAC").addClass("d-none");
+                    $("#token").addClass("d-none");
+                    $("#noti").addClass("d-none");
+                }
+                if (cases == "noti") {
+                    $("#noti").removeClass("d-none");
+                    $("#PAC").addClass("d-none");
+                    $("#token").addClass("d-none");
+                    $("#secure").addClass("d-none");
+                }
+            });
+
+            $('.authConfirmBtn button').click(function () {
+                $(this).parent().siblings().find('#authMethod').attr('disabled', true);
+                $(this).parent().siblings('.authField').attr('hidden', false);
+                $(this).attr('disabled', true);
+
+
+            });
+
+            $('.mobileNav').each(function () {
+                $(this).removeClass('active');
+            })
+            $('.nav-link').each(function () {
+                $(this).removeClass('active');
+            })
+            $('.profile').each(function () {
+                $(this).addClass('active');
+            });
+            $('.profileMenu').addClass('active');
+        });
+        $('#modalBtn').on('click', function () {
+            $('#secondPage').attr('hidden', false);
+            $('#firstPage').attr('hidden', true);
+            $('#thirdPage').attr('hidden', true);
+            $('#forthPage').attr('hidden', true);
+        });
+
+        $('.reqPacBtn').on('click', function () {
+            $(this).attr('disabled', true);
+            $('.timerText').prop("hidden", false);
+            startTimer(oneMin, display);
+            Swal.fire(
+                'OTP is Sent!',
+                'OTP sent to your phone number 012 - * * * * 123',
+                'success'
+            )
+        })
+        $('.btnReset').on('click', function () {
+            // $('form')[0].reset();
+            $('#otherAmountStatus').val("");
+            $('#radioOtherAmount').prop('checked', false);
+            $('#radio5').prop('checked', false);
+
+        })
+
+
+
+        var progressBar = $('.progress-bar');
+        var progressNumber = 0;
+
+        setInterval(function () {
+            progressNumber++;
+            progressBar.css('width', progressNumber + '%');
+            progressBar.attr('aria-valuenow', progressNumber);
+        }, 500);
+        $(document).ready(function () {
+            checkAgreement();
+
+            $('#eStatementCheckBox').change(function () {
+                checkAgreement();
+            });
+
+            $('#firstNext').on('click', function () {
+                $('#cardNumberDisabled').html("<option selected>" + $('#contactlessCardNumber').val() + "</option>");
+                $('#secondPage').attr('hidden', false);
+                $('#thirdPage').attr('hidden', true);
+                $('#firstPage').attr('hidden', true);
+                $('#fourthPage').attr('hidden', true);
+                $('#fifthPage').attr('hidden', true);
+                $('#sixthPage').attr('hidden', true);
+                $('#al1').attr('hidden', true);
+                $('#al2').attr('hidden', false);
+                $('#al3').attr('hidden', true);
+            });
+
+            $('#secondNext').on('click', function () {
+
+                $('#confirmationCardNumberDisabled').html("<option selected>" + $('#contactlessCardNumber').val() + "</option>");
+                $('#thirdPage').attr('hidden', true);
+                $('#secondPage').attr('hidden', true);
+                $('#firstPage').attr('hidden', true);
+                $('#forthPage').attr('hidden', false);
+                $('#fifthPage').attr('hidden', true);
+                $('#sixthPage').attr('hidden', true);
+                $('#seventhPage').attr('hidden', true);
+                $('#eighthPage').attr('hidden', true);
+
+
+            });
+
+            $('#thirdNext').on('click', function () {
+
+                $('#thirdPage').attr('hidden', true);
+                $('#secondPage').attr('hidden', true);
+                $('#firstPage').attr('hidden', true);
+                $('#forthPage').attr('hidden', false);
+                $('#fifthPage').attr('hidden', true);
+                $('#sixthPage').attr('hidden', true);
+                $('#seventhPage').attr('hidden', true);
+                $('#eighthPage').attr('hidden', true);
+
+
+            });
+
+            $("#fourthNext").click(function () {
+                $('#cardNumberReceiptLabel').html($('#contactlessCardNumber').val());
+
+                $('#thirdPage').attr('hidden', true);
+                $('#secondPage').attr('hidden', true);
+                $('#firstPage').attr('hidden', true);
+                $('#forthPage').attr('hidden', true);
+                $('#fifthPage').attr('hidden', true);
+                $('#sixthPage').attr('hidden', false);
+                $('#seventhPage').attr('hidden', true);
+                $('#eighthPage').attr('hidden', true);
+
+            });
+
+            $('#confirmBtn').on('click', function () {
+                Swal.fire({
+                    title: 'Do you want to delete the account?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Submit',
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'alertFontStyle'
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: 'Your Delete Request has been submitted!',
+                            icon: 'success',
+                            customClass: {
+                                title: 'alertFontStyle'
+                            }
+                        }).then(function () {
+                            $('#firstPage').prop('hidden', true);
+                            $('#secondPage').prop('hidden', true);
+                            $('#thirdPage').prop('hidden', true);
+                            $('#fourthage').prop('hidden', true);
+                            $('#fifthPage').prop('hidden', true);
+                            $('#sixthPage').prop('hidden', false);
+                            $('#seventhPage').prop('hidden', true);
+                            $('#eighthPage').attr('hidden', true);
+                        });
+                    }
+                })
+            });
+
+            $('#seventhNext').on('click', function () {
+
+                $('#thirdPage').attr('hidden', true);
+                $('#secondPage').attr('hidden', true);
+                $('#firstPage').attr('hidden', true);
+                $('#forthPage').attr('hidden', true);
+                $('#fifthPage').attr('hidden', true);
+                $('#sixthPage').attr('hidden', true);
+                $('#seventhPage').attr('hidden', true);
+                $('#eighthPage').attr('hidden', false);
+
+            });
+
+            $('#fifthNext').on('click', function () {
+
+                $('#thirdPage').attr('hidden', true);
+                $('#secondPage').attr('hidden', true);
+                $('#firstPage').attr('hidden', true);
+                $('#fourthPage').attr('hidden', true);
+                $('#fifthPage').attr('hidden', true);
+                $('#sixthPage').attr('hidden', false);
+                $('#seventhPage').attr('hidden', true);
+                $('#eighthPage').attr('hidden', true);
+
+            });
+
+            $('#sixthNext').on('click', function () {
+
+                $('#thirdPage').attr('hidden', true);
+                $('#secondPage').attr('hidden', true);
+                $('#firstPage').attr('hidden', false);
+                $('#fourthPage').attr('hidden', true);
+                $('#fifthPage').attr('hidden', true);
+                $('#sixthPage').attr('hidden', true);
+                $('#seventhPage').attr('hidden', true);
+                $('#eighthPage').attr('hidden', true);
+
+            });
+
+            $('#eighthNext').on('click', function () {
+
+                $('#thirdPage').attr('hidden', true);
+                $('#secondPage').attr('hidden', true);
+                $('#firstPage').attr('hidden', false);
+                $('#fourthPage').attr('hidden', true);
+                $('#fifthPage').attr('hidden', true);
+                $('#sixthPage').attr('hidden', true);
+                $('#seventhPage').attr('hidden', true);
+                $('#eighthPage').attr('hidden', true);
+
+            });
+
+        });
+
+        function checkAgreement() {
+            if ($("#eStatementCheckBox").is(':checked')) {
+                $("#fourthNext").prop('disabled', false);
+            } else {
+                $("#fourthNext").prop('disabled', true);
+            }
+        }
+
+        function checkOtherAmount() {
+
+
+
+            if ($('#otherAmountStatus').val() == "") {
+
+                $('#radioOtherAmount').prop('checked', false);
+
+            }
+            else {
+
+                $('#radioOtherAmount').prop('checked', true);
+            }
+        }
+
+        $('#authMethod').change(function () {
+            var selectedIndex = $(this).children('option:selected').index();
+            if (selectedIndex != 0) {
+                $(this).parent().removeClass('col-sm-12').addClass('col-sm-9');
+                $(this).parent().siblings('.authConfirmBtn').attr('hidden', false);
+            }
+
+            var cases = $("#authMethod option:selected").val();
+            if (cases == "pac") {
+                $("#pac").removeClass("d-none");
+                $("#secure").addClass("d-none");
+                $("#noti").addClass("d-none");
+                $("#token").addClass("d-none");
+            }
+            if (cases == "token") {
+                $("#token").removeClass("d-none");
+                $("#pac").addClass("d-none");
+                $("#secure").addClass("d-none");
+                $("#noti").addClass("d-none");
+            }
+            if (cases == "secure") {
+                $("#secure").removeClass("d-none");
+                $("#pac").addClass("d-none");
+                $("#token").addClass("d-none");
+                $("#noti").addClass("d-none");
+            }
+            if (cases == "noti") {
+                $("#noti").removeClass("d-none");
+                $("#pac").addClass("d-none");
+                $("#token").addClass("d-none");
+                $("#secure").addClass("d-none");
+            }
+        });
+
+        $('.authConfirmBtn button').click(function () {
+            $(this).parent().siblings().find('#authMethod').attr('disabled', true);
+            $(this).parent().siblings('.authField').attr('hidden', false);
+            $(this).attr('disabled', true);
+        });
+
+        var progressBar = $('.progress-bar');
+        var progressNumber = 0;
+
+        setInterval(function () {
+            progressNumber++;
+            progressBar.css('width', progressNumber + '%');
+            progressBar.attr('aria-valuenow', progressNumber);
+        }, 500);
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
