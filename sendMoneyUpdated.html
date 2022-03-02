@@ -8,7 +8,7 @@
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         
-
+        
         <!-- Style-Puvan -->
         <!-- <link rel="stylesheet" href="style.css"> -->
         <link rel="stylesheet" href="style2.css">
@@ -75,9 +75,9 @@
                 padding: 1rem 0 !important;
             }
 
-            * {
+            /* * {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            }
+            } */
 
             
             body {
@@ -528,8 +528,18 @@
 
                 background-image: none;
 
-            } 
+            }
+            
+            
+            .daterangepicker .drp-buttons .btn {
 
+                display: none;
+            }
+
+            .accordion-button:not(.collapsed) {
+
+                color: #d64354;
+            }
     
 
         
@@ -709,6 +719,667 @@
                 </div>
             </div>
         </div>
+
+        <div hidden id="firstOwnAcc" class="col-12 col-lg-6 mt-lg-4 border-end-xl px-4" style="width: 58%;">
+
+            <div class="col-12 col-lg-5 col-xl-12 p-5 p-lg-0 text-center">
+                <h3 class="mb-2">Send Money via Account No.</h3>
+    
+                <p>Fill in the following to send money to your own account within Public Bank.</p>
+            </div>
+    
+            <form>
+    
+                <div class="row mb-2">
+                    <label for="accType" class="col-sm-12 col-form-label">From Account</label>
+                    <div class="col-sm-12 mb-2">
+    
+                        <select class="form-select" id="userAccount" aria-label="Default select example">
+                            <option selected>Please select</option>
+                            <option>3590350545032 (Savings) RM 54,443.00</option>
+                            <option>4044044032002 (Hire Purchase) RM 10,450.00</option>
+                            <option>2302300343940 (Loan Account) RM 100,560.00</option>
+                            <option>2342343403040 (Credit Card) RM 420,432.00</option>
+                            <option>2303042340032 (Savings) RM 500,204.00</option>
+                        </select>
+                        <!-- <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                    data-valmsg-replace="true"></span> -->
+                    </div>
+                </div>
+    
+                <div class="row mb-2" id="recipientAccountType">
+                    <label for="accType" class="col-sm-12 col-form-label">Recipient Account</label>
+                    <div class="col-sm-12 mb-2">
+    
+                        <select class="form-select" id="accTypeSelect" aria-label="Default select example">
+                            <option selected>Please select</option>
+                            <option>1837458373928 (Savings) RM 38,293.00</option>
+                            <option>5874937503912 (Loan Account) RM 84,382.00</option>
+                            <option>4472787348738 (Credit Card) RM 273,238.00</option>
+                            <option>3493577823861 (Savings) RM 100.00</option>
+                        </select>
+                        <!-- <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                    data-valmsg-replace="true"></span> -->
+                    </div>
+                </div>
+    
+                <div class="row mb-2">
+                    <label for="transferAmount" class="col-sm-12 col-form-label">Amount (RM)</label>
+                    <div class="col-sm-12 mb-2">
+                        <input type="number" class="form-control" id="transferAmount" placeholder="Enter Transfer Amount">
+                    </div>
+                </div>
+    
+                <div class="row mb-2">
+                    <label for="statementPeriod" class="col-sm-12 col-form-label">Transfer Date</label>
+                    <div class="col-sm-12 mb-2">
+                        <input type="text" class="form-control bg-white datepicker" id="effectiveDatePicker"
+                            name="effectiveDatePicker" placeholder="DD MMM YYYY">
+    
+                        <!-- <input type="datetime-local" class="form-control bg-white datepicker"> -->
+                    </div>
+                </div>
+    
+                <div class="row mb-2">
+                    <div class="accordion" id="accordionReccurTrans">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button id="showMoreBtn" class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    <b id="showMoreText">Show More</b>
+                                    <b id="showLessText" hidden>Show Less</b>
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionReccurTrans">
+                                <div class="accordion-body row mb-2">
+                                    <form>
+                                        <label for="reccurTran" class="col-sm-12 col-form-label">
+                                            Set as Recurring Transaction <span class="text-muted">(Optional)</span>
+                                        </label>
+                                        <div class="col-sm-12" id="reccurOwnTransactionType">
+    
+                                            <label for="reccurOwnTranSelect" class="col-sm-12 col-form-label mt-1"
+                                                id="reccurOwnTransFreq" hidden>
+                                                Frequency
+                                            </label>
+                                            <select class="form-select" id="reccurOwnTranSelect"
+                                                aria-label="Default select example">
+                                                <option selected class="text-muted ms-2">None</option>
+                                                <option>Daily</option>
+                                                <option>Weekly</option>
+                                                <option>Monthly</option>
+                                                <option>Quarterly</option>
+                                                <option>Half-Yearly</option>
+                                                <option>Yearly</option>
+                                            </select>
+                                            <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                                                data-valmsg-replace="true"></span>
+                                        </div>
+    
+                                        <div class="col-sm-5 float-sm-end" id="reccurOwnTransactionTimes">
+    
+                                            <label for="reccurOwnTranTimesSelect" class="col-sm-12 col-form-label mt-1"
+                                                id="reccurOwnTransIntervals" hidden>
+                                                No. of Intervals
+                                            </label>
+                                            <select class="form-select" id="reccurOwnTranTimesSelect"
+                                                aria-label="Default select example">
+                                            </select>
+                                        </div>
+                                    </form>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row my-5 last-row">
+                    <div class="col-12">
+                        <a class="btn btn-dark col-5 col-sm-3 me-sm-2 col-lg-5 col-xxl-3" href="@Url.Action("
+                            CardSettings", "Home" )">
+                            Back
+                        </a>
+                        <a
+                            class="btn btn-outline-primary btnReset col-5 float-end col-sm-3 float-sm-none col-lg-5 float-lg-end float-xxl-none col-xxl-3">
+                            Clear
+                        </a>
+                        <a id="firstOwnNext"
+                            class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0 disabled"
+                            data-bs-toggle="modal" role="button">Next</a>
+                    </div>
+                </div>
+    
+            </form>
+    
+            <div class="alert alert-info col-12 col-sm-10 col-xxl-12 col-lg-12 rounded-8 shadow-sm" role="alert"
+                id="safeguardNote">
+                <!-- <div class="alert alert-info col-12 col-lg-5 mt-lg-4 border-end-xl px-4 rounded-8 shadow-sm" role="alert" id="safeguardNote"> -->
+    
+                <b>Note</b><br>
+                <ul>
+                    <li>
+                        The new transfer service is applicable to funds transfer to other banks within
+                        Malaysia only. Funds will be debited from the applicant's account and credited into
+                        the beneficiary's account immediately.
+                    </li>
+                    <li>
+                        The service is only available during our operating hours 12:05 a.m. - 12 midnight.
+                    </li>
+    
+                    <li>
+                        The third party fund transfer limit is RM20,000.00 (PAC) and RM50,000.00
+                        (SecureSign).
+                    </li>
+                    <li>
+                        The limit for a single transaction is at a maximum value of RM10,000.00 per
+                        transaction using PAC.
+                    </li>
+                    <li>
+                        New Transfers will not be initiated if Beneficiary's Bank rejects or is unable to
+                        confirm the transaction into the particular account. During such occurrences, the
+                        funds will be credited back into your account.
+                    </li>
+    
+                    <li>
+                        The default third party transaction limit is RM3,000.00. This daily limit can be
+                        increased or decreased by selecting Profile Maintenance / Manage Profile / Change
+                        Daily Limit.
+                    </li>
+    
+    
+                </ul>
+            </div>
+    
+        </div>
+        
+        <div hidden id="secondOwnAcc" class="col-12 col-lg-6 mt-lg-4 border-end-xl px-4" style="width: 58%;">
+
+            <h3 class="title">Send Money to</h3>
+    
+            <div class="row">
+    
+                <div class="col-12">
+                    <!-- <h6>Your Frequent Transaction</h6> -->
+                    <p class="small">
+                        Please ensure all fields are inputted correctly before confirming the transaction
+                    </p>
+                </div>
+    
+            </div>
+    
+            <form>
+    
+                <div class="row mb-2">
+                    <label for="accType" class="col-sm-12 col-form-label">From Account</label>
+                    <div class="col-sm-12 mb-2">
+    
+                        <select class="form-select" disabled id="userAccountDisable" aria-label="Default select example">
+                            <option>2303042340032 (Savings) RM 500,204.00</option>
+                        </select>
+                        <!-- <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                    data-valmsg-replace="true"></span> -->
+                    </div>
+                </div>
+    
+                <div class="row mb-2">
+                    <label for="accNumber" class="col-sm-12 col-form-label">Recipient Account</label>
+                    <div class="col-sm-12 mb-2">
+    
+    
+                        <input type="text" class="form-control mb-2" id="accNumberDisabled" placeholder="12345678985215"
+                            disabled>
+                    </div>
+                </div>
+    
+                <div class="row mb-2">
+                    <label for="transferAmount" class="col-sm-12 col-form-label">Amount (RM)</label>
+                    <div class="col-sm-12 mb-2">
+    
+                        <input type="number" class="form-control mb-2" id="transferAmountDisabled" placeholder="400.00"
+                            disabled>
+                    </div>
+                </div>
+    
+                <div class="row mb-2">
+                    <label for="statementPeriod" class="col-sm-12 col-form-label">Transfer Date</label>
+                    <div class="col-sm-12 mb-2">
+    
+                        <input type="text" class="form-control datepicker" id="effectiveDatePickerDisabled"
+                            name="effectiveDatePicker" placeholder="23 Feb 2022" disabled>
+    
+                        <!-- <input type="datetime-local" class="form-control bg-white datepicker"> -->
+                    </div>
+                </div>
+    
+                <div class="row mb-2">
+                    <label for="reccurTran" class="col-sm-12 col-form-label">
+                        Recurring Transaction <span class="text-muted">(Optional)</span>
+                    </label>
+                    <div class="col-sm-5 float-sm-start" id="reccurOwnTransactionType" style="margin-right: 16.5%;">
+    
+                        <select class="form-select" disabled id="reccurTranSelectDisabled"
+                            aria-label="Default select example">
+    
+                            <option>Monthly</option>
+                        </select>
+                        <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
+                            data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="col-sm-5 float-sm-end">
+    
+                        <select class="form-select" disabled id="reccurOwnTranTimesSelect" aria-label="Default select example">
+                            <!-- <option selected class="text-muted ms-2" value="None">None</option> -->
+                            <option>10</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="row myFA1 mb-2">
+                    <label class="col-sm-12 col-form-label">Approve this transaction with</label>
+    
+                    <div class="col-sm-12 mb-2">
+                        <select class="form-select" aria-label="Default select example" id="authMethod">
+                            <option value="" disabled selected>Please select your approval method</option>
+                            <option value="noti">PB SecureSign (Push Notification)</option>
+                            <option value="secure">PB SecureSign (SecurePAC)</option>
+                            <option value="token">SecureSign Token</option>
+                            <option value="pac">SMS PAC</option>
+                        </select>
+    
+    
+                    </div>
+                    <div class="col-sm-3 ps-sm-1 authConfirmBtn" hidden>
+                        <button class="btn btn-danger bg-primary col-12">Confirm</button>
+                    </div>
+    
+                    <div class="col-sm-12 authField" hidden>
+    
+                        <div class="row justify-content-between  myFA2 mt-4" id="pac" mt-2>
+    
+                            <div class="zz col-3 col-lg-2 col-xxl-3">
+                                <label for="PAC" class="">
+                                    <img src="~/Images/WebsiteImages/pac-sms-dark-2.png" class="img-fluid"
+                                        style="width:120px;">
+                                </label>
+                            </div>
+    
+                            <div class="col-8 col-md-9 row d-block d-md-none" id="pacTextandBtn">
+    
+                                <div class="digitPac col-12 col-md-6 col-lg-8">
+    
+                                    <input type="text" class="form-control mt-2 mt-lg-0" id="PAC">
+    
+                                </div>
+    
+                                <div class="col-12 col-md-3">
+                                    <button type="button"
+                                        class="btnNext col-12 reqPacBtn pac btn btn-outline-primary pac text-white float-lg-end mt-2"
+                                        id="reqPacBtn">
+                                        Request
+                                        PAC
+                                    </button>
+                                </div>
+    
+                            </div>
+    
+                            <div class="col-12 d-block d-md-none">
+                                <p class="text-muted">
+                                    A 6 digit PAC will be sent to your registered mobile phone
+                                    number
+                                    ***6168. Please click "Request PAC" if you wish to proceed
+                                </p>
+    
+                            </div>
+    
+                            <div class="digitPac col-md-6 col-xxl-6 d-none d-md-block">
+    
+                                <input type="text" class="form-control mt-2" id="PAC">
+    
+                                <p class="text-muted  d-none d-md-block">
+                                    A 6 digit PAC will be sent to your registered mobile phone
+                                    number
+                                    ***6168. Please click "Request PAC" if you wish to proceed
+                                </p>
+    
+                            </div>
+    
+                            <div class=" col-12 col-md-3 ps-md-1 d-none d-md-block">
+                                <button type="button" class="reqPacBtn col-12 btn btn-outline-primary pac text-white  mt-2"
+                                    id="reqPacBtn">
+                                    Request
+                                    PAC
+                                </button>
+                            </div>
+    
+                        </div>
+    
+                        <div class="row myFA3 d-none mt-4" id="token" mt-2>
+    
+                            <div class="zz col-3">
+                                <label for="hToken" class="">
+                                    <img src="~/Images/WebsiteImages/SecureSign Token.png" class="img-fluid"
+                                        style="width:120px;">
+                                </label>
+                            </div>
+    
+                            <div class="col-9">
+    
+                                <p class="text-muted my-2" id="tokenText">
+                                    Switch on your SecureSign token and follow the instrution
+                                    below to
+                                    generate on your SecureSign Code.
+                                </p>
+    
+                                <ol class="d-none d-md-block">
+                                    <li>Press "sign" button. You will see a '1' display on the screen.</li>
+                                    <li>Enter xxxxx and press 'OK'.</li>
+                                    <li>You will see a '2" dispaly on screen.</li>
+                                    <li>Enter xxxx and press 'OK.'</li>
+                                    <li>The SecureSign will be displayed on screen.</li>
+                                </ol>
+    
+                                <input type="text" class="form-control mt-0" id="hToken"
+                                    placeholder="Enter your SecureSign Code">
+    
+                            </div>
+    
+                            <div class="col-12 d-block d-md-none mt-2">
+                                <ol>
+                                    <li>Press "sign" button. You will see a '1' display on the screen.</li>
+                                    <li>Enter xxxxx and press 'OK'.</li>
+                                    <li>You will see a '2" dispaly on screen.</li>
+                                    <li>Enter xxxx and press 'OK.'</li>
+                                    <li>The SecureSign will be displayed on screen.</li>
+                                </ol>
+                            </div>
+    
+                        </div>
+    
+                        <div class="row myFA4 d-none mt-4" id="noti" mt-2>
+    
+                            <div class="zz col-3 col-lg-3 col-xl-2">
+                                <label for="notification" class="">
+                                    <img src="~/Images/WebsiteImages/push-notification-dark-3.png" alt="" class="img-fluid"
+                                        style="width:120px;">
+                                </label>
+                            </div>
+    
+                            <div class="col-md-6 col-lg-6 col-xl-7 col-9 mt-2 mt-lg-0">
+    
+                                <p id="notiText">
+                                    A push notification will be sent to your mobile phone. Please verify the
+                                    details
+                                    at
+                                    your PB SecureSign screen before approving transaction.
+                                </p>
+    
+                            </div>
+    
+                            <div class="d-block d-md-none">
+                                <button type="button"
+                                    class="btn btn-outline-primary pac text-white float-lg-end w-100 btnNext"
+                                    data-bs-toggle="modal" data-bs-target="#staticBackdropPhone">
+                                    Push
+                                    Notification
+                                </button>
+    
+                                <!-- Modal -->
+    
+                                <div class="modal fade" id="staticBackdropPhone" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropPhoneLabel"
+                                    aria-hidden="true">
+    
+                                    <div class="modal-dialog modal-dialog-centered">
+    
+                                        <div class="modal-content">
+    
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">
+                                                    PB SecureSign
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+    
+                                            <div class="modal-body">
+    
+                                                <div class="container-fluid">
+    
+                                                    <div class="row">
+    
+                                                        <div class="col-sm-12 d-flex justify-content-center">
+                                                            <img src="~/Images/WebsiteImages/animation_500_kugn1p08.gif"
+                                                                alt="" width="300" height="300">
+                                                        </div>
+    
+                                                        <div class="col-sm-12">
+                                                            <p>
+                                                                Please check your mobile device (Iphone12)
+                                                                for a
+                                                                push
+                                                                notification to approve the transacion
+                                                            </p>
+                                                        </div>
+    
+                                                        <div class="col-sm-12">
+    
+                                                            <div class="progress">
+    
+                                                                <div class="progress-bar bg-danger active"
+                                                                    role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                                                    aria-valuemax="100" style="width:0%">
+                                                                </div>
+    
+                                                            </div>
+    
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+    
+                                            </div>
+    
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
+                            </div>
+    
+                            <div class="col-md-3 col-9 ps-md-1 d-none d-md-block">
+                                <button type="button" class="btn btn-outline-primary col-12 text-white  mt-2"
+                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    Push Notification
+                                </button>
+    
+                                <!-- Modal -->
+    
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+    
+                                    <div class="modal-dialog modal-dialog-centered">
+    
+                                        <div class="modal-content">
+    
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">
+                                                    PB SecureSign
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+    
+                                            <div class="modal-body">
+    
+                                                <div class="container-fluid">
+    
+                                                    <div class="row">
+    
+                                                        <div class="col-sm-12 d-flex justify-content-center">
+                                                            <img src="~/Images/WebsiteImages/animation_500_kugn1p08.gif"
+                                                                alt="" width="300" height="300">
+                                                        </div>
+    
+                                                        <div class="col-sm-12">
+                                                            <p>
+                                                                Please check your mobile device (Iphone12) for a
+                                                                push
+                                                                notification to approve the transacion
+                                                            </p>
+                                                        </div>
+    
+                                                        <div class="col-sm-12">
+    
+                                                            <div class="progress">
+    
+                                                                <div class="progress-bar bg-danger active"
+                                                                    role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                                                    aria-valuemax="100" style="width:0%">
+                                                                </div>
+    
+                                                            </div>
+    
+                                                        </div>
+    
+                                                    </div>
+    
+                                                </div>
+    
+                                            </div>
+    
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
+    
+                            </div>
+    
+                        </div>
+    
+                        <div class="row myFA5 d-none mt-4" id="secure" mt-2>
+    
+                            <div class="zz col-3 h-100">
+                                <label for="secure" class="my-auto">
+                                    <img src="~/Images/WebsiteImages/securepac-red3.png" class="img-fluid"
+                                        style="width:120px;">
+                                </label>
+                            </div>
+    
+                            <div class="col-9">
+    
+                                <p class="text-muted mt-1" id="secureText">
+                                    Open your PB engage mobile app and follow the instruction
+                                    below to
+                                    generate your SecurePac
+                                </p>
+    
+                                <ol class="d-none d-sm-block">
+                                    <li>Launch your PB engage mobile app.</li>
+                                    <li>From the side menu, select "PB SecureSign".</li>
+                                    <li>Verify the transaction details before you click "proceed".</li>
+                                    <li>Enter your SecurePIN or authentucate with your fingerpint/Face ID</li>
+                                    <li>The 6 digits SecurePAC will be displayed on the screen</li>
+                                </ol>
+    
+                                <input type="text" class="form-control d-none d-sm-block" id="secure"
+                                    placeholder="Enter SecurePAC">
+    
+                            </div>
+    
+                            <div class="col-12 d-block d-sm-none">
+    
+                                <ol>
+                                    <li>Launch your PB engage mobile app.</li>
+                                    <li>From the side menu, select "PB SecureSign".</li>
+                                    <li>Verify the transaction details before you click "proceed".</li>
+                                    <li>Enter your SecurePIN or authentucate with your fingerpint/Face ID</li>
+                                    <li>The 6 digits SecurePAC will be displayed on the screen</li>
+                                </ol>
+    
+                                <input type="text" class="form-control d-block d-lg-none" id="secure"
+                                    placeholder="Enter SecurePAC">
+    
+                            </div>
+    
+                        </div>
+    
+                        <p class="timerText h5 pt-4" hidden>
+                            Time remaining: <span id="time" class="text-primary"></span>
+                        </p>
+                    </div>
+    
+    
+    
+                </div>
+    
+                <div class="row my-5 last-row">
+                    <div class="col-12">
+                        <a class="btn btn-dark col-5 col-sm-3 me-sm-2 col-lg-5 col-xxl-3" href="@Url.Action("
+                            CardSettings", "Home" )">
+                            Back
+                        </a>
+                        <!-- <a id="firstNext"
+                    class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0 disabled"
+                    data-bs-toggle="modal" href="#" role="button">Next</a> -->
+                        <!-- <a id="secondNext"
+                    class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0 disabled"
+                    data-bs-toggle="modal" href="#exampleModalToggle" role="button">Next</a> -->
+                        <!-- <a id="secondNext"
+                    class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0 disabled"
+                    data-bs-toggle="modal" href="#" role="button">Next</a> -->
+                        <a id="secondNext"
+                            class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0"
+                            data-bs-toggle="modal" href="#" role="button">Confirm</a>
+                    </div>
+                </div>
+    
+            </form>
+    
+            <div class="alert alert-info col-12 col-sm-10 col-xxl-12 col-lg-12 rounded-8 shadow-sm" role="alert"
+                id="safeguardNote">
+                <!-- <div class="alert alert-info col-12 col-lg-5 mt-lg-4 border-end-xl px-4 rounded-8 shadow-sm" role="alert" id="safeguardNote"> -->
+    
+                <b>Note</b><br>
+                <ul>
+                    <li>
+                        The new transfer service is applicable to funds transfer to other banks within Malaysia
+                        only. Funds will be debited from the applicant's account and credited into the beneficiary's
+                        account immediately.
+                    </li>
+                    <li>
+                        The service is only available during our operating hours 12:05 a.m. - 12 midnight.
+                    </li>
+    
+                    <li>
+                        The third party fund transfer limit is RM20,000.00 (PAC) and RM50,000.00 (SecureSign).
+                    </li>
+                    <li>
+                        The limit for a single transaction is at a maximum value of RM10,000.00 per transaction
+                        using PAC.
+                    </li>
+                    <li>
+                        New Transfers will not be initiated if Beneficiary's Bank rejects or is unable to confirm
+                        the transaction into the particular account. During such occurrences, the funds will be
+                        credited back into your account.
+                    </li>
+    
+                    <li>
+                        The default third party transaction limit is RM3,000.00. This daily limit can be increased
+                        or decreased by selecting Profile Maintenance / Manage Profile / Change Daily Limit.
+                    </li>
+    
+    
+                </ul>
+            </div>
+    
+        </div>
+    
+
         <!-- Instant Transfer -->
         <div hidden id="secondPage" class="col-12 col-lg-6 mt-lg-4 border-end-xl px-4" style="width: 58%;">
 
@@ -787,28 +1458,55 @@
                     </div>
                 </div>
                 <div class="row mb-2" id="theTransferMethods">
-                    <label for="accTransferMethod" class="col-sm-12 col-form-label">Transfer Method</label>
-                    <div class="col-sm-12 mb-2">
+                    <label for="accTransferMethod" class="col-sm-12 col-form-label">Transfer Method
+                        
+                        <span id="transferMethodInfoPopUp" class="small mx-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-trigger="hover focus" data-bs-content="Right popover">
+                            <i class="fa fa-solid fa-info fa-sm" style="color: #d64354;"></i>
+                        </span>
+                    </label>
+                    
+                    <div class="col-12 col-xl-6 mt-3 mb-2">
 
-                        <select class="form-select" id="transferMethods"
+                        <!-- <select class="form-select" id="transferMethods"
                                 aria-label="Default select example">
                             <option value="Please select">Please select</option>
                             <option value="DuitNow Transfer" selected>DuitNow Transfer</option>
 
                             <option value="IBG Transfer">IBG (Interbank GIRO)</option>
 
-                        </select>
+                        </select> -->
 
-                        <!-- <span class="field-validation-valid text-danger ps-1" style="font-size:14px"
-                        data-valmsg-replace="true"></span> -->
-                        <small class="text-muted ms-1" id="duitNowTransferMessage">
-                            <i>
-                                (DuitNow Transfer is
-                                formerly known as Instant Transfer)
-                            </i>
-                        </small>
+                            <a href="#">
+                                <div class="row px-1">
+                                    
+                                    <div class="col-9 my-auto">
+                                        <a class="btn btn-outline-danger"
+                                        style="min-width: 0;"><img src="images/corporation/duitnowfull.png" style="width: 40px; height: 40px; background-color: #FFFFFF;">
+                                        DuitNow Transfer </a>
+                                    </div>
+                                </div>
+                            </a>
+
 
                     </div>
+
+                    <div class="col-12 col-xl-6 mt-3 mb-2">
+
+
+                            <a href="#">
+                                <div class="row px-1">
+                                    
+                                    <div class="col-12 my-auto">
+                                        <a class="btn btn-outline-danger"
+                                        style="min-width: 0;"><img src="images/corporation/duitnow.png" style="width: 40px; height: 40px; background-color: #FFFFFF;">
+                                        Interbank GIRO </a>
+                                    </div>
+                                </div>
+                            </a>
+
+
+                    </div>
+                    
                 </div>
 
                 <div class="row mb-2" id="recipientAccountType">
@@ -852,11 +1550,16 @@
 
                 </div>
 
+                
+
                 <div class="row mb-2" id="recipientNames">
-                    <label for="recipientName" class="col-sm-12 col-form-label">Recipient Name (IBG only)</label>
+                    <label for="recipientName" class="col-sm-12 col-form-label">Recipient Name (IBG only)
+                        <span class="small mx-2"><a id="recipientNameInfoPopUp" data-bs-toggle="tooltip" data-bs-placement="right" title="Recipient Name provided is only used for the receiving bank's reference only and will not be validated against the account holder's name."><i class="fa fa-solid fa-info fa-sm" style="color: #d64354;"></i></a></span>
+                    </label>
                     <div class="col-sm-12 mb-2">
                         <input type="text" class="form-control mb-2" id="recipientName"
                                placeholder="Enter Recipient Name">
+                         
                     </div>
                 </div>
 
@@ -903,7 +1606,7 @@
                     <div class="col-sm-5 float-sm-end" id="reccurTransactionTimes">
 
                         <label for="reccurTranTimesSelect" class="col-sm-12 col-form-label mt-1" id="reccurTransIntervals" hidden>
-                            No. of Intervals
+                            Interval
                         </label>
                         <select class="form-select" id="reccurTranTimesSelect"
                         aria-label="Default select example">
@@ -938,13 +1641,7 @@
                         </div>
                     </div>
 
-                    <!-- <div class="col-sm-12 mb-2">
-                        <input id="smsCheckbox" type="checkbox" class="form-check-input"/>
-                        <label for="smsCheckbox" class="form-check-label ">SMS</label>
-                        <input type="text" for="smsCheckbox" id="smsCheckboxes" class="col-sm-10 float-sm-end" disabled/>
-                    </div> -->
-
-
+     
 
                 </div>
 
@@ -4327,9 +5024,12 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-     <!--Typeahead-->
-     <script  type="text/javascript" src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+    <!--Typeahead-->
+    <script  type="text/javascript" src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
     
+    <!-- Popper JS -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+
     <script>
         var display;
         var oneMin = 60; //60 seconds (1 minute)
@@ -4719,8 +5419,13 @@
 
         $('#firstNext').removeClass('disabled');
 
+
+        $('#firstOwnNext').removeClass('disabled');
+
+
         $('#firstDuitNowNext').removeClass('disabled');
 
+        
 
         $('#firstNext').on('click', function () {
 
@@ -4729,6 +5434,17 @@
 
 
         })
+
+        $('#firstOwnNext').on('click', function () {
+
+            $('#secondOwnAcc').attr('hidden', false);
+            $('#firstOwnAcc').attr('hidden', true);
+            $('#secondPage').attr('hidden', true);
+            $('#thirdPage').attr('hidden', true);
+
+
+        })
+
 
         $('#firstDuitNowNext').on('click', function () {
 
@@ -4921,6 +5637,18 @@
 
         });
 
+        $('#doOwnTransfer').on('click', function () {
+
+            $('#firstOwnAcc').attr('hidden', false);
+            $('#secondOwnAcc').attr('hidden', true);
+            $('#firstPage').attr('hidden', true);
+            $('#secondPage').attr('hidden', true);
+            $('#firstDuitNowPage').attr('hidden', true);
+            $('#secondDuitNowPage').attr('hidden', true);
+
+        });
+
+
         $('#doDuitNowTransfer').on('click', function () {
 
 
@@ -4994,7 +5722,7 @@
 
 
         var selectTimes = document.getElementById("reccurTranTimesSelect");
-        for (let i = 1; i <= 60; i++)
+        for (let i = 1; i <= 99; i++)
             selectTimes.innerHTML += "<option>" + i + "</option>";
 
         $("#reccurTransactionTimes").hide();
@@ -5020,6 +5748,40 @@
                 $("#reccurTransactionTimes").show();
                 $("#reccurTransactionType").removeClass("col-sm-12");
                 $("#reccurTransactionType").addClass("col-sm-5 float-sm-start").css("margin-right", "16.5%");
+            }
+
+
+
+        })
+
+        
+        var selectTimes = document.getElementById("reccurOwnTranTimesSelect");
+        for (let i = 1; i <= 99; i++)
+            selectTimes.innerHTML += "<option>" + i + "</option>";
+
+        $("#reccurOwnTransactionTimes").hide();
+        $('#reccurOwnTransFreq').attr('hidden', true);
+        $('#reccurOwnTransIntervals').attr('hidden', true);
+        $("#reccurOwnTransactionType").removeClass("col-sm-5 float-sm-start");
+        $("#reccurOwnTransactionType").addClass("col-sm-12");
+        $("#reccurOwnTranSelect").on('change', function () {
+
+            console.log($(this).children("option:selected").val() == "None");
+
+            if ($(this).children("option:selected").val() == "None") {
+
+                $("#reccurOwnTransactionTimes").hide();
+                $('#reccurOwnTransFreq').attr('hidden', true);
+                $('#reccurOwnTransIntervals').attr('hidden', true);
+                $("#reccurOwnTransactionType").removeClass("col-sm-5 float-sm-start");
+                $("#reccurOwnTransactionType").addClass("col-sm-12");
+            } else {
+
+                $('#reccurOwnTransFreq').attr('hidden', false);
+                $('#reccurOwnTransIntervals').attr('hidden', false);
+                $("#reccurOwnTransactionTimes").show();
+                $("#reccurOwnTransactionType").removeClass("col-sm-12");
+                $("#reccurOwnTransactionType").addClass("col-sm-5 float-sm-start").css("margin-right", "16.5%");
             }
 
 
@@ -5446,6 +6208,29 @@
         })
 
         var bankPicsArr = ["images/corporation/pbb.png", "images/maybank.png", "images/cimb.png", "images/banksimpanannasional.png"];
+
+        $('#accordionReccurTrans').on('show.bs.collapse', function () {
+            $('#showMoreText').attr('hidden', true);
+            $('#showLessText').attr('hidden', false);
+        });
+
+        $('#accordionReccurTrans').on('hide.bs.collapse', function () {
+            $('#showLessText').attr('hidden', true);
+            $('#showMoreText').attr('hidden', false);
+        });
+
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+
+        $('#transferMethodInfoPopUp').attr('data-bs-content', "Test");
+   
     </script>
         
     </body>
