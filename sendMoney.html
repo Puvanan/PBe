@@ -572,7 +572,7 @@
     <div class="container-fluid gx-0 gx-lg-0 mt-0 mt-xxl-45 p-lg-3 p-4 ps-lg-5 bg-light rounded-8-lg">
         <div class="row justify-content-start">
 
-            <div id="firstPage" class="col-12 col-lg-7 mt-lg-4 border-end-xl vh-85 px-6">
+            <div id="firstPage" class="col-12 col-sm-12 col-xl-7 mt-lg-4 border-end-xl vh-85 px-6">
                 <div class="row">
                     <div class="col-12">
                         <h3 class="title">Send Money</h3>
@@ -4272,11 +4272,11 @@
             </div>
 
             <!-- @*favorites*@ -->
-            <div class="row d-none d-lg-block">
-                <div class="col-12 col-lg-5 mt-lg-4 d-lg-block ps-5" id='favAccList'>
+            <div class="col-xl-5">
+                <div class="w-100 col-12 col-lg-5 mt-lg-4 d-lg-block ps-5" id='favAccList'>
                     <div class="row">
                         <div class="col-12">
-                            <h3 class="title" style="font-size: 77px;">Quick Transfer</h3>
+                            <h3 class="title">Quick Transfer</h3>
                         </div>
                     </div>
                     <div class="row">
@@ -4289,7 +4289,7 @@
                                 id="addNewFav">Add New</a>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-12">
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control search" id="floatingInput"
@@ -4299,10 +4299,11 @@
                         </div>
                     </div>
                     <div class="row scrollable">
-                        <div class="col-12 px-3">
+                        <div class="col-12">
+                            <h6 class="fw-bold mb-3" id="favListHeading">Favourite<i class="fa fa-solid fa-heart"
+                                    style="color: #d64354;margin-left: 5px;"></i></h6>
                             <ul id="myUL" style="list-style:none" class="ps-0">
-                                <h6>Favourite<i class="fa fa-solid fa-heart"
-                                        style="color: #d64354;margin-left: 5px;"></i></h6>
+
                                 <a href="#">
 
                                     <li>
@@ -4313,8 +4314,8 @@
 
 
                                             <div class="col-2 d-flex align-items-center justify-content-center">
-                                                <img src="~/Images/Banks/pb-logo-text.png" class="img-fluid float-end"
-                                                    style="max-width:100px;" id="favAccBankPic" />
+                                                <img src="images/corporation/pbb.png" class="img-fluid float-end"
+                                                    style="max-width:50px;" id="favAccBankPic" />
 
                                             </div>
 
@@ -4339,7 +4340,7 @@
 
 
                                                 <span class="mx-2 btn btn-sm editFav">
-                                                    <i class="far fa-edit pe-2 fa-lg"></i>
+                                                    <i class="far fa-edit pe-5 pe-sm-2 pe-md-2 pe-lg-2 pe-xl-5 fa-lg"></i>
                                                 </span>
                                                 <!-- <span class="col-4 mx-2 btn btn-danger btn-sm deleteFav" hidden>
                                                     <i class="far fa-times-circle pe-2"></i>Delete
@@ -4367,7 +4368,7 @@
 
 
                                             <div class="col-2 d-flex align-items-center justify-content-center">
-                                                <i class="fad fa-mobile-alt fa-swap-opacity float-end text-primary"
+                                                <i class="fa fa-mobile-alt fa-swap-opacity float-end text-primary"
                                                     style="font-size:25px;"></i>
                                             </div>
 
@@ -4391,11 +4392,69 @@
                                             <div class="col-2 d-flex align-items-center text-center">
 
                                                 <span class="mx-2 btn btn-sm editFav">
-                                                    <i class="far fa-edit pe-2 fa-lg"></i>
+                                                    <i class="far fa-edit pe-5 pe-sm-2 pe-md-2 pe-lg-2 pe-xl-5 fa-lg"></i>
                                                 </span>
 
 
                                             </div>
+
+
+
+
+
+                                        </div>
+                                    </li>
+
+
+                                </a>
+
+                                <a href="#">
+
+                                    <li>
+
+
+                                        <div class="row bg-white shadow-sm p-3 rounded-8 mt-2">
+
+
+
+                                            <div class="col-2 d-flex align-items-center justify-content-center">
+                                                <img src="images/corporation/pbb.png" class="img-fluid float-end"
+                                                    style="max-width:50px;" id="favAccBankPic" />
+
+                                            </div>
+
+                                            <div class="col-8 ps-2">
+                                                <div class="row">
+                                                    <h6 class="col-4 text-black" id='favNickname'>Robert
+                                                    </h6>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <p id='favName' hidden>Robert</p>
+                                                    <p class="text-muted mb-0 small" id='favAccNum'>MALAYSIA</p>
+                                                    <p class="text-muted mb-0 small" id='favIDType'>PASSPORT</p>
+                                                    <p id='favIDLabel' hidden>Country</p>
+                                                    <p id='favAccType' hidden>Savings / Current</p>
+                                                    <p id='favBankVal' hidden>PublicBank</p>
+                                                    <p id='favBank' hidden>PUBLIC BANK BERHAD</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-2 d-flex align-items-center text-center">
+
+
+                                                <span class="mx-2 btn btn-sm editFav">
+                                                    <i class="far fa-edit pe-5 pe-sm-2 pe-md-2 pe-lg-2 pe-xl-5 fa-lg"></i>
+                                                </span>
+                                                <!-- <span class="col-4 mx-2 btn btn-danger btn-sm deleteFav" hidden>
+                                                    <i class="far fa-times-circle pe-2"></i>Delete
+                                                </span> -->
+
+
+
+                                            </div>
+
 
 
 
@@ -4417,7 +4476,7 @@
                                             <div class="col-2 d-flex align-items-center justify-content-center">
 
 
-                                                <i class="fad fa-id-card-alt float-end text-primary"
+                                                <i class="fa fa-id-card-alt float-end text-primary"
                                                     style="font-size:25px;"></i>
 
                                             </div>
@@ -4445,7 +4504,7 @@
 
                                             <div class="col-2 d-flex align-items-center text-center">
                                                 <span class="mx-2 btn btn-sm editFav">
-                                                    <i class="far fa-edit pe-2 fa-lg"></i>
+                                                    <i class="far fa-edit pe-5 pe-sm-2 pe-md-2 pe-lg-2 pe-xl-5 fa-lg"></i>
                                                 </span>
                                             </div>
 
@@ -4465,8 +4524,8 @@
 
 
                                             <div class="col-2 d-flex align-items-center justify-content-center">
-                                                <img src="~/Images/Banks/pb-logo-text.png" class="img-fluid float-end"
-                                                    style="max-width:100px;" id="favAccBankPic" />
+                                                <img src="images/corporation/pbb.png" class="img-fluid float-end"
+                                                    style="max-width:50px;" id="favAccBankPic" />
                                             </div>
 
                                             <div class="col-8 ps-2">
@@ -4493,7 +4552,7 @@
 
 
                                                 <span class="mx-2 btn btn-sm editFav">
-                                                    <i class="far fa-edit pe-2 fa-lg"></i>
+                                                    <i class="far fa-edit pe-5 pe-sm-2 pe-md-2 pe-lg-2 pe-xl-5 fa-lg"></i>
                                                 </span>
 
                                             </div>
@@ -4513,9 +4572,8 @@
 
                                             <div class="col-2 d-flex align-items-center justify-content-center">
 
-                                                <img src="~/Images/Banks/maybank-logo-png-transparent.png"
-                                                    class="img-fluid float-end" style="max-width:100px;"
-                                                    id="favAccBankPic" />
+                                                <img src="images/corporation/maybank.jpg" class="img-fluid float-end"
+                                                    style="max-width:50px;" id="favAccBankPic" />
 
                                             </div>
 
@@ -4543,7 +4601,7 @@
 
 
                                                 <span class="mx-2 btn btn-sm editFav">
-                                                    <i class="far fa-edit pe-2 fa-lg"></i>
+                                                    <i class="far fa-edit pe-5 pe-sm-2 pe-md-2 pe-lg-2 pe-xl-5 fa-lg"></i>
                                                 </span>
 
                                             </div>
@@ -4563,8 +4621,8 @@
 
                                             <div class="col-2 d-flex align-items-center justify-content-center">
 
-                                                <img src="~/Images/WebsiteImages/pb_logo.png"
-                                                    class="img-fluid float-end" style="max-width:100px;"
+                                                <img src="images/corporation/banksimpanannasional.png"
+                                                    class="img-fluid float-end" style="max-width:50px;"
                                                     id="favAccBankPic" />
 
                                             </div>
@@ -4592,7 +4650,7 @@
 
 
                                                 <span class="mx-2 btn btn-sm editFav">
-                                                    <i class="far fa-edit pe-2 fa-lg"></i>
+                                                    <i class="far fa-edit pe-5 pe-sm-2 pe-md-2 pe-lg-2 pe-xl-5 fa-lg"></i>
                                                 </span>
 
                                             </div>
@@ -6092,7 +6150,7 @@
 
                             <div class="row">
                                 <div class="col-12 ms-5 d-flex justify-content-end">
-                                    <a class="btn float-end closeFav">X</a>
+                                    <a class="btn float-end closeFav"><i class="fa fa-times fa-2x"></i></a>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -6124,8 +6182,8 @@
 
                                         <div
                                             class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
-                                            <input type="text" class="form-control details-input"
-                                                id="editFavNickname" placeholder="Enter Recipient Nickname">
+                                            <input type="text" class="form-control details-input" id="editFavNickname"
+                                                placeholder="Enter Recipient Nickname">
                                         </div>
                                     </div>
 
@@ -6204,8 +6262,8 @@
 
                                         <div
                                             class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-start text-sm-end rightReference">
-                                            <input type="text" class="form-control details-input" id="editFavRecipientBank"
-                                                placeholder="Enter Bank" disabled>
+                                            <input type="text" class="form-control details-input"
+                                                id="editFavRecipientBank" placeholder="Enter Bank" disabled>
                                         </div>
                                     </div>
 
@@ -6703,8 +6761,10 @@
                     a = li[i].getElementsByTagName("h6")[0];
                     txtValue = a.textContent || a.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        $("#favListHeading").prop('hidden', false);
                         li[i].style.display = "";
                     } else {
+                        $("#favListHeading").prop('hidden', true);
                         li[i].style.display = "none";
                     }
                 }
@@ -7572,9 +7632,9 @@
                 $('#editFavRecipientBank').val(editFavNode.parent().prev().children().find("#favBank").text());
                 $('#editFavAccNumber').val(editFavNode.parent().prev().children().find("#favAccNum").text());
                 $('#editFavDuitNowNumber').val(editFavNode.parent().prev().children().find("#favAccNum").text());
-                
 
-                if (editFavNode.parent().prev().children().find("#favName").text() == "Agnes" || editFavNode.parent().prev().children().find("#favName").text() == "Billy" || editFavNode.parent().prev().children().find("#favName").text() == "John Lim") {
+
+                if (editFavNode.parent().prev().children().find("#favName").text() == "Agnes" || editFavNode.parent().prev().children().find("#favName").text() == "Billy" || editFavNode.parent().prev().children().find("#favName").text() == "Robert" || editFavNode.parent().prev().children().find("#favName").text() == "John Lim") {
 
                     $('#editDuitNowNoDiv').attr('hidden', false);
                     $("#editRecipientBankDiv").attr('hidden', true);
