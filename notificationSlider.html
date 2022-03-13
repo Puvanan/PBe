@@ -1,49 +1,277 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="utf-8">
-<title>jQuery slideLeft and slideRight Effect</title>
-<style>
-    .box{
-        float:left;
-        overflow: hidden;
-        background: #f0e68c;
-    }
-    /* Add padding and border to inner content
-    for better animation effect */
-    .box-inner{
-        width: 100px;
-        padding: 5px;
-        border: 1px solid #a29415;
-    }
-</style>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script>
-    $(document).ready(function(){
-        var boxWidth = $(".box").width();
-        $(".slide-left").hover(function(){
-            $(".box").animate({
-                width: 0
-            });
-        });
-        $(".slide-right").hover(function(){
-            $(".box").animate({
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!-- Style-Puvan -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/andrewStyle.css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
+    <!-- DataTable CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+    <title>Notification Slider</title>
+
+    <style>
+        .notificationContainer {
+            position: fixed;
+            right: 5%;
+            top: 5%;
+            height: 6%;
+            border-radius: 4em;
+        }
+
+        .notificationContainer .notificationTextContainer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: lightgray;
+            border-radius: 4em;
+            height: 100%;
+        }
+
+        .notificationContainer .notificationTextContainer p {
+            font-size: small;
+            width: 94%;
+        }
+
+        .notificationContainer .notificationIconContainer {
+            display: inline-block;
+            font-weight: 900;
+            line-height: 1;
+            white-space: nowrap;
+            background-color: #FFFF00;
+            border-radius: 4em;
+            cursor: pointer;
+            font-family: 'Nunito';
+            box-sizing: inherit;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+        }
+
+        .notificationIconContainer>i {
+            font-size: 95%;
+            animation: ring 4s 0.1s ease-in-out infinite;
+            color: black;
+        }
+
+        @keyframes ring {
+            0% {
+                transform: rotate(0);
+            }
+
+            1% {
+                transform: rotate(30deg);
+            }
+
+            3% {
+                transform: rotate(-28deg);
+            }
+
+            5% {
+                transform: rotate(34deg);
+            }
+
+            7% {
+                transform: rotate(-32deg);
+            }
+
+            9% {
+                transform: rotate(30deg);
+            }
+
+            11% {
+                transform: rotate(-28deg);
+            }
+
+            13% {
+                transform: rotate(26deg);
+            }
+
+            15% {
+                transform: rotate(-24deg);
+            }
+
+            17% {
+                transform: rotate(22deg);
+            }
+
+            19% {
+                transform: rotate(-20deg);
+            }
+
+            21% {
+                transform: rotate(18deg);
+            }
+
+            23% {
+                transform: rotate(-16deg);
+            }
+
+            25% {
+                transform: rotate(14deg);
+            }
+
+            27% {
+                transform: rotate(-12deg);
+            }
+
+            29% {
+                transform: rotate(10deg);
+            }
+
+            31% {
+                transform: rotate(-8deg);
+            }
+
+            33% {
+                transform: rotate(6deg);
+            }
+
+            35% {
+                transform: rotate(-4deg);
+            }
+
+            37% {
+                transform: rotate(2deg);
+            }
+
+            39% {
+                transform: rotate(-1deg);
+            }
+
+            41% {
+                transform: rotate(1deg);
+            }
+
+            43% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(0);
+            }
+        }
+
+        .notificationIconContainer .badge-cross {
+            position: absolute;
+            border-radius: 5em;
+            top: -5;
+            right: -5;
+            font-size: 75%;
+            background: #ef4836;
+            padding: 4px 5px;
+        }
+
+        @media screen and (max-width: 460px) {
+            .notificationContainer .notificationTextContainer p {
+                padding-top: 8px;
+                font-size: xx-small;
+            }
+        }
+
+        @media screen and (max-width: 370px) {
+            .notificationContainer .notificationTextContainer p {
+                padding-top: 8px;
+                font-size: xx-small;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="col-11 col-sm-9 col-md-8 col-lg-7 col-xl-6 col-xxl-5 notificationContainer">
+        <div class="col-12 notificationTextContainer me-3 ps-3 py-auto">
+            <p hidden>
+                Hi, would you like to convert your passbook saving accounts to statement saving accounts? Click the icon
+                to learn more!
+            </p>
+        </div>
+
+        <div
+            class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1 notificationIconContainer d-flex justify-content-center align-items-center">
+            <span hidden>
+                <i class="fa fa-times"></i>
+            </span>
+            <i class="fa fa-bell"></i>
+            <i class="fa fa-arrow-right" hidden></i>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- J-Query -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- MultiSelect Choices JS-->
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+
+    <!-- DataTable JS -->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        var boxWidth = $(".notificationTextContainer").width();
+        $(".notificationTextContainer").attr('hidden', true);
+        $(".notificationTextContainer").width(5);
+
+        $(".notificationIconContainer").mouseenter(function () {
+            $(".notificationTextContainer").attr('hidden', false);
+            $(".notificationTextContainer").animate({
                 width: boxWidth
             });
+
+            $(".notificationTextContainer p").attr('hidden', false);
+            $('.notificationIconContainer .fa-bell').attr('hidden', true);
+            $('.notificationIconContainer .fa-arrow-right').attr('hidden', false);
+            // $('.notificationIconContainer .badge-cross').attr('hidden', false);
+        })
+        $(".notificationIconContainer").mouseleave(function () {
+            $(".notificationTextContainer").animate({
+                width: "5%"
+            }, {
+                done: function () {
+                    $(".notificationTextContainer").attr('hidden', true);
+                }
+            });
+
+            $(".notificationTextContainer p").attr('hidden', true);
+            $('.notificationIconContainer .fa-bell').attr('hidden', false);
+            $('.notificationIconContainer .fa-arrow-right').attr('hidden', true);
+            // $('.notificationIconContainer .badge-cross').attr('hidden', true);
         });
-    });
-</script>
-</head>
-<body>
-    <button type="button" class="slide-left">Slide Left</button>
-    <button type="button" class="slide-right">Slide Right</button>
-    <hr>
-  <div style="position:fixed; top: 0; right:0;">
-      <a>Hello</a>
-    <div class="box">
-        <div class="box-inner">hell yeah</div>
-    </div>
-  </div>
+
+        // $('.badge-cross').click(function () {
+        //     $('.notificationContainer').remove();
+        // });
+    </script>
+
 
 </body>
+
 </html>
