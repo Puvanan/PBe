@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -437,58 +436,6 @@
                             </div>
                         </div>
 
-                        <!-- Accordion -->
-                        <div class="row mb-2">
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                             
-                                            id="showMoreButton"><b>Show More</b></button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body row mb-2">
-                                            <form>
-                                                <label for="reccurTran" class="col-sm-12 col-form-label">Recurring
-                                                    Transaction <span class="text-muted">(Optional)</span></label>
-                                                <div class="col-sm-5 float-sm-start" id="recurrTransactionType">
-
-                                                    <select class="form-select" id="recurrTranSelect"
-                                                        aria-label="Default select example">
-                                                        <option selected class="text-muted ms-2" value="None">None
-                                                        </option>
-                                                        <option>Daily</option>
-                                                        <option>Weekly</option>
-                                                        <option>Monthly</option>
-                                                        <option>Quarterly</option>
-                                                        <option>Half-Yearly</option>
-                                                        <option>Yearly</option>
-                                                    </select>
-
-                                                    <span class="field-validation-valid text-danger ps-1"
-                                                        style="font-size:14px" data-valmsg-replace="true"></span>
-                                                </div>
-
-                                                <div class="col-sm-5 float-sm-end" id="recurrTransactionTimes">
-
-                                                    <select class="form-select" id="recurrTranTimesSelect"
-                                                        aria-label="Default select example">
-                                                        <!-- <option selected class="text-muted ms-2" value="None">None</option> -->
-
-                                                    </select>
-                                                </div>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
                         <div class="row my-5 last-row">
                             <div class="col-12">
                                 <!-- Feedback: Back button not functioning, should link to "Balance Transfer" screen -->
@@ -501,7 +448,7 @@
                                     Clear
                                 </a>
                                 <a id="secondNext"
-                                    class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0">Send
+                                    class="btn btn-primary col-12 col-sm-3 mt-2 mt-sm-0 float-sm-end col-lg-12 mt-lg-2 col-xxl-3 mt-xxl-0">Next
                                 </a>
 
                             </div>
@@ -661,20 +608,8 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
     <script>
-        var selectTimes = document.getElementById("recurrTranTimesSelect");
-        for (let i = 1; i <= 60; i++)
-            selectTimes.innerHTML += "<option>" + i + "</option>";
 
         $(document).ready(function () {
-            $('#showMoreButton').click(function () {
-                if ($(this).html() == "<b>Show More</b>") {
-                    $(this).html("<b>Show Less</b>");
-                }
-                else {
-                    $(this).html("<b>Show More</b>");
-                }
-            });
-
 
             if ($('#selectCard option').filter('.cardNumber').length == 1) {
                 $('#firstPage').attr('hidden', true);
