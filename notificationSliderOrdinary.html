@@ -3,10 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
+    
     <title>Notification Slider</title>
 
+    <style>
+        #toastMessageBody {
 
+            max-height: 150px;
+            
+            /* <---when open, allow content to expand to take up as much height as it needs, up to e.g. 100px */
+
+        }
+
+        #toastMessageBody.close {
+           
+            overflow: hidden;
+            transition: max-height 300ms;
+            max-height: 0;
+            display: none;
+            /* <---when close, hide all */
+        }
+    </style>
 
 </head>
 
@@ -32,18 +50,18 @@
 <body>
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 11" id="toastBox">
         <div id="liveToast" class="toast show" role="alert" aria-live="polite" aria-atomic="true" data-autohide="false">
-            <div class="toast-header">
+            <div class="toast-header" style="background-color: #d64354; color: #ffffff;">
                 <i class="fa fa-exclamation-circle pe-2"></i>
                 <strong class="me-auto">Suggestions</strong>
                 <small>11 mins ago</small>
 
-                <button type="button" data-bs-dismiss="toast" class="btn-close-white btn-close" aria-label="Minimize"
+                <button type="button" data-bs-dismiss="toast" class="btn ms-3 pe-1 pt-1" aria-label="Minimize"
                     id="minimizeToast">
-                    <i class="fa fa-window-minimize text-white fa-lg"></i>
+                    <i class="far fa-window-minimize text-white fa-1x"></i>
                 </button>
-                <button type="button" data-bs-dismiss="toast" class="btn-close-white btn-close" aria-label="Close"
+                <button type="button" data-bs-dismiss="toast" class="btn pe-1 pb-1" aria-label="Close"
                     id="closeToast">
-                    <i class="fa fa-times text-white fa-lg"></i>
+                    <i class="fa fa-times text-white fa-1x"></i>
                 </button>
             </div>
             <div class="toast-body" id="toastMessageBody">
@@ -52,7 +70,7 @@
                         Hi, would you like to convert your passbook saving accounts to statement saving accounts?
                     </div>
                     <div class="col-12 pt-3 text-center">
-                        <a class="btn btn-sm btn-outline-primary " href="@Url.Action(" ConvertStatement")">
+                        <a class="btn btn-sm btn-outline-primary" href="@Url.Action(" ConvertStatement")" style="border: 1px solid #d64354; color: #d64354;">
                             Bring me there
                         </a>
                     </div>
@@ -65,48 +83,56 @@
 
     <script>
         $(document).ready(function () {
-            $('.toast').toast('show');
-            $('.toast').toast({ autohide: false });
+            // $('.toast').toast('show');
+            // $('.toast').toast({ autohide: false });
 
-            var boxWidth = $("#toastMessageBody").height();
-
-
-            $('#minimizeToast').on('click', function () {
-
-                $("#toastMessageBody").animate({
-
-                    height: 0
-                }, {
-                    done: function () {
+            // var boxWidth = $("#toastMessageBody").height();
 
 
-                        $("#toastMessageBody").attr('hidden', true);
+            // $('#minimizeToast').on('click', function () {
 
-                    }
-                });
+            //     $("#toastMessageBody").animate({
 
-
-
-
-
-            });
-
-            // $('#minimizeToast').on('mouseenter', function () {
-
-            //     $('#toastMessageBody').animate({
-
-            //         height: boxWidth
-            
+            //         height: 0
             //     }, {
             //         done: function () {
-            //             $('#toastMessageBody').attr('hidden', false);
+
+
+            //             $("#toastMessageBody").attr('hidden', true);
 
             //         }
-            //     })
+            //     });
+
+
+
 
 
             // });
 
+            // // $('#minimizeToast').on('mouseenter', function () {
+
+            // //     $('#toastMessageBody').animate({
+
+            // //         height: boxWidth
+
+            // //     }, {
+            // //         done: function () {
+            // //             $('#toastMessageBody').attr('hidden', false);
+
+            // //         }
+            // //     })
+
+
+            // // });
+
+
+            var minBtn = $('#minimizeToast');
+            var toastMes = $('#toastMessageBody');
+
+            minBtn.click(function() {
+
+                toastMes.toggleClass('close');
+            })
 
 
 
@@ -116,6 +142,7 @@
                 $('#toastBox').hide();
 
             });
+
 
 
 
